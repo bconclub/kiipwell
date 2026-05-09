@@ -1,0 +1,1791 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Kiipwell Solutions — Caring Beyond Limits</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <style>
+    /* ── Reset & Base ─────────────────────────────────────────── */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --navy:   #1B3A8C;
+      --teal:   #00B89F;
+      --teal-d: #009A85;
+      --white:  #FFFFFF;
+      --bg:     #F4F7FB;
+      --text:   #1A1A2E;
+      --muted:  #5A6580;
+      --border: #DDE3EF;
+      --nav-h:  72px;
+      --radius: 12px;
+      --shadow: 0 4px 24px rgba(27,58,140,.09);
+      --trans:  .35s cubic-bezier(.4,0,.2,1);
+    }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: 'DM Sans', sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      min-height: 100vh;
+      overflow-x: hidden;
+    }
+    h1,h2,h3,h4,h5 { font-family: 'Playfair Display', serif; }
+    a { text-decoration: none; color: inherit; }
+    img { display: block; max-width: 100%; }
+    ul { list-style: none; }
+
+    /* ── Utility ─────────────────────────────────────────────── */
+    .container { max-width: 1160px; margin: 0 auto; padding: 0 28px; }
+    .teal { color: var(--teal); }
+    .navy { color: var(--navy); }
+    .btn {
+      display: inline-flex; align-items: center; gap: 8px;
+      padding: 14px 32px; border-radius: 50px; font-family: 'DM Sans', sans-serif;
+      font-weight: 600; font-size: .95rem; cursor: pointer;
+      border: 2px solid transparent; transition: var(--trans);
+    }
+    .btn-primary {
+      background: var(--teal); color: var(--white);
+    }
+    .btn-primary:hover { background: var(--teal-d); transform: translateY(-2px); box-shadow: 0 8px 24px rgba(0,184,159,.35); }
+    .btn-outline {
+      background: transparent; color: var(--white); border-color: var(--white);
+    }
+    .btn-outline:hover { background: var(--white); color: var(--navy); }
+    .btn-navy {
+      background: var(--navy); color: var(--white);
+    }
+    .btn-navy:hover { background: #162e73; transform: translateY(-2px); box-shadow: 0 8px 24px rgba(27,58,140,.30); }
+    .tag {
+      display: inline-block; font-size: .78rem; font-weight: 600; letter-spacing: .08em;
+      text-transform: uppercase; color: var(--teal); margin-bottom: 12px;
+    }
+    .section-label {
+      font-size: .8rem; font-weight: 600; letter-spacing: .14em; text-transform: uppercase;
+      color: var(--teal); display: block; margin-bottom: 14px;
+    }
+    .section-title {
+      font-size: clamp(2rem, 4vw, 2.8rem); color: var(--navy); line-height: 1.2;
+      margin-bottom: 20px;
+    }
+    .section-lead {
+      font-size: 1.08rem; color: var(--muted); line-height: 1.75; max-width: 620px;
+    }
+    .divider {
+      width: 52px; height: 4px; background: var(--teal); border-radius: 4px;
+      margin-bottom: 28px;
+    }
+
+    /* ── Navbar ───────────────────────────────────────────────── */
+    #navbar {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 999;
+      height: var(--nav-h); background: rgba(255,255,255,.96);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border);
+      transition: box-shadow var(--trans);
+    }
+    #navbar.scrolled { box-shadow: 0 2px 24px rgba(27,58,140,.1); }
+    .nav-inner {
+      height: 100%; display: flex; align-items: center; justify-content: space-between;
+    }
+    .nav-logo {
+      display: flex; align-items: center; gap: 10px; cursor: pointer;
+    }
+    .nav-logo-mark {
+      width: 38px; height: 38px; background: var(--navy); border-radius: 10px;
+      display: flex; align-items: center; justify-content: center; flex-shrink: 0;
+    }
+    .nav-logo-mark svg { width: 22px; height: 22px; }
+    .nav-logo-text {
+      font-family: 'Playfair Display', serif; font-weight: 700;
+      font-size: 1.18rem; color: var(--navy); line-height: 1;
+    }
+    .nav-logo-sub {
+      font-family: 'DM Sans', sans-serif; font-size: .7rem; font-weight: 500;
+      color: var(--teal); letter-spacing: .06em; text-transform: uppercase;
+    }
+    .nav-links {
+      display: flex; align-items: center; gap: 4px;
+    }
+    .nav-link {
+      font-size: .9rem; font-weight: 500; color: var(--muted); padding: 8px 14px;
+      border-radius: 8px; cursor: pointer; transition: var(--trans);
+      position: relative;
+    }
+    .nav-link:hover { color: var(--navy); background: var(--bg); }
+    .nav-link.active {
+      color: var(--navy); font-weight: 600;
+    }
+    .nav-link.active::after {
+      content: ''; position: absolute; bottom: 4px; left: 50%; transform: translateX(-50%);
+      width: 20px; height: 3px; background: var(--teal); border-radius: 3px;
+    }
+    .nav-cta { margin-left: 8px; }
+    .hamburger {
+      display: none; flex-direction: column; gap: 5px; cursor: pointer;
+      padding: 8px; border-radius: 8px; transition: var(--trans);
+    }
+    .hamburger:hover { background: var(--bg); }
+    .hamburger span {
+      display: block; width: 22px; height: 2px; background: var(--navy);
+      border-radius: 2px; transition: var(--trans);
+    }
+    .mobile-menu {
+      display: none; position: fixed; top: var(--nav-h); left: 0; right: 0;
+      background: var(--white); border-bottom: 1px solid var(--border);
+      padding: 16px 28px 24px; z-index: 998; flex-direction: column; gap: 4px;
+      box-shadow: 0 8px 32px rgba(27,58,140,.12);
+    }
+    .mobile-menu.open { display: flex; }
+    .mobile-nav-link {
+      font-size: .95rem; font-weight: 500; color: var(--muted); padding: 12px 16px;
+      border-radius: 8px; cursor: pointer; transition: var(--trans);
+    }
+    .mobile-nav-link:hover, .mobile-nav-link.active {
+      color: var(--navy); background: var(--bg);
+    }
+    .mobile-nav-link.active { font-weight: 600; }
+
+    /* ── Skip to content ─────────────────────────────────────── */
+    .skip-link {
+      position: fixed; top: -100px; left: 20px; z-index: 9999;
+      background: var(--teal); color: var(--white); padding: 10px 20px;
+      border-radius: 8px; font-weight: 600; font-size: .9rem;
+      transition: top .2s ease;
+    }
+    .skip-link:focus { top: 8px; outline: 3px solid var(--navy); outline-offset: 2px; }
+
+    /* ── Focus-visible styles ─────────────────────────────────── */
+    :focus-visible {
+      outline: 3px solid var(--teal);
+      outline-offset: 3px;
+      border-radius: 4px;
+    }
+    .btn:focus-visible { outline-offset: 4px; border-radius: 50px; }
+    .nav-link:focus-visible { outline-offset: 2px; border-radius: 8px; }
+    .form-group input:focus-visible,
+    .form-group select:focus-visible,
+    .form-group textarea:focus-visible { outline: none; }
+
+    /* ── Page wrapper & transitions ──────────────────────────── */
+    #app {
+      padding-top: var(--nav-h);
+      min-height: 100vh;
+    }
+    .page { animation: fadeUp .45s ease both; }
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(22px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after { animation-duration: .01ms !important; transition-duration: .01ms !important; }
+      .page { animation: none; }
+    }
+
+    /* ═══════════════════════════════════════════════════════════
+       PAGE 1 — HOMEPAGE
+    ═══════════════════════════════════════════════════════════ */
+
+    /* Hero */
+    .hero {
+      background: linear-gradient(135deg, var(--navy) 0%, #0f2461 55%, #1a3580 100%);
+      position: relative; overflow: hidden; padding: 100px 0 110px;
+      min-height: 92vh; display: flex; align-items: center;
+    }
+    .hero::before {
+      content: ''; position: absolute; inset: 0;
+      background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%2300B89F' fill-opacity='0.04'%3E%3Ccircle cx='30' cy='30' r='20'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+      opacity: .6;
+    }
+    .hero-blob {
+      position: absolute; top: -120px; right: -80px;
+      width: 600px; height: 600px; border-radius: 50%;
+      background: radial-gradient(circle, rgba(0,184,159,.18) 0%, transparent 70%);
+      pointer-events: none;
+    }
+    .hero-blob-2 {
+      position: absolute; bottom: -160px; left: -60px;
+      width: 500px; height: 500px; border-radius: 50%;
+      background: radial-gradient(circle, rgba(0,184,159,.10) 0%, transparent 70%);
+      pointer-events: none;
+    }
+    .hero-grid {
+      display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: center;
+      position: relative; z-index: 1;
+    }
+    .hero-eyebrow {
+      display: inline-flex; align-items: center; gap: 10px;
+      background: rgba(0,184,159,.15); border: 1px solid rgba(0,184,159,.3);
+      color: var(--teal); font-size: .8rem; font-weight: 600; letter-spacing: .1em;
+      text-transform: uppercase; padding: 8px 18px; border-radius: 50px;
+      margin-bottom: 28px;
+    }
+    .hero-eyebrow span.dot {
+      width: 6px; height: 6px; background: var(--teal); border-radius: 50%;
+      display: inline-block;
+    }
+    .hero h1 {
+      font-size: clamp(2.6rem, 5.5vw, 4.2rem); color: var(--white);
+      line-height: 1.12; margin-bottom: 28px; font-weight: 700;
+    }
+    .hero h1 em { color: var(--teal); font-style: italic; }
+    .hero-lead {
+      font-size: 1.12rem; color: rgba(255,255,255,.78); line-height: 1.75;
+      margin-bottom: 40px; max-width: 500px;
+    }
+    .hero-actions { display: flex; gap: 16px; flex-wrap: wrap; }
+    .hero-stats {
+      display: flex; gap: 40px; margin-top: 64px;
+      padding-top: 40px; border-top: 1px solid rgba(255,255,255,.12);
+    }
+    .hero-stat-n {
+      font-family: 'Playfair Display', serif; font-size: 2.4rem; color: var(--white);
+      font-weight: 700; line-height: 1;
+    }
+    .hero-stat-n span { color: var(--teal); }
+    .hero-stat-l { font-size: .82rem; color: rgba(255,255,255,.55); margin-top: 5px; font-weight: 500; }
+    .hero-visual {
+      position: relative; display: flex; align-items: center; justify-content: center;
+    }
+    .hero-card {
+      background: rgba(255,255,255,.07); backdrop-filter: blur(20px);
+      border: 1px solid rgba(255,255,255,.14); border-radius: 20px;
+      padding: 40px; width: 100%; max-width: 420px;
+    }
+    .hero-card-title {
+      font-family: 'Playfair Display', serif; font-size: 1.4rem; color: var(--white);
+      margin-bottom: 24px; font-weight: 600;
+    }
+    .hero-card-item {
+      display: flex; align-items: flex-start; gap: 14px; margin-bottom: 20px;
+    }
+    .hero-card-item:last-child { margin-bottom: 0; }
+    .hero-icon {
+      width: 44px; height: 44px; background: rgba(0,184,159,.2);
+      border-radius: 12px; display: flex; align-items: center; justify-content: center;
+      flex-shrink: 0;
+    }
+    .hero-icon svg { width: 22px; height: 22px; stroke: var(--teal); fill: none; stroke-width: 2; }
+    .hero-card-item-t { font-size: .9rem; color: var(--white); font-weight: 500; margin-bottom: 3px; }
+    .hero-card-item-s { font-size: .82rem; color: rgba(255,255,255,.55); }
+
+    /* Who We Are home section */
+    .wwa-home {
+      padding: 100px 0; background: var(--white);
+    }
+    .wwa-grid {
+      display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: center;
+    }
+    .wwa-img-wrap {
+      position: relative;
+    }
+    .wwa-img-block {
+      border-radius: 20px; background: linear-gradient(145deg, #e8edf7, #f0f4fb);
+      aspect-ratio: 4/5; max-height: 500px; overflow: hidden;
+      display: flex; align-items: center; justify-content: center;
+    }
+    .wwa-img-inner {
+      width: 100%; height: 100%;
+      background: linear-gradient(160deg, #e8edf7 0%, #d8eae6 100%);
+      display: flex; flex-direction: column; align-items: center; justify-content: center;
+      gap: 0; position: relative; overflow: hidden;
+    }
+    .wwa-img-inner::before {
+      content: ''; position: absolute; inset: 0;
+      background:
+        radial-gradient(circle at 20% 30%, rgba(0,184,159,.15) 0%, transparent 50%),
+        radial-gradient(circle at 80% 70%, rgba(27,58,140,.12) 0%, transparent 50%);
+    }
+    .wwa-img-pattern {
+      position: absolute; inset: 0; display: grid;
+      grid-template-columns: repeat(6, 1fr); gap: 16px; padding: 32px;
+      opacity: .18;
+    }
+    .wwa-img-pattern span {
+      display: block; border-radius: 50%;
+      background: var(--navy); aspect-ratio: 1;
+    }
+    .wwa-img-pattern span:nth-child(even) { background: var(--teal); border-radius: 4px; }
+    .wwa-img-stat {
+      position: relative; z-index: 1; text-align: center; padding: 32px;
+    }
+    .wwa-img-stat-num {
+      font-family: 'Playfair Display', serif; font-size: 4rem; font-weight: 700;
+      color: var(--navy); line-height: 1;
+    }
+    .wwa-img-stat-num span { color: var(--teal); }
+    .wwa-img-stat-label { font-size: .88rem; color: var(--muted); margin-top: 8px; font-weight: 500; }
+    .wwa-img-icon { display: none; }
+    .wwa-accent-card {
+      position: absolute; bottom: -24px; right: -24px;
+      background: var(--navy); color: var(--white); border-radius: 16px;
+      padding: 24px 28px; box-shadow: var(--shadow);
+    }
+    .wwa-accent-n {
+      font-family: 'Playfair Display', serif; font-size: 2rem; font-weight: 700;
+      color: var(--teal); line-height: 1;
+    }
+    .wwa-accent-l { font-size: .8rem; color: rgba(255,255,255,.65); margin-top: 5px; }
+    .wwa-content { padding-right: 20px; }
+    .wwa-body {
+      font-size: 1.05rem; color: var(--muted); line-height: 1.82; margin-bottom: 36px;
+    }
+    .wwa-pillars {
+      display: flex; flex-direction: column; gap: 14px; margin-bottom: 36px;
+    }
+    .wwa-pillar {
+      display: flex; align-items: center; gap: 14px;
+      padding: 14px 18px; background: var(--bg); border-radius: 12px;
+      border-left: 4px solid var(--teal);
+    }
+    .wwa-pillar-icon {
+      width: 36px; height: 36px; background: rgba(0,184,159,.12);
+      border-radius: 10px; display: flex; align-items: center; justify-content: center; flex-shrink: 0;
+    }
+    .wwa-pillar-icon svg { width: 18px; height: 18px; stroke: var(--teal); fill: none; stroke-width: 2; }
+    .wwa-pillar-t { font-weight: 600; font-size: .9rem; color: var(--navy); }
+    .wwa-pillar-s { font-size: .82rem; color: var(--muted); }
+
+    /* Offer Cards */
+    .offer-section { padding: 100px 0; background: var(--bg); }
+    .offer-header { text-align: center; margin-bottom: 64px; }
+    .offer-header .section-lead { margin: 0 auto; }
+    .offer-grid {
+      display: grid; grid-template-columns: repeat(3, 1fr); gap: 28px;
+    }
+    .offer-card {
+      background: var(--white); border-radius: 16px; padding: 36px 30px;
+      border: 1px solid var(--border); transition: var(--trans);
+      position: relative; overflow: hidden;
+    }
+    .offer-card::before {
+      content: ''; position: absolute; top: 0; left: 0; right: 0; height: 4px;
+      background: var(--teal); transform: scaleX(0); transform-origin: left;
+      transition: var(--trans);
+    }
+    .offer-card:hover { transform: translateY(-6px); box-shadow: 0 20px 48px rgba(27,58,140,.12); }
+    .offer-card:hover::before { transform: scaleX(1); }
+    .offer-card-icon {
+      width: 56px; height: 56px; background: rgba(0,184,159,.1);
+      border-radius: 16px; display: flex; align-items: center; justify-content: center;
+      margin-bottom: 24px; transition: var(--trans);
+    }
+    .offer-card:hover .offer-card-icon { background: var(--teal); }
+    .offer-card-icon svg { width: 28px; height: 28px; stroke: var(--teal); fill: none; stroke-width: 1.8; }
+    .offer-card:hover .offer-card-icon svg { stroke: var(--white); }
+    .offer-card-title {
+      font-family: 'Playfair Display', serif; font-size: 1.2rem; color: var(--navy);
+      margin-bottom: 12px; font-weight: 600;
+    }
+    .offer-card-body { font-size: .9rem; color: var(--muted); line-height: 1.7; }
+
+    /* Approach */
+    .approach-section {
+      padding: 100px 0;
+      background: linear-gradient(160deg, var(--navy) 0%, #0f2461 100%);
+      position: relative; overflow: hidden;
+    }
+    .approach-section::before {
+      content: ''; position: absolute; top: -100px; right: -100px;
+      width: 500px; height: 500px; border-radius: 50%;
+      background: radial-gradient(circle, rgba(0,184,159,.14) 0%, transparent 70%);
+    }
+    .approach-section::after {
+      content: ''; position: absolute; bottom: -80px; left: -80px;
+      width: 400px; height: 400px; border-radius: 50%;
+      background: radial-gradient(circle, rgba(0,184,159,.10) 0%, transparent 70%);
+    }
+    .approach-header { text-align: center; margin-bottom: 64px; position: relative; z-index: 1; }
+    .approach-header .section-label { color: var(--teal); }
+    .approach-header .section-title { color: var(--white); }
+    .approach-header .section-lead { color: rgba(255,255,255,.65); margin: 0 auto; }
+    .approach-grid {
+      display: grid; grid-template-columns: repeat(3, 1fr); gap: 28px; position: relative; z-index: 1;
+    }
+    .approach-card {
+      background: rgba(255,255,255,.06); backdrop-filter: blur(16px);
+      border: 1px solid rgba(255,255,255,.12); border-radius: 20px;
+      padding: 44px 36px; text-align: center; transition: var(--trans);
+    }
+    .approach-card:hover {
+      background: rgba(255,255,255,.11); transform: translateY(-6px);
+      border-color: rgba(0,184,159,.4);
+    }
+    .approach-num {
+      font-family: 'Playfair Display', serif; font-size: 3.5rem; font-weight: 700;
+      color: rgba(0,184,159,.25); line-height: 1; margin-bottom: 20px;
+    }
+    .approach-card-title {
+      font-family: 'Playfair Display', serif; font-size: 1.4rem; color: var(--white);
+      margin-bottom: 16px; font-weight: 600;
+    }
+    .approach-card-body { font-size: .92rem; color: rgba(255,255,255,.65); line-height: 1.75; }
+    .approach-tag {
+      display: inline-block; margin-top: 20px; padding: 6px 18px;
+      background: rgba(0,184,159,.15); border: 1px solid rgba(0,184,159,.3);
+      border-radius: 50px; font-size: .78rem; font-weight: 600;
+      color: var(--teal); letter-spacing: .08em;
+    }
+
+    /* CTA Banner */
+    .cta-banner {
+      padding: 80px 0; background: var(--white);
+    }
+    .cta-inner {
+      background: linear-gradient(135deg, var(--teal) 0%, #00a88f 100%);
+      border-radius: 24px; padding: 64px 72px;
+      display: flex; align-items: center; justify-content: space-between; gap: 40px;
+      position: relative; overflow: hidden;
+    }
+    .cta-inner::before {
+      content: ''; position: absolute; top: -60px; right: -60px;
+      width: 300px; height: 300px; border-radius: 50%;
+      background: rgba(255,255,255,.07);
+    }
+    .cta-inner::after {
+      content: ''; position: absolute; bottom: -80px; left: 40%;
+      width: 250px; height: 250px; border-radius: 50%;
+      background: rgba(255,255,255,.05);
+    }
+    .cta-left { position: relative; z-index: 1; }
+    .cta-label { font-size: .8rem; font-weight: 600; letter-spacing: .12em; text-transform: uppercase; color: rgba(255,255,255,.7); margin-bottom: 12px; }
+    .cta-title { font-family: 'Playfair Display', serif; font-size: 2.4rem; color: var(--white); line-height: 1.2; font-weight: 700; margin-bottom: 14px; }
+    .cta-body { font-size: 1rem; color: rgba(255,255,255,.78); max-width: 440px; line-height: 1.65; }
+    .cta-right { position: relative; z-index: 1; flex-shrink: 0; }
+    .btn-white { background: var(--white); color: var(--teal); }
+    .btn-white:hover { background: var(--navy); color: var(--white); transform: translateY(-2px); box-shadow: 0 8px 24px rgba(0,0,0,.2); }
+
+    /* ═══════════════════════════════════════════════════════════
+       PAGE 2 — ABOUT US
+    ═══════════════════════════════════════════════════════════ */
+    .page-hero {
+      background: linear-gradient(135deg, var(--navy) 0%, #162e73 100%);
+      padding: 64px 0 100px; position: relative; overflow: hidden;
+    }
+    .page-hero::after {
+      content: ''; position: absolute; bottom: 0; left: 0; right: 0; height: 52px;
+      background: var(--bg);
+      clip-path: ellipse(60% 100% at 50% 100%);
+    }
+    .page-hero-inner { position: relative; z-index: 1; max-width: 700px; }
+    .page-hero-tag { color: var(--teal); font-size: .8rem; font-weight: 600; letter-spacing: .12em; text-transform: uppercase; margin-bottom: 16px; display: block; }
+    .page-hero h1 { font-size: clamp(2.2rem, 5vw, 3.4rem); color: var(--white); line-height: 1.15; margin-bottom: 20px; }
+    .page-hero p { font-size: 1.08rem; color: rgba(255,255,255,.7); line-height: 1.75; max-width: 560px; }
+
+    .about-content { padding: 100px 0; background: var(--bg); }
+    .about-grid { display: grid; grid-template-columns: 3fr 2fr; gap: 80px; align-items: start; }
+    .about-body { font-size: 1.05rem; color: var(--muted); line-height: 1.85; margin-bottom: 32px; }
+    .about-body strong { color: var(--navy); font-weight: 600; }
+    .mission-box {
+      background: linear-gradient(135deg, var(--navy), #162e73);
+      border-radius: 20px; padding: 44px 40px;
+      margin-bottom: 36px;
+    }
+    .mission-box h3 {
+      font-family: 'Playfair Display', serif; font-size: 1.5rem; color: var(--white);
+      margin-bottom: 18px; font-weight: 600;
+    }
+    .mission-box p { font-size: .98rem; color: rgba(255,255,255,.75); line-height: 1.78; }
+    .mission-box p em { color: var(--teal); font-style: italic; }
+    .ethos-section {
+      background: var(--white); border-radius: 20px; padding: 44px 40px;
+      border: 1px solid var(--border);
+    }
+    .ethos-section h3 {
+      font-family: 'Playfair Display', serif; font-size: 1.5rem; color: var(--navy);
+      margin-bottom: 16px; font-weight: 600;
+    }
+    .ethos-section p { font-size: .95rem; color: var(--muted); line-height: 1.78; }
+    .about-sidebar { display: flex; flex-direction: column; gap: 24px; }
+    .sidebar-card {
+      background: var(--white); border-radius: 16px; padding: 32px 28px;
+      border: 1px solid var(--border); transition: var(--trans);
+    }
+    .sidebar-card:hover { box-shadow: var(--shadow); }
+    .sidebar-icon {
+      width: 48px; height: 48px; background: rgba(0,184,159,.1); border-radius: 14px;
+      display: flex; align-items: center; justify-content: center; margin-bottom: 18px;
+    }
+    .sidebar-icon svg { width: 24px; height: 24px; stroke: var(--teal); fill: none; stroke-width: 2; }
+    .sidebar-card h4 { font-family: 'Playfair Display', serif; font-size: 1.1rem; color: var(--navy); margin-bottom: 10px; }
+    .sidebar-card p { font-size: .88rem; color: var(--muted); line-height: 1.65; }
+    .values-strip {
+      background: var(--white); padding: 80px 0;
+    }
+    .values-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 24px; }
+    .value-item { text-align: center; padding: 32px 20px; }
+    .value-num {
+      font-family: 'Playfair Display', serif; font-size: 3rem; font-weight: 700;
+      color: var(--teal); line-height: 1; margin-bottom: 8px;
+    }
+    .value-label { font-size: .88rem; color: var(--muted); font-weight: 500; }
+
+    /* ═══════════════════════════════════════════════════════════
+       PAGE 3 — OUR SERVICES
+    ═══════════════════════════════════════════════════════════ */
+    .services-intro { padding: 100px 0 80px; background: var(--bg); }
+    .services-intro-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: start; }
+    .services-lead { font-size: 1.08rem; color: var(--muted); line-height: 1.82; margin-bottom: 32px; }
+    .for-who-title {
+      font-family: 'Playfair Display', serif; font-size: 1.8rem; color: var(--navy);
+      margin-bottom: 8px;
+    }
+    .for-who-sub { font-size: .92rem; color: var(--muted); margin-bottom: 28px; }
+    .for-who-cards { display: flex; flex-direction: column; gap: 16px; }
+    .for-who-card {
+      background: var(--white); border-radius: 14px; padding: 24px 24px 24px 20px;
+      display: flex; align-items: flex-start; gap: 16px; border: 1px solid var(--border);
+      border-left: 5px solid var(--teal); transition: var(--trans);
+    }
+    .for-who-card:hover { box-shadow: var(--shadow); transform: translateX(4px); }
+    .for-who-icon {
+      width: 44px; height: 44px; background: rgba(0,184,159,.1); border-radius: 12px;
+      display: flex; align-items: center; justify-content: center; flex-shrink: 0;
+    }
+    .for-who-icon svg { width: 22px; height: 22px; stroke: var(--teal); fill: none; stroke-width: 2; }
+    .for-who-card h4 { font-family: 'Playfair Display', serif; font-size: 1.05rem; color: var(--navy); margin-bottom: 5px; }
+    .for-who-card p { font-size: .86rem; color: var(--muted); line-height: 1.6; }
+    .what-we-provide { padding: 0 0 100px; background: var(--bg); }
+    .provide-header { text-align: center; margin-bottom: 56px; }
+    .provide-grid { display: grid; grid-template-columns: repeat(5, 1fr); gap: 20px; }
+    .provide-card {
+      background: var(--white); border-radius: 16px; padding: 32px 24px;
+      text-align: center; border: 1px solid var(--border); transition: var(--trans);
+    }
+    .provide-card:hover { transform: translateY(-4px); box-shadow: var(--shadow); border-color: var(--teal); }
+    .provide-icon {
+      width: 64px; height: 64px; background: rgba(0,184,159,.1); border-radius: 18px;
+      display: flex; align-items: center; justify-content: center; margin: 0 auto 20px;
+      transition: var(--trans);
+    }
+    .provide-card:hover .provide-icon { background: var(--teal); }
+    .provide-icon svg { width: 30px; height: 30px; stroke: var(--teal); fill: none; stroke-width: 1.8; }
+    .provide-card:hover .provide-icon svg { stroke: var(--white); }
+    .provide-card h4 { font-family: 'Playfair Display', serif; font-size: 1rem; color: var(--navy); line-height: 1.3; }
+
+    /* ═══════════════════════════════════════════════════════════
+       PAGE 4 — SUPPORT WE OFFER
+    ═══════════════════════════════════════════════════════════ */
+    .support-section { padding: 100px 0; background: var(--bg); }
+    .support-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; }
+    .support-card {
+      background: var(--white); border-radius: 20px; padding: 44px 40px;
+      border: 1px solid var(--border); transition: var(--trans);
+      position: relative; overflow: hidden;
+    }
+    .support-card::after {
+      content: ''; position: absolute; bottom: 0; left: 0; right: 0; height: 3px;
+      background: linear-gradient(90deg, var(--teal), var(--navy)); transform: scaleX(0); transform-origin: left;
+      transition: var(--trans);
+    }
+    .support-card:hover { box-shadow: 0 16px 48px rgba(27,58,140,.12); }
+    .support-card:hover::after { transform: scaleX(1); }
+    .support-card-header { display: flex; align-items: center; gap: 18px; margin-bottom: 28px; }
+    .support-card-icon {
+      width: 56px; height: 56px; background: rgba(0,184,159,.1); border-radius: 16px;
+      display: flex; align-items: center; justify-content: center; flex-shrink: 0; transition: var(--trans);
+    }
+    .support-card:hover .support-card-icon { background: var(--teal); }
+    .support-card-icon svg { width: 28px; height: 28px; stroke: var(--teal); fill: none; stroke-width: 1.8; }
+    .support-card:hover .support-card-icon svg { stroke: var(--white); }
+    .support-card-title { font-family: 'Playfair Display', serif; font-size: 1.35rem; color: var(--navy); font-weight: 600; }
+    .support-card-intro { font-size: .92rem; color: var(--muted); line-height: 1.7; margin-bottom: 24px; }
+    .support-list { display: flex; flex-direction: column; gap: 10px; }
+    .support-list li {
+      display: flex; align-items: flex-start; gap: 10px; font-size: .9rem; color: var(--muted); line-height: 1.5;
+    }
+    .support-list li::before {
+      content: ''; width: 8px; height: 8px; background: var(--teal); border-radius: 50%;
+      flex-shrink: 0; margin-top: 6px;
+    }
+
+    /* ═══════════════════════════════════════════════════════════
+       PAGE 5 — SAFEGUARDING
+    ═══════════════════════════════════════════════════════════ */
+    .safeguarding-mission {
+      background: var(--white); padding: 100px 0;
+    }
+    .sg-mission-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: center; }
+    .sg-quote {
+      font-family: 'Playfair Display', serif; font-size: 1.6rem; color: var(--navy);
+      line-height: 1.5; font-style: italic; position: relative; padding-left: 28px;
+      border-left: 4px solid var(--teal);
+    }
+    .sg-body { font-size: 1.02rem; color: var(--muted); line-height: 1.82; }
+    .sg-pillars { padding: 100px 0; background: var(--bg); }
+    .sg-pillars-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 24px; }
+    .sg-pillar-card {
+      background: var(--white); border-radius: 18px; padding: 40px 28px;
+      border: 1px solid var(--border); text-align: center; transition: var(--trans);
+    }
+    .sg-pillar-card:hover { transform: translateY(-6px); box-shadow: var(--shadow); }
+    .sg-pillar-num {
+      font-family: 'Playfair Display', serif; font-size: 1rem; font-weight: 700;
+      color: var(--teal); margin-bottom: 20px; letter-spacing: .1em;
+    }
+    .sg-pillar-icon {
+      width: 64px; height: 64px; background: rgba(0,184,159,.1); border-radius: 18px;
+      display: flex; align-items: center; justify-content: center; margin: 0 auto 24px;
+      transition: var(--trans);
+    }
+    .sg-pillar-card:hover .sg-pillar-icon { background: var(--teal); }
+    .sg-pillar-icon svg { width: 30px; height: 30px; stroke: var(--teal); fill: none; stroke-width: 1.8; }
+    .sg-pillar-card:hover .sg-pillar-icon svg { stroke: var(--white); }
+    .sg-pillar-card h3 { font-family: 'Playfair Display', serif; font-size: 1.15rem; color: var(--navy); margin-bottom: 14px; }
+    .sg-pillar-card p { font-size: .86rem; color: var(--muted); line-height: 1.65; }
+    .sg-commitment {
+      padding: 80px 0; background: linear-gradient(135deg, var(--navy), #0f2461);
+    }
+    .sg-commitment-inner { text-align: center; max-width: 680px; margin: 0 auto; }
+    .sg-commitment h2 { font-family: 'Playfair Display', serif; font-size: 2.2rem; color: var(--white); margin-bottom: 20px; font-weight: 600; }
+    .sg-commitment p { font-size: 1rem; color: rgba(255,255,255,.7); line-height: 1.75; margin-bottom: 36px; }
+    .sg-badges { display: flex; justify-content: center; gap: 20px; flex-wrap: wrap; }
+    .sg-badge {
+      display: inline-flex; align-items: center; gap: 10px;
+      background: rgba(0,184,159,.15); border: 1px solid rgba(0,184,159,.3);
+      color: var(--teal); padding: 10px 22px; border-radius: 50px; font-size: .85rem; font-weight: 600;
+    }
+    .sg-badge svg { width: 16px; height: 16px; stroke: var(--teal); fill: none; stroke-width: 2.5; }
+
+    /* ═══════════════════════════════════════════════════════════
+       PAGE 6 — CONTACT / REFERRALS
+    ═══════════════════════════════════════════════════════════ */
+    .contact-section { padding: 100px 0; background: var(--bg); }
+    .contact-grid { display: grid; grid-template-columns: 2fr 1.2fr; gap: 64px; align-items: start; }
+    .contact-form-wrap {
+      background: var(--white); border-radius: 20px; padding: 52px 48px;
+      border: 1px solid var(--border);
+    }
+    .contact-form-wrap h2 { font-family: 'Playfair Display', serif; font-size: 1.8rem; color: var(--navy); margin-bottom: 8px; }
+    .contact-form-wrap p { font-size: .92rem; color: var(--muted); margin-bottom: 36px; line-height: 1.65; }
+    .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+    .form-group { margin-bottom: 20px; }
+    .form-group label {
+      display: block; font-size: .84rem; font-weight: 600; color: var(--navy); margin-bottom: 8px;
+    }
+    .form-group input,
+    .form-group select,
+    .form-group textarea {
+      width: 100%; padding: 13px 16px; border: 1.5px solid var(--border);
+      border-radius: 10px; font-family: 'DM Sans', sans-serif; font-size: .92rem;
+      color: var(--text); background: var(--bg); transition: var(--trans);
+      outline: none; resize: vertical;
+    }
+    .form-group input:focus,
+    .form-group select:focus,
+    .form-group textarea:focus {
+      border-color: var(--teal); background: var(--white);
+      box-shadow: 0 0 0 3px rgba(0,184,159,.12);
+    }
+    .form-group textarea { min-height: 130px; }
+    .form-group select { appearance: none; background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='%235A6580' stroke-width='2'%3E%3Cpath d='M6 9l6 6 6-6'/%3E%3C/svg%3E"); background-repeat: no-repeat; background-position: right 14px center; padding-right: 40px; }
+    .form-submit { width: 100%; padding: 16px; background: var(--teal); color: var(--white); border: none; border-radius: 12px; font-family: 'DM Sans', sans-serif; font-size: 1rem; font-weight: 600; cursor: pointer; transition: var(--trans); }
+    .form-submit:hover { background: var(--teal-d); transform: translateY(-2px); box-shadow: 0 8px 24px rgba(0,184,159,.35); }
+    .form-group input:invalid:not(:placeholder-shown),
+    .form-group select:invalid:not(:placeholder-shown),
+    .form-group textarea:invalid:not(:placeholder-shown) {
+      border-color: #e05a5a;
+    }
+    .form-group input:valid:not(:placeholder-shown),
+    .form-group textarea:valid:not(:placeholder-shown) {
+      border-color: var(--teal);
+    }
+    .field-error {
+      display: none; font-size: .78rem; color: #c0392b; margin-top: 5px; font-weight: 500;
+    }
+    .form-group.has-error input,
+    .form-group.has-error select,
+    .form-group.has-error textarea { border-color: #e05a5a; box-shadow: 0 0 0 3px rgba(224,90,90,.1); }
+    .form-group.has-error .field-error { display: block; }
+    .contact-sidebar { display: flex; flex-direction: column; gap: 24px; }
+    .contact-info-card {
+      background: var(--white); border-radius: 16px; padding: 32px 28px; border: 1px solid var(--border);
+    }
+    .contact-info-card h3 { font-family: 'Playfair Display', serif; font-size: 1.2rem; color: var(--navy); margin-bottom: 20px; }
+    .contact-detail {
+      display: flex; align-items: flex-start; gap: 14px; margin-bottom: 20px;
+    }
+    .contact-detail:last-child { margin-bottom: 0; }
+    .contact-detail-icon {
+      width: 40px; height: 40px; background: rgba(0,184,159,.1); border-radius: 10px;
+      display: flex; align-items: center; justify-content: center; flex-shrink: 0;
+    }
+    .contact-detail-icon svg { width: 18px; height: 18px; stroke: var(--teal); fill: none; stroke-width: 2; }
+    .contact-detail-label { font-size: .78rem; color: var(--muted); font-weight: 500; margin-bottom: 3px; }
+    .contact-detail-val { font-size: .92rem; color: var(--navy); font-weight: 600; }
+    .referral-types {
+      background: linear-gradient(135deg, var(--navy), #162e73);
+      border-radius: 16px; padding: 32px 28px;
+    }
+    .referral-types h3 { font-family: 'Playfair Display', serif; font-size: 1.15rem; color: var(--white); margin-bottom: 18px; }
+    .ref-type {
+      display: flex; align-items: center; gap: 10px; font-size: .88rem;
+      color: rgba(255,255,255,.75); margin-bottom: 12px;
+    }
+    .ref-type::before {
+      content: ''; width: 8px; height: 8px; background: var(--teal); border-radius: 50%; flex-shrink: 0;
+    }
+
+    /* ═══════════════════════════════════════════════════════════
+       FOOTER
+    ═══════════════════════════════════════════════════════════ */
+    footer {
+      background: var(--navy); padding: 72px 0 36px;
+    }
+    .footer-grid { display: grid; grid-template-columns: 2fr 1fr 1fr 1.5fr; gap: 48px; margin-bottom: 56px; }
+    .footer-brand p { font-size: .9rem; color: rgba(255,255,255,.55); line-height: 1.75; margin-top: 16px; max-width: 280px; }
+    .footer-tagline {
+      display: inline-block; font-family: 'Playfair Display', serif; font-size: .95rem; font-style: italic;
+      color: var(--teal); margin-top: 16px;
+    }
+    .footer-col h4 { font-family: 'DM Sans', sans-serif; font-size: .78rem; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; color: rgba(255,255,255,.4); margin-bottom: 20px; }
+    .footer-link {
+      display: block; font-size: .88rem; color: rgba(255,255,255,.6); margin-bottom: 12px;
+      cursor: pointer; transition: var(--trans);
+    }
+    .footer-link:hover { color: var(--teal); }
+    .footer-contact-item { display: flex; align-items: center; gap: 10px; margin-bottom: 14px; }
+    .footer-contact-icon { width: 32px; height: 32px; background: rgba(0,184,159,.15); border-radius: 8px; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+    .footer-contact-icon svg { width: 15px; height: 15px; stroke: var(--teal); fill: none; stroke-width: 2; }
+    .footer-contact-text { font-size: .85rem; color: rgba(255,255,255,.6); }
+    .footer-bottom {
+      display: flex; align-items: center; justify-content: space-between;
+      padding-top: 32px; border-top: 1px solid rgba(255,255,255,.08);
+    }
+    .footer-bottom p { font-size: .82rem; color: rgba(255,255,255,.35); }
+    .footer-logo-text { font-family: 'Playfair Display', serif; font-weight: 700; font-size: 1.1rem; color: var(--white); }
+    .footer-logo-text span { color: var(--teal); }
+
+    /* ═══════════════════════════════════════════════════════════
+       RESPONSIVE
+    ═══════════════════════════════════════════════════════════ */
+    @media (max-width: 1024px) {
+      .hero-grid { grid-template-columns: 1fr; gap: 60px; }
+      .hero-visual { display: none; }
+      .offer-grid { grid-template-columns: repeat(2, 1fr); }
+      .approach-grid { grid-template-columns: 1fr; gap: 24px; }
+      .wwa-grid { grid-template-columns: 1fr; gap: 48px; }
+      .wwa-img-wrap { display: none; }
+      .about-grid { grid-template-columns: 1fr; gap: 48px; }
+      .about-sidebar { flex-direction: row; flex-wrap: wrap; }
+      .about-sidebar .sidebar-card { flex: 1; min-width: 200px; }
+      .values-grid { grid-template-columns: repeat(2, 1fr); }
+      .services-intro-grid { grid-template-columns: 1fr; gap: 48px; }
+      .provide-grid { grid-template-columns: repeat(3, 1fr); }
+      .support-grid { grid-template-columns: 1fr; }
+      .sg-mission-grid { grid-template-columns: 1fr; gap: 48px; }
+      .sg-pillars-grid { grid-template-columns: repeat(2, 1fr); }
+      .contact-grid { grid-template-columns: 1fr; }
+      .footer-grid { grid-template-columns: 1fr 1fr; gap: 36px; }
+      .cta-inner { flex-direction: column; padding: 52px 40px; text-align: center; }
+      .cta-body { margin: 0 auto; }
+    }
+    @media (max-width: 768px) {
+      .nav-links, .nav-cta { display: none; }
+      .hamburger { display: flex; }
+      .offer-grid { grid-template-columns: 1fr; }
+      .provide-grid { grid-template-columns: repeat(2, 1fr); }
+      .sg-pillars-grid { grid-template-columns: 1fr; }
+      .contact-form-wrap { padding: 36px 28px; }
+      .form-row { grid-template-columns: 1fr; }
+      .footer-grid { grid-template-columns: 1fr; }
+      .footer-bottom { flex-direction: column; gap: 12px; text-align: center; }
+      .hero { padding: 60px 0 80px; }
+      .hero-stats { gap: 24px; }
+      .cta-inner { padding: 44px 28px; }
+    }
+    @media (max-width: 480px) {
+      .values-grid { grid-template-columns: 1fr 1fr; }
+      .provide-grid { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ── SKIP LINK ─────────────────────────────────────────── -->
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+
+  <!-- ── NAVBAR ────────────────────────────────────────────── -->
+  <nav id="navbar" aria-label="Main navigation">
+    <div class="container nav-inner">
+      <div class="nav-logo" onclick="navigate('home')" role="link" aria-label="Kiipwell Solutions — go to homepage" tabindex="0">
+        <div class="nav-logo-mark">
+          <svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/>
+            <polyline points="9 22 9 12 15 12 15 22"/>
+          </svg>
+        </div>
+        <div>
+          <div class="nav-logo-text">Kiipwell Solutions</div>
+          <div class="nav-logo-sub">Caring Beyond Limits</div>
+        </div>
+      </div>
+
+      <div class="nav-links" role="list">
+        <a class="nav-link" data-page="home" onclick="navigate('home')" tabindex="0" role="listitem">Home</a>
+        <a class="nav-link" data-page="about" onclick="navigate('about')" tabindex="0" role="listitem">About Us</a>
+        <a class="nav-link" data-page="services" onclick="navigate('services')" tabindex="0" role="listitem">Our Services</a>
+        <a class="nav-link" data-page="support" onclick="navigate('support')" tabindex="0" role="listitem">Support We Offer</a>
+        <a class="nav-link" data-page="safeguarding" onclick="navigate('safeguarding')" tabindex="0" role="listitem">Safeguarding</a>
+        <a class="nav-link" data-page="contact" onclick="navigate('contact')" tabindex="0" role="listitem">Contact</a>
+      </div>
+
+      <a class="btn btn-primary nav-cta" onclick="navigate('contact')" aria-label="Make a referral — contact us">Make a Referral</a>
+
+      <div class="hamburger" id="hamburger" onclick="toggleMenu()">
+        <span></span><span></span><span></span>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Mobile Menu -->
+  <div class="mobile-menu" id="mobileMenu" role="navigation" aria-label="Mobile navigation">
+    <a class="mobile-nav-link" data-page="home" onclick="navigate('home');toggleMenu()" tabindex="0">Home</a>
+    <a class="mobile-nav-link" data-page="about" onclick="navigate('about');toggleMenu()" tabindex="0">About Us</a>
+    <a class="mobile-nav-link" data-page="services" onclick="navigate('services');toggleMenu()" tabindex="0">Our Services</a>
+    <a class="mobile-nav-link" data-page="support" onclick="navigate('support');toggleMenu()" tabindex="0">Support We Offer</a>
+    <a class="mobile-nav-link" data-page="safeguarding" onclick="navigate('safeguarding');toggleMenu()" tabindex="0">Safeguarding</a>
+    <a class="mobile-nav-link" data-page="contact" onclick="navigate('contact');toggleMenu()" tabindex="0">Contact / Referrals</a>
+  </div>
+
+  <!-- ── APP ROOT ───────────────────────────────────────────── -->
+  <div id="app" id="main-content" role="main"></div>
+
+  <!-- ── FOOTER ────────────────────────────────────────────── -->
+  <footer>
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <div style="display:flex;align-items:center;gap:10px;">
+            <div class="nav-logo-mark"><svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg></div>
+            <div class="footer-logo-text">Kiipwell <span>Solutions</span></div>
+          </div>
+          <p>A supported housing provider dedicated to working with young people aged 16–21, building independence and brighter futures.</p>
+          <div class="footer-tagline">"Caring Beyond Limits"</div>
+        </div>
+
+        <div class="footer-col">
+          <h4>Navigation</h4>
+          <a class="footer-link" onclick="navigate('home')">Home</a>
+          <a class="footer-link" onclick="navigate('about')">About Us</a>
+          <a class="footer-link" onclick="navigate('services')">Our Services</a>
+          <a class="footer-link" onclick="navigate('support')">Support We Offer</a>
+          <a class="footer-link" onclick="navigate('safeguarding')">Safeguarding</a>
+          <a class="footer-link" onclick="navigate('contact')">Contact &amp; Referrals</a>
+        </div>
+
+        <div class="footer-col">
+          <h4>Services</h4>
+          <a class="footer-link" onclick="navigate('services')">Semi-Independent Accommodation</a>
+          <a class="footer-link" onclick="navigate('support')">Life Skills &amp; Independence</a>
+          <a class="footer-link" onclick="navigate('support')">Health &amp; Wellbeing</a>
+          <a class="footer-link" onclick="navigate('support')">Education &amp; Employment</a>
+          <a class="footer-link" onclick="navigate('support')">UASC Specialist Support</a>
+        </div>
+
+        <div class="footer-col">
+          <h4>Contact Us</h4>
+          <div class="footer-contact-item">
+            <div class="footer-contact-icon"><svg viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 014.18 9.81 19.79 19.79 0 011.12 1.18 2 2 0 013.12 1h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L7.09 8.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg></div>
+            <div class="footer-contact-text">+44 (0) 000 000 0000</div>
+          </div>
+          <div class="footer-contact-item">
+            <div class="footer-contact-icon"><svg viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg></div>
+            <div class="footer-contact-text">info@kiipwellsolutions.co.uk</div>
+          </div>
+          <div class="footer-contact-item">
+            <div class="footer-contact-icon"><svg viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg></div>
+            <div class="footer-contact-text">United Kingdom</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <p>© 2025 Kiipwell Solutions Ltd. All rights reserved. Registered in England &amp; Wales.</p>
+        <p>Supporting young people to grow, develop, and build positive futures.</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ══════════════════════════════════════════════════════════
+       PAGE TEMPLATES
+  ═══════════════════════════════════════════════════════════ -->
+  <script>
+
+  /* ── SVG icon helpers ───────────────────────────────────── */
+  const icon = {
+    home: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>`,
+    shield: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>`,
+    heart: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20.84 4.61a5.5 5.5 0 00-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 00-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 000-7.78z"/></svg>`,
+    users: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87"/><path d="M16 3.13a4 4 0 010 7.75"/></svg>`,
+    book: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 19.5A2.5 2.5 0 016.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 014 19.5v-15A2.5 2.5 0 016.5 2z"/></svg>`,
+    briefcase: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 21V5a2 2 0 00-2-2h-4a2 2 0 00-2 2v16"/></svg>`,
+    globe: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 014 10 15.3 15.3 0 01-4 10 15.3 15.3 0 01-4-10 15.3 15.3 0 014-10z"/></svg>`,
+    star: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>`,
+    key: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 2l-2 2m-7.61 7.61a5.5 5.5 0 11-7.778 7.778 5.5 5.5 0 017.777-7.777zm0 0L15.5 7.5m0 0l3 3L22 7l-3-3m-3.5 3.5L19 4"/></svg>`,
+    check: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>`,
+    phone: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 014.18 9.81 19.79 19.79 0 011.12 1.18 2 2 0 013.12 1h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L7.09 8.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>`,
+    mail: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>`,
+    map: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>`,
+    sun: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>`,
+    eye: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>`,
+    lock: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0110 0v4"/></svg>`,
+    link: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M10 13a5 5 0 007.54.54l3-3a5 5 0 00-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 00-7.54-.54l-3 3a5 5 0 007.07 7.07l1.71-1.71"/></svg>`,
+    award: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="8" r="7"/><polyline points="8.21 13.89 7 23 12 20 17 23 15.79 13.88"/></svg>`,
+    clipboard: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 4h2a2 2 0 012 2v14a2 2 0 01-2 2H6a2 2 0 01-2-2V6a2 2 0 012-2h2"/><rect x="8" y="2" width="8" height="4" rx="1" ry="1"/></svg>`,
+    clock: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>`,
+    flag: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 15s1-1 4-1 5 2 8 2 4-1 4-1V3s-1 1-4 1-5-2-8-2-4 1-4 1z"/><line x1="4" y1="22" x2="4" y2="15"/></svg>`,
+  };
+
+  /* ── PAGE TEMPLATES ──────────────────────────────────────── */
+
+  function homePage() {
+    return `
+    <div class="page">
+
+      <!-- HERO -->
+      <section class="hero">
+        <div class="hero-blob"></div>
+        <div class="hero-blob-2"></div>
+        <div class="container">
+          <div class="hero-grid">
+            <div class="hero-content">
+              <div class="hero-eyebrow"><span class="dot"></span> UK Supported Accommodation Provider</div>
+              <h1>Where Young&nbsp;People Learn to <em>Thrive</em></h1>
+              <p class="hero-lead">We provide safe, structured semi-independent accommodation for young people aged 16–21 — helping them rebuild, grow, and move forward with confidence.</p>
+              <div class="hero-actions">
+                <a class="btn btn-primary" onclick="navigate('contact')">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 014.18 9.81 19.79 19.79 0 011.12 1.18 2 2 0 013.12 1h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L7.09 8.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
+                  Make a Referral
+                </a>
+                <a class="btn btn-outline" onclick="navigate('services')">Our Services</a>
+              </div>
+              <div class="hero-stats">
+                <div>
+                  <div class="hero-stat-n">16–21<span>yrs</span></div>
+                  <div class="hero-stat-l">Young people supported</div>
+                </div>
+                <div>
+                  <div class="hero-stat-n">24/7<span></span></div>
+                  <div class="hero-stat-l">Support available</div>
+                </div>
+                <div>
+                  <div class="hero-stat-n">100<span>%</span></div>
+                  <div class="hero-stat-l">Committed to safeguarding</div>
+                </div>
+              </div>
+            </div>
+            <div class="hero-visual">
+              <div class="hero-card">
+                <div class="hero-card-title">What We Provide</div>
+                <div class="hero-card-item">
+                  <div class="hero-icon">${icon.home}</div>
+                  <div>
+                    <div class="hero-card-item-t">Safe Accommodation</div>
+                    <div class="hero-card-item-s">Semi-independent, fully supported properties</div>
+                  </div>
+                </div>
+                <div class="hero-card-item">
+                  <div class="hero-icon">${icon.users}</div>
+                  <div>
+                    <div class="hero-card-item-t">Dedicated Key Workers</div>
+                    <div class="hero-card-item-s">Tailored 1-to-1 support for every resident</div>
+                  </div>
+                </div>
+                <div class="hero-card-item">
+                  <div class="hero-icon">${icon.star}</div>
+                  <div>
+                    <div class="hero-card-item-t">Independence Training</div>
+                    <div class="hero-card-item-s">Life skills, employment &amp; wellbeing support</div>
+                  </div>
+                </div>
+                <div class="hero-card-item">
+                  <div class="hero-icon">${icon.shield}</div>
+                  <div>
+                    <div class="hero-card-item-t">Safeguarding First</div>
+                    <div class="hero-card-item-s">Full compliance &amp; LA partnership</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- WHO WE ARE -->
+      <section class="wwa-home">
+        <div class="container">
+          <div class="wwa-grid">
+            <div class="wwa-img-wrap">
+              <div class="wwa-img-block">
+                <div class="wwa-img-inner">
+                  <div class="wwa-img-pattern">
+                    ${Array.from({length:36}).map(()=>'<span></span>').join('')}
+                  </div>
+                  <div class="wwa-img-stat">
+                    <div class="wwa-img-stat-num">16–<span>21</span></div>
+                    <div class="wwa-img-stat-label">Ages we proudly support</div>
+                  </div>
+                </div>
+              </div>
+              <div class="wwa-accent-card">
+                <div class="wwa-accent-n">100%</div>
+                <div class="wwa-accent-l">Person-centred approach</div>
+              </div>
+            </div>
+            <div class="wwa-content">
+              <span class="section-label">Who We Are</span>
+              <div class="divider"></div>
+              <h2 class="section-title">A team that truly <em style="font-style:italic;color:var(--teal)">understands</em> the journey</h2>
+              <p class="wwa-body">We are a supported housing provider dedicated to working with young people aged 16–21, including asylum seekers and refugees. Our team brings together experience in housing, safeguarding, and youth support, <strong>alongside lived experience of the asylum journey.</strong></p>
+              <p class="wwa-body">We are committed to supporting young people to grow, develop independence, and build a positive future — not just to survive, but to truly thrive.</p>
+              <div class="wwa-pillars">
+                <div class="wwa-pillar">
+                  <div class="wwa-pillar-icon">${icon.heart}</div>
+                  <div>
+                    <div class="wwa-pillar-t">Person-Centred</div>
+                    <div class="wwa-pillar-s">Support built around each individual's needs and goals</div>
+                  </div>
+                </div>
+                <div class="wwa-pillar">
+                  <div class="wwa-pillar-icon">${icon.sun}</div>
+                  <div>
+                    <div class="wwa-pillar-t">Trauma-Informed</div>
+                    <div class="wwa-pillar-s">Compassionate care that recognises past experiences</div>
+                  </div>
+                </div>
+                <div class="wwa-pillar">
+                  <div class="wwa-pillar-icon">${icon.globe}</div>
+                  <div>
+                    <div class="wwa-pillar-t">Culturally Responsive</div>
+                    <div class="wwa-pillar-s">Respectful, inclusive, and culturally aware support</div>
+                  </div>
+                </div>
+              </div>
+              <a class="btn btn-navy" onclick="navigate('about')">Learn More About Us</a>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- WHAT WE OFFER -->
+      <section class="offer-section">
+        <div class="container">
+          <div class="offer-header">
+            <span class="section-label">What We Offer</span>
+            <div class="divider" style="margin:0 auto 20px;"></div>
+            <h2 class="section-title">Comprehensive support for every young person</h2>
+            <p class="section-lead">From safe housing to life skills, we provide everything a young person needs to build a stable, independent future.</p>
+          </div>
+          <div class="offer-grid">
+            <div class="offer-card">
+              <div class="offer-card-icon">${icon.home}</div>
+              <div class="offer-card-title">Safe Accommodation</div>
+              <p class="offer-card-body">Safe, well-maintained semi-independent properties where young people can feel secure and begin to settle.</p>
+            </div>
+            <div class="offer-card">
+              <div class="offer-card-icon">${icon.clipboard}</div>
+              <div class="offer-card-title">Structured Support Plans</div>
+              <p class="offer-card-body">Tailored support plans designed around each young person's individual needs, goals, and circumstances.</p>
+            </div>
+            <div class="offer-card">
+              <div class="offer-card-icon">${icon.key}</div>
+              <div class="offer-card-title">Life Skills Development</div>
+              <p class="offer-card-body">Practical independence training covering budgeting, cooking, tenancy management, and daily living.</p>
+            </div>
+            <div class="offer-card">
+              <div class="offer-card-icon">${icon.heart}</div>
+              <div class="offer-card-title">Emotional Wellbeing</div>
+              <p class="offer-card-body">Trauma-informed emotional support and resilience building to help young people process and heal.</p>
+            </div>
+            <div class="offer-card">
+              <div class="offer-card-icon">${icon.book}</div>
+              <div class="offer-card-title">Education &amp; Employment</div>
+              <p class="offer-card-body">Guidance and practical support for college, training, volunteering, and employment opportunities.</p>
+            </div>
+            <div class="offer-card">
+              <div class="offer-card-icon">${icon.globe}</div>
+              <div class="offer-card-title">Community Integration</div>
+              <p class="offer-card-body">Supporting social development, cultural integration, and building meaningful connections in the community.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- OUR APPROACH -->
+      <section class="approach-section">
+        <div class="container">
+          <div class="approach-header">
+            <span class="section-label">Our Approach</span>
+            <h2 class="section-title" style="color:var(--white);">Three pillars. One purpose.</h2>
+            <p class="section-lead" style="color:rgba(255,255,255,.65);margin:0 auto;">We work alongside young people to help them prepare for independence — not just survive, but thrive.</p>
+          </div>
+          <div class="approach-grid">
+            <div class="approach-card">
+              <div class="approach-num">01</div>
+              <div class="approach-card-title">Person-Centred</div>
+              <p class="approach-card-body">Every young person is an individual with their own story, strengths, and aspirations. Our support is built entirely around them — their pace, their voice, their goals.</p>
+              <span class="approach-tag">Individual First</span>
+            </div>
+            <div class="approach-card">
+              <div class="approach-num">02</div>
+              <div class="approach-card-title">Trauma-Informed</div>
+              <p class="approach-card-body">We recognise that many of the young people we support have experienced significant trauma. Our team is trained to provide compassionate, safe, and sensitive care that acknowledges the past without being defined by it.</p>
+              <span class="approach-tag">Compassionate Care</span>
+            </div>
+            <div class="approach-card">
+              <div class="approach-num">03</div>
+              <div class="approach-card-title">Culturally Responsive</div>
+              <p class="approach-card-body">We celebrate diversity and ensure our support is culturally sensitive and inclusive. Our team includes those with lived experience of the asylum journey, bringing authentic understanding to our work.</p>
+              <span class="approach-tag">Inclusive &amp; Respectful</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- CTA BANNER -->
+      <section class="cta-banner">
+        <div class="container">
+          <div class="cta-inner">
+            <div class="cta-left">
+              <div class="cta-label">Ready to Work Together?</div>
+              <h2 class="cta-title">Make a Referral Today</h2>
+              <p class="cta-body">Whether you are a local authority, social worker, or support organisation — we're here to help. Reach out to discuss a placement or referral for a young person in your care.</p>
+            </div>
+            <div class="cta-right">
+              <a class="btn btn-white" onclick="navigate('contact')">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 014.18 9.81 19.79 19.79 0 011.12 1.18 2 2 0 013.12 1h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L7.09 8.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
+                Make a Referral
+              </a>
+            </div>
+          </div>
+        </div>
+      </section>
+
+    </div>`;
+  }
+
+  function aboutPage() {
+    return `
+    <div class="page">
+      <section class="page-hero">
+        <div class="container">
+          <div class="page-hero-inner">
+            <span class="page-hero-tag">About Kiipwell Solutions</span>
+            <h1>A team with heart,<br>experience, and purpose</h1>
+            <p>We are more than a housing provider. We are a community of people committed to making a real difference in the lives of the young people we serve.</p>
+          </div>
+        </div>
+      </section>
+
+      <section class="about-content">
+        <div class="container">
+          <div class="about-grid">
+            <div>
+              <span class="section-label">Who We Are</span>
+              <div class="divider"></div>
+              <h2 class="section-title">Dedicated to young people, guided by experience</h2>
+
+              <p class="about-body">We are a supported housing provider dedicated to working with young people aged 16–21, including <strong>asylum seekers and refugees.</strong> Our team brings together experience in housing, safeguarding, and youth support, alongside lived experience of the asylum journey.</p>
+
+              <p class="about-body">We are committed to supporting young people to grow, develop independence, and build a positive future. Every member of our team shares a deep commitment to the young people we work with — bringing professional expertise, genuine compassion, and cultural understanding to everything we do.</p>
+
+              <p class="about-body">Founded with a belief that <strong>safe housing is only the beginning,</strong> Kiipwell Solutions has grown to provide holistic, wraparound support that addresses the full range of needs a young person may have — from the moment they arrive to the point where they are ready to step confidently into independence.</p>
+
+              <div class="mission-box">
+                <h3>Our Mission</h3>
+                <p>To provide safe, supportive accommodation where young people can <em>rebuild their lives, gain independence, and move forward with confidence.</em> We believe that every young person deserves the opportunity to flourish — and we are committed to being the foundation on which that future is built.</p>
+              </div>
+
+              <div class="ethos-section">
+                <h3>Our Team Ethos</h3>
+                <p>Our team is united by a shared belief: that every young person, regardless of their background, nationality, or circumstances, deserves to be seen, heard, and supported with genuine care. We work not as distant professionals but as trusted allies — walking alongside each young person on their journey. We bring humility, curiosity, and commitment to every interaction, and we hold ourselves to the highest standards of practice, ethics, and safeguarding. We are proud of the culture we have built — one of warmth, accountability, and relentless hope.</p>
+              </div>
+            </div>
+
+            <div class="about-sidebar">
+              <div class="sidebar-card">
+                <div class="sidebar-icon">${icon.heart}</div>
+                <h4>Lived Experience</h4>
+                <p>Our team includes individuals with lived experience of the asylum journey, bringing authentic, empathetic understanding to our work every day.</p>
+              </div>
+              <div class="sidebar-card">
+                <div class="sidebar-icon">${icon.shield}</div>
+                <h4>Safeguarding Excellence</h4>
+                <p>All staff are trained, vetted, and committed to upholding the highest safeguarding standards in every interaction and decision.</p>
+              </div>
+              <div class="sidebar-card">
+                <div class="sidebar-icon">${icon.award}</div>
+                <h4>Professional Standards</h4>
+                <p>We maintain rigorous professional standards while never losing sight of the human at the centre of everything we do.</p>
+              </div>
+              <div class="sidebar-card">
+                <div class="sidebar-icon">${icon.link}</div>
+                <h4>LA Partnerships</h4>
+                <p>We work in close partnership with local authorities, social workers, and statutory services to provide joined-up, consistent care.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="values-strip">
+        <div class="container">
+          <div style="text-align:center;margin-bottom:56px;">
+            <span class="section-label">Our Values in Numbers</span>
+            <h2 class="section-title">Built on a foundation of commitment</h2>
+          </div>
+          <div class="values-grid">
+            <div class="value-item">
+              <div class="value-num">16–21</div>
+              <div class="value-label">Ages we support</div>
+            </div>
+            <div class="value-item">
+              <div class="value-num">24/7</div>
+              <div class="value-label">Support availability</div>
+            </div>
+            <div class="value-item">
+              <div class="value-num">3</div>
+              <div class="value-label">Core approach pillars</div>
+            </div>
+            <div class="value-item">
+              <div class="value-num">100%</div>
+              <div class="value-label">Commitment to each young person</div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="cta-banner" style="padding-top:0;">
+        <div class="container">
+          <div class="cta-inner">
+            <div class="cta-left">
+              <div class="cta-label">Work With Us</div>
+              <h2 class="cta-title">Start a conversation today</h2>
+              <p class="cta-body">Whether you're a commissioner, social worker, or partner organisation — we would love to talk about how we can support the young people in your care.</p>
+            </div>
+            <div class="cta-right">
+              <a class="btn btn-white" onclick="navigate('contact')">Get in Touch</a>
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>`;
+  }
+
+  function servicesPage() {
+    return `
+    <div class="page">
+      <section class="page-hero">
+        <div class="container">
+          <div class="page-hero-inner">
+            <span class="page-hero-tag">Our Services</span>
+            <h1>Semi-Independent<br>Supported Accommodation</h1>
+            <p>We provide structured, supported accommodation for young people aged 16–21 who need a safe place to live and the support to help them grow.</p>
+          </div>
+        </div>
+      </section>
+
+      <section class="services-intro">
+        <div class="container">
+          <div class="services-intro-grid">
+            <div>
+              <span class="section-label">Semi-Independent Accommodation</span>
+              <div class="divider"></div>
+              <h2 class="section-title">A safe foundation for the future</h2>
+              <p class="services-lead">Our semi-independent supported accommodation provides young people with their own safe, well-maintained living space alongside structured professional support. We believe that stable housing is the cornerstone of every young person's journey to independence — but housing alone is never enough.</p>
+              <p class="services-lead">That is why every placement at Kiipwell Solutions comes with a dedicated key worker, a tailored support plan, and access to the full range of support services we provide. We work with local authorities and commissioners to ensure that every placement is appropriate, well-managed, and delivers the outcomes that matter.</p>
+            </div>
+            <div>
+              <div style="margin-bottom:16px;">
+                <div class="for-who-title">Who We Support</div>
+                <p class="for-who-sub">We work with young people aged 16–21 across three key groups:</p>
+              </div>
+              <div class="for-who-cards">
+                <div class="for-who-card">
+                  <div class="for-who-icon">${icon.globe}</div>
+                  <div>
+                    <h4>Asylum Seekers &amp; Refugees</h4>
+                    <p>Young people who have made the journey to the UK seeking safety, including Unaccompanied Asylum Seeking Children (UASC).</p>
+                  </div>
+                </div>
+                <div class="for-who-card">
+                  <div class="for-who-icon">${icon.star}</div>
+                  <div>
+                    <h4>Care Leavers Transitioning</h4>
+                    <p>Young people moving on from the care system who need supported accommodation and guidance as they step into adult life.</p>
+                  </div>
+                </div>
+                <div class="for-who-card">
+                  <div class="for-who-icon">${icon.home}</div>
+                  <div>
+                    <h4>Those at Risk of Homelessness</h4>
+                    <p>Young people at imminent risk of homelessness who need a stable home and structured support to prevent further crisis.</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="what-we-provide">
+        <div class="container">
+          <div class="provide-header">
+            <span class="section-label">What We Provide</span>
+            <div class="divider" style="margin:0 auto 20px;"></div>
+            <h2 class="section-title">Everything needed to support a young person</h2>
+            <p class="section-lead" style="margin:0 auto;">Every placement includes a comprehensive package of support — because we know that the details matter.</p>
+          </div>
+          <div class="provide-grid">
+            <div class="provide-card">
+              <div class="provide-icon">${icon.clock}</div>
+              <h4>24/7 Support Available</h4>
+            </div>
+            <div class="provide-card">
+              <div class="provide-icon">${icon.users}</div>
+              <h4>Dedicated Key Worker</h4>
+            </div>
+            <div class="provide-card">
+              <div class="provide-icon">${icon.clipboard}</div>
+              <h4>Individual Support Plans</h4>
+            </div>
+            <div class="provide-card">
+              <div class="provide-icon">${icon.eye}</div>
+              <h4>Regular Welfare Checks</h4>
+            </div>
+            <div class="provide-card">
+              <div class="provide-icon">${icon.home}</div>
+              <h4>Safe, Quality Properties</h4>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="cta-banner" style="padding-top:0;">
+        <div class="container">
+          <div class="cta-inner">
+            <div class="cta-left">
+              <div class="cta-label">Make a Referral</div>
+              <h2 class="cta-title">Discuss a placement with our team</h2>
+              <p class="cta-body">We welcome referrals from local authorities, social workers, and statutory services. Contact us to discuss whether Kiipwell Solutions is the right fit for a young person in your care.</p>
+            </div>
+            <div class="cta-right">
+              <a class="btn btn-white" onclick="navigate('contact')">Start a Referral</a>
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>`;
+  }
+
+  function supportPage() {
+    return `
+    <div class="page">
+      <section class="page-hero">
+        <div class="container">
+          <div class="page-hero-inner">
+            <span class="page-hero-tag">Support We Offer</span>
+            <h1>Holistic support for<br>every aspect of life</h1>
+            <p>We go beyond accommodation to offer a full spectrum of support — helping young people build the skills, confidence, and connections they need for life.</p>
+          </div>
+        </div>
+      </section>
+
+      <section class="support-section">
+        <div class="container">
+          <div style="text-align:center;margin-bottom:64px;">
+            <span class="section-label">Our Support Areas</span>
+            <div class="divider" style="margin:0 auto 20px;"></div>
+            <h2 class="section-title">Four pillars of specialist support</h2>
+            <p class="section-lead" style="margin:0 auto;">Each young person receives support across all areas relevant to their needs, delivered by trained, compassionate professionals.</p>
+          </div>
+
+          <div class="support-grid">
+
+            <div class="support-card">
+              <div class="support-card-header">
+                <div class="support-card-icon">${icon.key}</div>
+                <div class="support-card-title">Life Skills &amp; Independence</div>
+              </div>
+              <p class="support-card-intro">We equip young people with the practical skills they need to live independently — confidently and capably — when the time comes to move on.</p>
+              <ul class="support-list">
+                <li>Budgeting and money management</li>
+                <li>Cooking and meal planning</li>
+                <li>Daily living and household management</li>
+                <li>Managing a tenancy responsibly</li>
+                <li>Understanding bills, contracts, and rights</li>
+                <li>Time management and personal organisation</li>
+              </ul>
+            </div>
+
+            <div class="support-card">
+              <div class="support-card-header">
+                <div class="support-card-icon">${icon.heart}</div>
+                <div class="support-card-title">Health &amp; Wellbeing</div>
+              </div>
+              <p class="support-card-intro">We support the whole person — mind and body — recognising that wellbeing is foundational to everything else a young person can achieve.</p>
+              <ul class="support-list">
+                <li>Emotional support and active listening</li>
+                <li>Trauma-informed care and therapeutic approaches</li>
+                <li>Access to health services and GP registration</li>
+                <li>Mental health signposting and advocacy</li>
+                <li>Resilience-building and coping strategies</li>
+                <li>Physical health and healthy lifestyle encouragement</li>
+              </ul>
+            </div>
+
+            <div class="support-card">
+              <div class="support-card-header">
+                <div class="support-card-icon">${icon.book}</div>
+                <div class="support-card-title">Education &amp; Employment</div>
+              </div>
+              <p class="support-card-intro">We help young people access and succeed in education, training, and employment — opening doors and building the foundations for long-term stability.</p>
+              <ul class="support-list">
+                <li>College and further education enrolment support</li>
+                <li>Training course identification and application</li>
+                <li>Career guidance and aspiration planning</li>
+                <li>Volunteering and work experience opportunities</li>
+                <li>CV building and interview preparation</li>
+                <li>Support with apprenticeships and employment pathways</li>
+              </ul>
+            </div>
+
+            <div class="support-card">
+              <div class="support-card-header">
+                <div class="support-card-icon">${icon.globe}</div>
+                <div class="support-card-title">Specialist UASC Support</div>
+              </div>
+              <p class="support-card-intro">For unaccompanied asylum seeking children and young people, we provide specialist support that addresses the unique and complex challenges they face in the UK.</p>
+              <ul class="support-list">
+                <li>Support with legal processes and solicitor appointments</li>
+                <li>Accompanying young people to asylum interviews and hearings</li>
+                <li>English language development and ESOL access</li>
+                <li>Cultural integration and community connection</li>
+                <li>Advocacy with statutory services and the Home Office</li>
+                <li>Emotional support through the asylum process</li>
+              </ul>
+            </div>
+
+          </div>
+        </div>
+      </section>
+
+      <section class="approach-section" style="padding:80px 0;">
+        <div class="container" style="position:relative;z-index:1;">
+          <div style="text-align:center;margin-bottom:48px;">
+            <span class="section-label" style="color:var(--teal);">Our Promise</span>
+            <h2 class="section-title" style="color:var(--white);">Support that makes a real difference</h2>
+            <p style="color:rgba(255,255,255,.65);font-size:1.05rem;line-height:1.75;max-width:600px;margin:0 auto;">We don't just provide a service — we build relationships. Every young person who comes through our doors deserves a team that is genuinely invested in their success.</p>
+          </div>
+          <div style="display:flex;justify-content:center;">
+            <a class="btn btn-primary" onclick="navigate('contact')">Refer a Young Person</a>
+          </div>
+        </div>
+      </section>
+    </div>`;
+  }
+
+  function safeguardingPage() {
+    return `
+    <div class="page">
+      <section class="page-hero">
+        <div class="container">
+          <div class="page-hero-inner">
+            <span class="page-hero-tag">Safeguarding</span>
+            <h1>Safety is not a feature.<br>It's the foundation.</h1>
+            <p>Safeguarding is central to everything we do. Every decision, every interaction, every policy is designed with the safety and wellbeing of young people at its heart.</p>
+          </div>
+        </div>
+      </section>
+
+      <section class="safeguarding-mission">
+        <div class="container">
+          <div class="sg-mission-grid">
+            <div>
+              <span class="section-label">Our Safeguarding Commitment</span>
+              <div class="divider"></div>
+              <blockquote class="sg-quote">"Safeguarding is central to everything we do — it is not a compliance exercise, it is a moral commitment to every young person in our care."</blockquote>
+            </div>
+            <div>
+              <h2 class="section-title" style="font-size:1.8rem;margin-bottom:20px;">Protecting every young person, every day</h2>
+              <p class="sg-body">We understand that the young people we work with are among the most vulnerable in society. Many have experienced trauma, displacement, and systems that have failed them. At Kiipwell Solutions, we exist to be different — to provide a safe, nurturing environment where young people can begin to heal and grow.</p>
+              <br>
+              <p class="sg-body">Our safeguarding framework is comprehensive, regularly reviewed, and embedded in the culture of our organisation. Every member of staff — from management to support workers — is trained, vetted, and accountable. We work in close partnership with local authorities and statutory services to ensure robust, joined-up protection for every young person in our care.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="sg-pillars">
+        <div class="container">
+          <div style="text-align:center;margin-bottom:56px;">
+            <span class="section-label">Four Pillars of Safeguarding</span>
+            <div class="divider" style="margin:0 auto 20px;"></div>
+            <h2 class="section-title">How we keep young people safe</h2>
+            <p class="section-lead" style="margin:0 auto;">Our safeguarding approach is built on four interconnected pillars that together create a robust framework of protection and accountability.</p>
+          </div>
+          <div class="sg-pillars-grid">
+            <div class="sg-pillar-card">
+              <div class="sg-pillar-num">PILLAR 01</div>
+              <div class="sg-pillar-icon">${icon.clipboard}</div>
+              <h3>Strong Safeguarding Policies</h3>
+              <p>Our safeguarding policies are comprehensive, up-to-date, and aligned with national guidance and statutory requirements. They are reviewed regularly and embedded across every aspect of our organisation.</p>
+            </div>
+            <div class="sg-pillar-card">
+              <div class="sg-pillar-num">PILLAR 02</div>
+              <div class="sg-pillar-icon">${icon.users}</div>
+              <h3>Trained &amp; Vetted Staff</h3>
+              <p>Every member of our team undergoes thorough vetting, including enhanced DBS checks, and receives comprehensive safeguarding training before working with any young person. Training is refreshed regularly.</p>
+            </div>
+            <div class="sg-pillar-card">
+              <div class="sg-pillar-num">PILLAR 03</div>
+              <div class="sg-pillar-icon">${icon.flag}</div>
+              <h3>Clear Reporting Procedures</h3>
+              <p>We have clear, accessible reporting procedures for any safeguarding concern. Every member of staff knows exactly what to do, who to contact, and how to act — ensuring no concern goes unaddressed.</p>
+            </div>
+            <div class="sg-pillar-card">
+              <div class="sg-pillar-num">PILLAR 04</div>
+              <div class="sg-pillar-icon">${icon.link}</div>
+              <h3>Local Authority Partnership</h3>
+              <p>We work in active partnership with local authority safeguarding teams, social workers, and statutory services. Open communication and collaborative working are fundamental to how we operate.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="sg-commitment">
+        <div class="container">
+          <div class="sg-commitment-inner">
+            <h2>A culture of safety, every single day</h2>
+            <p>Safeguarding is not something we do — it is something we are. Every policy, every process, every person at Kiipwell Solutions is oriented around keeping young people safe, heard, and protected. We never stop reviewing, improving, and holding ourselves to the highest possible standards.</p>
+            <div class="sg-badges">
+              <span class="sg-badge"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>Enhanced DBS Checked</span>
+              <span class="sg-badge"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>Safeguarding Trained</span>
+              <span class="sg-badge"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>LA Partnership</span>
+              <span class="sg-badge"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>Regular Reviews</span>
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>`;
+  }
+
+  function contactPage() {
+    return `
+    <div class="page">
+      <section class="page-hero">
+        <div class="container">
+          <div class="page-hero-inner">
+            <span class="page-hero-tag">Contact &amp; Referrals</span>
+            <h1>Let's start<br>a conversation</h1>
+            <p>Whether you're making a referral, asking a question, or exploring a partnership — we want to hear from you. Fill in the form or reach out directly.</p>
+          </div>
+        </div>
+      </section>
+
+      <section class="contact-section">
+        <div class="container">
+          <div class="contact-grid">
+
+            <div class="contact-form-wrap">
+              <h2>Make a Referral or Enquiry</h2>
+              <p>Complete the form below and a member of our team will be in touch within one working day to discuss the referral or enquiry in more detail.</p>
+
+              <form onsubmit="handleFormSubmit(event)">
+                <div class="form-row">
+                  <div class="form-group">
+                    <label for="fname">Full Name *</label>
+                    <input type="text" id="fname" placeholder="Your full name" required />
+                  </div>
+                  <div class="form-group">
+                    <label for="org">Organisation *</label>
+                    <input type="text" id="org" placeholder="Your organisation" required />
+                  </div>
+                </div>
+                <div class="form-row">
+                  <div class="form-group">
+                    <label for="phone">Phone Number</label>
+                    <input type="tel" id="phone" placeholder="+44 (0) 000 000 0000" />
+                  </div>
+                  <div class="form-group">
+                    <label for="email">Email Address *</label>
+                    <input type="email" id="email" placeholder="your@email.co.uk" required />
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label for="reftype">Referral / Enquiry Type *</label>
+                  <select id="reftype" required>
+                    <option value="" disabled selected>Select a type…</option>
+                    <option>Referral — Asylum Seeker / Refugee</option>
+                    <option>Referral — Care Leaver</option>
+                    <option>Referral — At Risk of Homelessness</option>
+                    <option>UASC Specialist Referral</option>
+                    <option>General Enquiry</option>
+                    <option>Partnership / Commissioning</option>
+                    <option>Other</option>
+                  </select>
+                </div>
+                <div class="form-group">
+                  <label for="message">Message *</label>
+                  <textarea id="message" placeholder="Please provide details about the young person's situation or your enquiry…" required></textarea>
+                </div>
+                <button type="submit" class="form-submit">Send Referral / Enquiry →</button>
+              </form>
+            </div>
+
+            <div class="contact-sidebar">
+              <div class="contact-info-card">
+                <h3>Get in Touch Directly</h3>
+                <div class="contact-detail">
+                  <div class="contact-detail-icon">${icon.phone}</div>
+                  <div>
+                    <div class="contact-detail-label">Telephone</div>
+                    <div class="contact-detail-val">+44 (0) 000 000 0000</div>
+                  </div>
+                </div>
+                <div class="contact-detail">
+                  <div class="contact-detail-icon">${icon.mail}</div>
+                  <div>
+                    <div class="contact-detail-label">Email</div>
+                    <div class="contact-detail-val">info@kiipwellsolutions.co.uk</div>
+                  </div>
+                </div>
+                <div class="contact-detail">
+                  <div class="contact-detail-icon">${icon.map}</div>
+                  <div>
+                    <div class="contact-detail-label">Location</div>
+                    <div class="contact-detail-val">United Kingdom</div>
+                  </div>
+                </div>
+                <div class="contact-detail">
+                  <div class="contact-detail-icon">${icon.clock}</div>
+                  <div>
+                    <div class="contact-detail-label">Office Hours</div>
+                    <div class="contact-detail-val">Mon–Fri, 9am–5:30pm<br><small style="font-weight:400;color:var(--muted)">24/7 support available for residents</small></div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="referral-types">
+                <h3>We Accept Referrals For</h3>
+                <div class="ref-type">Asylum seekers and refugees aged 16–21</div>
+                <div class="ref-type">Unaccompanied Asylum Seeking Children (UASC)</div>
+                <div class="ref-type">Care leavers transitioning to independence</div>
+                <div class="ref-type">Young people at risk of homelessness</div>
+                <div class="ref-type">Local authority placements</div>
+                <div class="ref-type">Statutory and voluntary sector referrals</div>
+              </div>
+
+              <div class="contact-info-card" style="background:var(--bg);">
+                <h3 style="font-size:1rem;margin-bottom:12px;">Urgent Referral?</h3>
+                <p style="font-size:.88rem;color:var(--muted);line-height:1.65;margin-bottom:16px;">For urgent placements or time-sensitive referrals, please call us directly on the number above. We understand that some situations require a fast response.</p>
+                <a class="btn btn-primary" style="width:100%;justify-content:center;" href="tel:+440000000000">Call Us Now</a>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </section>
+    </div>`;
+  }
+
+  /* ── ROUTER ─────────────────────────────────────────────── */
+  const pages = { home: homePage, about: aboutPage, services: servicesPage, support: supportPage, safeguarding: safeguardingPage, contact: contactPage };
+
+  function navigate(page) {
+    const app = document.getElementById('app');
+    app.style.opacity = '0';
+    app.style.transform = 'translateY(10px)';
+    setTimeout(() => {
+      app.innerHTML = pages[page] ? pages[page]() : homePage();
+      app.style.transition = 'none';
+      app.style.opacity = '0';
+      app.style.transform = 'translateY(16px)';
+      requestAnimationFrame(() => {
+        requestAnimationFrame(() => {
+          app.style.transition = 'opacity .38s ease, transform .38s ease';
+          app.style.opacity = '1';
+          app.style.transform = 'translateY(0)';
+        });
+      });
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+      updateNav(page);
+    }, 120);
+  }
+
+  function updateNav(active) {
+    document.querySelectorAll('.nav-link, .mobile-nav-link').forEach(el => {
+      el.classList.toggle('active', el.dataset.page === active);
+    });
+  }
+
+  function toggleMenu() {
+    document.getElementById('mobileMenu').classList.toggle('open');
+  }
+
+  function handleFormSubmit(e) {
+    e.preventDefault();
+    const form = e.target;
+    let valid = true;
+    form.querySelectorAll('[required]').forEach(field => {
+      const group = field.closest('.form-group');
+      if (!field.value.trim()) {
+        group.classList.add('has-error');
+        let err = group.querySelector('.field-error');
+        if (!err) { err = document.createElement('span'); err.className = 'field-error'; group.appendChild(err); }
+        err.textContent = field.type === 'email' ? 'Please enter a valid email address.' : 'This field is required.';
+        valid = false;
+      } else {
+        group.classList.remove('has-error');
+      }
+    });
+    if (!valid) return;
+    const btn = form.querySelector('.form-submit');
+    btn.textContent = '✓ Message Sent — We\'ll be in touch shortly';
+    btn.style.background = 'var(--navy)';
+    btn.disabled = true;
+  }
+
+  /* ── Navbar scroll shadow ───────────────────────────────── */
+  window.addEventListener('scroll', () => {
+    document.getElementById('navbar').classList.toggle('scrolled', window.scrollY > 20);
+  });
+
+  /* ── Mobile menu outside-click close ────────────────────── */
+  document.addEventListener('click', (e) => {
+    const menu = document.getElementById('mobileMenu');
+    const hamburger = document.getElementById('hamburger');
+    if (menu.classList.contains('open') && !menu.contains(e.target) && !hamburger.contains(e.target)) {
+      menu.classList.remove('open');
+    }
+  });
+
+  /* ── Keyboard activation for logo & nav links ───────────── */
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Enter' && e.target.dataset.page) navigate(e.target.dataset.page);
+    if (e.key === 'Enter' && e.target.getAttribute('aria-label')?.includes('homepage')) navigate('home');
+  });
+
+  /* ── Announce page changes to screen readers ────────────── */
+  const liveRegion = document.createElement('div');
+  liveRegion.setAttribute('aria-live', 'polite');
+  liveRegion.setAttribute('aria-atomic', 'true');
+  liveRegion.className = 'sr-only';
+  liveRegion.style.cssText = 'position:absolute;width:1px;height:1px;padding:0;overflow:hidden;clip:rect(0,0,0,0);border:0;';
+  document.body.appendChild(liveRegion);
+  const origNavigate = navigate;
+  window.navigate = function(page) {
+    origNavigate(page);
+    const names = { home:'Home', about:'About Us', services:'Our Services', support:'Support We Offer', safeguarding:'Safeguarding', contact:'Contact and Referrals' };
+    liveRegion.textContent = 'Navigated to ' + (names[page] || page);
+  };
+
+  /* ── Init ───────────────────────────────────────────────── */
+  navigate('home');
+  </script>
+</body>
+</html>
