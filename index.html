@@ -1,542 +1,864 @@
 <!DOCTYPE html>
-<html class="scroll-smooth" lang="en">
+<html lang="en">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Kiipwell Solutions | Caring Beyond Limits</title>
-<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
-<link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,wght@0,400;0,500;0,700;1,400&family=Playfair+Display:ital,wght@0,700;0,800;1,700&display=swap" rel="stylesheet">
-<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet">
-<script>
-  tailwind.config = {
-    theme: {
-      extend: {
-        colors: {
-          "primary":                 "#1B3A8C",
-          "primary-dark":            "#00236E",
-          "on-primary":              "#ffffff",
-          "primary-container":       "#DCE1FF",
-          "secondary":               "#00B89F",
-          "secondary-dark":          "#006B5C",
-          "on-secondary":            "#ffffff",
-          "secondary-fixed":         "#6DF9DD",
-          "surface":                 "#FAF8FF",
-          "surface-bright":          "#FAF8FF",
-          "surface-container-low":   "#F4F3FA",
-          "surface-container":       "#EEEDF5",
-          "surface-container-high":  "#E9E7EF",
-          "surface-container-lowest":"#ffffff",
-          "on-surface":              "#1a1b21",
-          "on-surface-variant":      "#444651",
-          "outline":                 "#757683",
-          "outline-variant":         "#C5C6D3",
-          "inverse-surface":         "#2f3036",
-        },
-        borderRadius: {
-          "sm":      "0.25rem",
-          "DEFAULT": "0.5rem",
-          "md":      "0.75rem",
-          "lg":      "1rem",
-          "xl":      "1.5rem",
-          "full":    "9999px",
-        },
-        spacing: {
-          "gutter":           "1.5rem",
-          "section-padding":  "5rem",
-          "container-max":    "1280px",
-          "stack-sm":         "0.5rem",
-          "stack-md":         "1rem",
-          "stack-lg":         "2rem",
-          "margin-mobile":    "1rem",
-          "margin-desktop":   "2.5rem",
-        },
-        maxWidth: { "page": "1280px" }
-      }
-    }
-  }
-</script>
+<title>Kiipwell Solutions | Registered Supported Accommodation Provider — North East England</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js"></script>
 <style>
-  body { font-family: "DM Sans", sans-serif; }
-  h1,h2,h3,h4 { font-family: "Playfair Display", Georgia, serif; }
-  .material-symbols-outlined {
-    font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
-    line-height: 1; vertical-align: middle;
-  }
-  .glass-nav {
-    background: rgba(250,248,255,0.88);
-    backdrop-filter: blur(20px);
-    -webkit-backdrop-filter: blur(20px);
-  }
-  .hero-bg {
-    background: linear-gradient(140deg, #00236E 0%, #1B3A8C 55%, #1e3fa0 100%);
-  }
-  .card-lift {
-    transition: transform 0.3s cubic-bezier(0.16,1,0.3,1),
-                box-shadow 0.3s cubic-bezier(0.16,1,0.3,1);
-  }
-  .card-lift:hover {
-    transform: translateY(-4px);
-    box-shadow: 0 4px 12px rgba(27,58,140,0.08);
-  }
-  .step-number {
-    font-family: "Playfair Display", serif;
-    font-size: 5rem; font-weight: 800; line-height: 1;
-    color: rgba(27,58,140,0.06);
-    position: absolute; top: 1rem; right: 1.5rem;
-  }
-  #mobile-menu { display: none; }
-  #mobile-menu.open { display: flex; }
+
+/* ── Reset & base ──────────────────────────────────────── */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; font-size: 16px; }
+
+:root {
+  --navy:       #1B3A8C;
+  --navy-dark:  #0a1f4d;
+  --navy-mid:   #162f73;
+  --teal:       #00B89F;
+  --teal-dark:  #009984;
+  --white:      #ffffff;
+  --off-white:  #F9FAFB;
+  --text:       #111827;
+  --muted:      #6B7280;
+  --border:     #D1D5DB;
+  --border-dark:#9CA3AF;
+  --radius:     4px;
+  --nav-h:      64px;
+}
+
+body {
+  font-family: 'Inter', sans-serif;
+  background: var(--white);
+  color: var(--text);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+}
+
+a { text-decoration: none; color: inherit; }
+img { display: block; max-width: 100%; }
+
+/* ── Typography ────────────────────────────────────────── */
+.label {
+  font-size: 0.6875rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+.label--teal { color: var(--teal); }
+.label--white { color: rgba(255,255,255,0.5); }
+.label--navy { color: var(--navy); }
+
+h1, h2, h3, h4 {
+  font-family: 'Inter', sans-serif;
+  letter-spacing: -0.02em;
+  line-height: 1.15;
+}
+
+/* ── Section numbering ─────────────────────────────────── */
+.section-number {
+  font-size: 0.6875rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--teal);
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  margin-bottom: 1.25rem;
+}
+.section-number::after {
+  content: '';
+  display: block;
+  height: 1px;
+  width: 2.5rem;
+  background: var(--teal);
+  flex-shrink: 0;
+}
+
+/* ── Layout ────────────────────────────────────────────── */
+.container {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 0 2rem;
+}
+
+/* ── Buttons ───────────────────────────────────────────── */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-family: 'Inter', sans-serif;
+  font-size: 0.8125rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  padding: 0.75rem 1.5rem;
+  border-radius: var(--radius);
+  border: 1.5px solid transparent;
+  cursor: pointer;
+  transition: background 0.15s, color 0.15s, border-color 0.15s;
+  white-space: nowrap;
+}
+.btn-primary {
+  background: var(--teal);
+  color: var(--white);
+  border-color: var(--teal);
+}
+.btn-primary:hover { background: var(--teal-dark); border-color: var(--teal-dark); }
+
+.btn-outline-white {
+  background: transparent;
+  color: var(--white);
+  border-color: rgba(255,255,255,0.4);
+}
+.btn-outline-white:hover { background: rgba(255,255,255,0.08); border-color: rgba(255,255,255,0.7); }
+
+.btn-outline-navy {
+  background: transparent;
+  color: var(--navy);
+  border-color: var(--navy);
+}
+.btn-outline-navy:hover { background: var(--navy); color: var(--white); }
+
+/* ── Divider rule ──────────────────────────────────────── */
+.rule { height: 1px; background: var(--border); }
+.rule--dark { background: rgba(255,255,255,0.1); }
+
+/* ── Credential badge ──────────────────────────────────── */
+.credential {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.375rem 0.875rem;
+  border: 1px solid rgba(255,255,255,0.2);
+  border-radius: var(--radius);
+  font-size: 0.6875rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.6);
+}
+.credential svg { width: 12px; height: 12px; stroke: var(--teal); flex-shrink: 0; }
+
+/* ── Data cell ─────────────────────────────────────────── */
+.data-cell {
+  border-left: 2px solid var(--teal);
+  padding-left: 1rem;
+}
+.data-cell__value {
+  font-size: 2.25rem;
+  font-weight: 800;
+  line-height: 1;
+  letter-spacing: -0.03em;
+  color: var(--white);
+}
+.data-cell__label {
+  font-size: 0.6875rem;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.45);
+  margin-top: 0.375rem;
+}
+
+/* ── Structured list (gov.uk style) ───────────────────── */
+.structured-list { border-top: 1px solid var(--border); }
+.structured-list__row {
+  display: flex;
+  align-items: baseline;
+  gap: 2rem;
+  padding: 0.875rem 0;
+  border-bottom: 1px solid var(--border);
+}
+.structured-list__key {
+  font-size: 0.8125rem;
+  font-weight: 600;
+  color: var(--muted);
+  min-width: 200px;
+  flex-shrink: 0;
+}
+.structured-list__val {
+  font-size: 0.9375rem;
+  color: var(--text);
+}
+
+/* ── Sharp card ────────────────────────────────────────── */
+.sharp-card {
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 1.5rem;
+  background: var(--white);
+}
+.sharp-card--navy {
+  background: rgba(255,255,255,0.05);
+  border-color: rgba(255,255,255,0.12);
+}
+.sharp-card--teal-left {
+  border-left: 3px solid var(--teal);
+}
+
+/* ── Support pillar ────────────────────────────────────── */
+.pillar-icon {
+  width: 2rem;
+  height: 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 1rem;
+}
+.pillar-icon svg { width: 20px; height: 20px; stroke: var(--teal); stroke-width: 1.5; fill: none; }
+
+/* ── Offer row ─────────────────────────────────────────── */
+.offer-row {
+  display: flex;
+  align-items: flex-start;
+  gap: 1rem;
+  padding: 1rem 0;
+  border-bottom: 1px solid rgba(255,255,255,0.08);
+}
+.offer-row:last-child { border-bottom: none; }
+.offer-row__icon { width: 18px; height: 18px; stroke: var(--teal); stroke-width: 1.75; fill: none; flex-shrink: 0; margin-top: 2px; }
+.offer-row__text { font-size: 0.9375rem; color: rgba(255,255,255,0.8); line-height: 1.5; }
+
+/* ── Approach step ─────────────────────────────────────── */
+.approach-step {
+  border-top: 2px solid var(--navy);
+  padding-top: 1.5rem;
+}
+.approach-step__num {
+  font-size: 0.6875rem;
+  font-weight: 800;
+  letter-spacing: 0.1em;
+  color: var(--teal);
+  margin-bottom: 0.75rem;
+}
+
+/* ── Policy item ───────────────────────────────────────── */
+.policy-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 1rem;
+  padding: 1.25rem 0;
+  border-bottom: 1px solid var(--border);
+}
+.policy-item:first-child { border-top: 1px solid var(--border); }
+.policy-item__icon { width: 16px; height: 16px; stroke: var(--teal); stroke-width: 2; fill: none; flex-shrink: 0; margin-top: 3px; }
+.policy-item__title { font-size: 0.9375rem; font-weight: 600; color: var(--text); margin-bottom: 0.25rem; }
+.policy-item__body { font-size: 0.875rem; color: var(--muted); line-height: 1.6; }
+
+/* ── Nav ───────────────────────────────────────────────── */
+#navbar {
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  z-index: 900;
+  background: var(--white);
+  border-bottom: 1px solid var(--border);
+  height: var(--nav-h);
+}
+.nav-inner {
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 2rem;
+}
+.nav-logo {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  flex-shrink: 0;
+}
+.nav-logo__wordmark {
+  font-size: 0.9375rem;
+  font-weight: 800;
+  letter-spacing: -0.01em;
+  color: var(--navy-dark);
+  text-transform: uppercase;
+}
+.nav-logo__divider {
+  width: 1px;
+  height: 20px;
+  background: var(--border);
+}
+.nav-logo__sub {
+  font-size: 0.6875rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+}
+.nav-link {
+  font-size: 0.8125rem;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  color: var(--muted);
+  padding: 0.5rem 0.875rem;
+  border-radius: var(--radius);
+  transition: color 0.15s, background 0.15s;
+}
+.nav-link:hover { color: var(--navy); background: var(--off-white); }
+.nav-link.active { color: var(--navy); font-weight: 700; }
+.nav-cta { margin-left: 0.5rem; }
+
+.hamburger {
+  display: none;
+  flex-direction: column;
+  gap: 4px;
+  cursor: pointer;
+  padding: 8px;
+  background: none;
+  border: none;
+}
+.hamburger span {
+  display: block;
+  width: 20px;
+  height: 1.5px;
+  background: var(--navy-dark);
+  border-radius: 1px;
+}
+.mobile-menu {
+  display: none;
+  flex-direction: column;
+  background: var(--white);
+  border-bottom: 1px solid var(--border);
+  padding: 0.5rem 2rem 1rem;
+}
+.mobile-menu.open { display: flex; }
+.mob-link {
+  padding: 0.75rem 0;
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: var(--muted);
+  border-bottom: 1px solid var(--border);
+  letter-spacing: 0.02em;
+}
+.mob-link:last-child { border-bottom: none; }
+.mob-link.active { color: var(--navy); }
+
+/* ── Subtle grid texture ───────────────────────────────── */
+.grid-texture {
+  background-image:
+    linear-gradient(rgba(27,58,140,0.04) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(27,58,140,0.04) 1px, transparent 1px);
+  background-size: 40px 40px;
+}
+
+/* ── Toast ─────────────────────────────────────────────── */
+#toast {
+  position: fixed;
+  bottom: 2rem;
+  right: 2rem;
+  z-index: 9999;
+  background: var(--teal);
+  color: var(--white);
+  font-size: 0.875rem;
+  font-weight: 600;
+  padding: 1rem 1.5rem;
+  border-radius: var(--radius);
+  display: flex;
+  align-items: center;
+  gap: 0.625rem;
+  transform: translateY(1rem);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.25s, transform 0.25s;
+}
+#toast.show { opacity: 1; transform: translateY(0); }
+
+/* ── Responsive ────────────────────────────────────────── */
+@media (max-width: 1023px) {
+  .nav-links, .nav-cta { display: none; }
+  .hamburger { display: flex; }
+  .grid-2 { grid-template-columns: 1fr; }
+  .grid-4 { grid-template-columns: 1fr 1fr; }
+}
+@media (max-width: 767px) {
+  .container { padding: 0 1.25rem; }
+  .grid-4 { grid-template-columns: 1fr; }
+  .grid-3 { grid-template-columns: 1fr; }
+  .stat-row { grid-template-columns: 1fr 1fr; }
+  .structured-list__row { flex-direction: column; gap: 0.25rem; }
+  .structured-list__key { min-width: unset; }
+}
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { transition-duration: 0.01ms !important; }
+}
+
 </style>
 </head>
-<body class="bg-surface text-on-surface antialiased overflow-x-hidden">
+<body>
 
-<!-- ═══════════════════ NAV ═══════════════════════════ -->
-<header class="fixed top-0 inset-x-0 z-50 glass-nav border-b border-outline-variant/40">
-  <nav class="max-w-page mx-auto px-6 h-20 flex items-center justify-between">
+<!-- ════════════════════════════════════════════════════
+     NAVIGATION
+════════════════════════════════════════════════════ -->
+<nav id="navbar" aria-label="Main navigation">
+  <div class="container nav-inner">
 
-    <a href="#" class="flex items-center gap-2">
-      <span class="font-serif text-xl font-bold text-primary tracking-tight">Kiipwell</span>
-      <span class="text-secondary font-bold text-sm tracking-wide">Solutions</span>
-    </a>
-
-    <div class="hidden lg:flex items-center gap-8">
-      <a href="#"             class="text-sm font-bold tracking-wide text-primary border-b-2 border-primary pb-px">Home</a>
-      <a href="#about"        class="text-sm font-bold tracking-wide text-on-surface-variant hover:text-primary transition-colors">About</a>
-      <a href="#services"     class="text-sm font-bold tracking-wide text-on-surface-variant hover:text-primary transition-colors">Services</a>
-      <a href="#safeguarding" class="text-sm font-bold tracking-wide text-on-surface-variant hover:text-primary transition-colors">Safeguarding</a>
-      <a href="#contact"      class="text-sm font-bold tracking-wide text-on-surface-variant hover:text-primary transition-colors">Contact</a>
+    <div class="nav-logo">
+      <a href="/" aria-label="Kiipwell Solutions — home">
+        <div class="nav-logo__wordmark">Kiipwell Solutions</div>
+      </a>
+      <div class="nav-logo__divider"></div>
+      <span class="nav-logo__sub">Registered Provider</span>
     </div>
 
-    <div class="flex items-center gap-3">
-      <a href="#contact" class="bg-secondary text-white text-sm font-bold px-6 py-3 rounded-xl hover:bg-secondary-dark transition-colors shadow-sm">
+    <div class="nav-links" role="list">
+      <a href="/" class="nav-link active" role="listitem">Home</a>
+      <a href="#about" class="nav-link" role="listitem">About</a>
+      <a href="#services" class="nav-link" role="listitem">Services</a>
+      <a href="#safeguarding" class="nav-link" role="listitem">Safeguarding</a>
+      <a href="contact.html" class="nav-link" role="listitem">Contact</a>
+    </div>
+
+    <div class="nav-cta" style="display:flex;align-items:center;gap:0.75rem;">
+      <a href="contact.html" class="btn btn-primary hidden lg:inline-flex">
         Make a Referral
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
       </a>
-      <button id="hamburger" class="lg:hidden p-2 text-primary" aria-label="Open menu">
-        <span class="material-symbols-outlined text-[28px]">menu</span>
+      <button class="hamburger" id="hamburger" aria-label="Open navigation menu" aria-expanded="false">
+        <span></span><span></span><span></span>
       </button>
     </div>
-  </nav>
-
-  <div id="mobile-menu" class="flex-col bg-white border-t border-outline-variant px-6 py-4 gap-1 shadow-lg">
-    <a href="#"             class="block py-3 text-sm font-bold text-primary border-b border-outline-variant/40">Home</a>
-    <a href="#about"        class="block py-3 text-sm font-bold text-on-surface-variant">About</a>
-    <a href="#services"     class="block py-3 text-sm font-bold text-on-surface-variant">Services</a>
-    <a href="#safeguarding" class="block py-3 text-sm font-bold text-on-surface-variant">Safeguarding</a>
-    <a href="#contact"      class="block py-3 text-sm font-bold text-on-surface-variant">Contact</a>
-    <a href="#contact" class="mt-3 block text-center bg-secondary text-white text-sm font-bold px-6 py-3 rounded-xl">Make a Referral</a>
   </div>
-</header>
 
-<!-- ═══════════════════ HERO ══════════════════════════ -->
-<section class="hero-bg min-h-[92vh] flex items-center pt-20 overflow-hidden">
-  <div class="max-w-page mx-auto px-6 py-20 w-full">
-    <div class="grid lg:grid-cols-2 gap-12 items-center">
+  <div class="mobile-menu" id="mobile-menu" role="navigation" aria-label="Mobile navigation">
+    <a href="/"             class="mob-link active">Home</a>
+    <a href="#about"        class="mob-link">About</a>
+    <a href="#services"     class="mob-link">Services</a>
+    <a href="#safeguarding" class="mob-link">Safeguarding</a>
+    <a href="contact.html"  class="mob-link">Contact</a>
+    <a href="contact.html" class="btn btn-primary" style="margin-top:1rem;justify-content:center;">Make a Referral</a>
+  </div>
+</nav>
 
-      <!-- Left: copy -->
+<!-- ════════════════════════════════════════════════════
+     HERO — Data-led, institutional
+════════════════════════════════════════════════════ -->
+<section
+  aria-label="Introduction"
+  style="background:var(--navy-dark);padding-top:var(--nav-h);"
+>
+  <!-- Credential bar -->
+  <div style="border-bottom:1px solid rgba(255,255,255,0.08);padding:0.625rem 0;">
+    <div class="container" style="display:flex;align-items:center;gap:1.25rem;flex-wrap:wrap;">
+      <div class="credential">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+        Registered Provider
+      </div>
+      <div class="credential">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+        North East England
+      </div>
+      <div class="credential">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/></svg>
+        Est. 2024
+      </div>
+      <div class="credential">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+        Safeguarding Compliant
+      </div>
+    </div>
+  </div>
+
+  <!-- Main hero content -->
+  <div class="container" style="padding-top:4rem;padding-bottom:3rem;">
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:5rem;align-items:start;" class="grid-2">
+
+      <!-- Left: identity block -->
       <div>
-        <div class="inline-flex items-center gap-3 px-4 py-2 border border-white/20 rounded-full mb-8">
-          <span class="w-2 h-2 rounded-full bg-secondary animate-pulse flex-shrink-0"></span>
-          <span class="text-white/70 text-xs font-bold tracking-[0.2em] uppercase">North East England · Est. 2024</span>
+        <div class="section-number" style="color:var(--teal);margin-bottom:1.5rem;">
+          <span>Supported Accommodation</span>
         </div>
 
-        <h1 class="text-5xl md:text-6xl lg:text-7xl font-bold text-white leading-[1.05] -tracking-[0.02em] mb-6">
-          Caring<br>Beyond Limits
+        <h1 style="font-size:clamp(2rem,4vw,3.25rem);font-weight:800;color:var(--white);line-height:1.1;letter-spacing:-0.03em;margin-bottom:1.25rem;">
+          Semi-Independent<br>
+          Supported Accommodation<br>
+          <span style="color:var(--teal);">for Young People</span>
         </h1>
 
-        <p class="text-sm font-bold text-secondary tracking-widest uppercase mb-4">
-          Supported Accommodation for Young People (16–21)
+        <p style="font-size:1rem;color:rgba(255,255,255,0.6);line-height:1.75;max-width:480px;margin-bottom:2.5rem;">
+          Kiipwell Solutions provides registered, structured accommodation and specialist support services for young people aged 16 to 21, including unaccompanied asylum-seeking children (UASC) and care leavers across the North East.
         </p>
 
-        <p class="text-lg text-white/75 leading-relaxed max-w-lg mb-10">
-          Providing safe, structured, and supportive environments for young people transitioning into adulthood.
-        </p>
-
-        <div class="flex flex-wrap gap-4 mb-16">
-          <a href="#contact" class="inline-flex items-center gap-2 bg-secondary text-white font-bold px-8 py-4 rounded-xl hover:bg-secondary-dark transition-all hover:-translate-y-0.5 shadow-lg shadow-secondary/30">
+        <div style="display:flex;gap:0.75rem;flex-wrap:wrap;">
+          <a href="contact.html" class="btn btn-primary">
             Make a Referral
-            <span class="material-symbols-outlined text-[18px]">arrow_forward</span>
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
           </a>
-          <a href="#services" class="inline-flex items-center gap-2 border-2 border-white/40 text-white font-bold px-8 py-4 rounded-xl hover:bg-white/10 transition-all">
-            Our Services
-          </a>
-        </div>
-
-        <!-- Stats -->
-        <div class="pt-8 border-t border-white/10 grid grid-cols-3 max-w-sm">
-          <div class="pr-8">
-            <p class="font-serif text-3xl font-bold text-white">16–21</p>
-            <p class="text-white/50 text-xs mt-1 font-bold tracking-wide uppercase">Ages supported</p>
-          </div>
-          <div class="px-8 border-x border-white/10">
-            <p class="font-serif text-3xl font-bold text-white">24/7</p>
-            <p class="text-white/50 text-xs mt-1 font-bold tracking-wide uppercase">On-site support</p>
-          </div>
-          <div class="pl-8">
-            <p class="font-serif text-3xl font-bold text-white">100%</p>
-            <p class="text-white/50 text-xs mt-1 font-bold tracking-wide uppercase">Safeguarding rated</p>
-          </div>
+          <a href="#services" class="btn btn-outline-white">View Services</a>
         </div>
       </div>
 
-      <!-- Mobile hero image (below CTA, portrait crop) -->
-      <div class="lg:hidden mt-10 relative rounded-2xl overflow-hidden h-64 shadow-xl">
-        <img src="/public/homepage/Hero.webp" alt="Young person in a safe, comfortable home" class="w-full h-full object-cover object-center">
-        <div class="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent"></div>
-      </div>
+      <!-- Right: key data -->
+      <div>
+        <div style="border:1px solid rgba(255,255,255,0.1);border-radius:var(--radius);padding:2rem;background:rgba(255,255,255,0.03);">
+          <div class="label label--white" style="margin-bottom:1.5rem;">Service Specification</div>
 
-      <!-- Right: hero image (desktop) -->
-      <div class="relative hidden lg:block">
-        <!-- Main photo -->
-        <div class="relative rounded-[2rem] overflow-hidden aspect-[4/5] shadow-2xl">
-          <img
-            src="/public/homepage/Hero.webp"
-            alt="Young person reading at home in a safe, comfortable environment"
-            class="w-full h-full object-cover"
-          >
-          <!-- Subtle dark gradient at bottom for badge readability -->
-          <div class="absolute inset-0 bg-gradient-to-t from-black/30 via-transparent to-transparent"></div>
-        </div>
-
-        <!-- Floating trust badge -->
-        <div class="absolute -bottom-6 -left-6 bg-white rounded-2xl p-5 shadow-2xl border border-outline-variant/30 max-w-[220px]">
-          <div class="flex items-center gap-3 mb-2">
-            <div class="w-9 h-9 rounded-lg bg-secondary/10 flex items-center justify-center flex-shrink-0">
-              <span class="material-symbols-outlined text-secondary text-[20px]">verified_user</span>
+          <div style="display:grid;grid-template-columns:1fr 1fr;gap:2rem 1.5rem;margin-bottom:2rem;" class="stat-row">
+            <div class="data-cell">
+              <div class="data-cell__value">16–21</div>
+              <div class="data-cell__label">Age range served</div>
             </div>
-            <p class="font-bold text-primary text-sm leading-tight">Safe &amp; Registered</p>
+            <div class="data-cell">
+              <div class="data-cell__value">24/7</div>
+              <div class="data-cell__label">On-call support</div>
+            </div>
+            <div class="data-cell">
+              <div class="data-cell__value">100%</div>
+              <div class="data-cell__label">DBS-checked staff</div>
+            </div>
+            <div class="data-cell">
+              <div class="data-cell__value">Tier 3</div>
+              <div class="data-cell__label">Semi-independent</div>
+            </div>
           </div>
-          <p class="text-on-surface-variant text-xs leading-relaxed">Fully safeguarded, locally registered accommodation in the North East.</p>
+
+          <div class="rule--dark" style="height:1px;background:rgba(255,255,255,0.08);margin-bottom:1.25rem;"></div>
+
+          <div style="display:flex;flex-direction:column;gap:0.625rem;">
+            <div style="display:flex;justify-content:space-between;align-items:center;">
+              <span style="font-size:0.8125rem;color:rgba(255,255,255,0.45);font-weight:500;">Service type</span>
+              <span style="font-size:0.8125rem;color:var(--white);font-weight:600;">Semi-independent</span>
+            </div>
+            <div style="display:flex;justify-content:space-between;align-items:center;">
+              <span style="font-size:0.8125rem;color:rgba(255,255,255,0.45);font-weight:500;">Commissioning</span>
+              <span style="font-size:0.8125rem;color:var(--white);font-weight:600;">Local Authority / HNSS</span>
+            </div>
+            <div style="display:flex;justify-content:space-between;align-items:center;">
+              <span style="font-size:0.8125rem;color:rgba(255,255,255,0.45);font-weight:500;">Region</span>
+              <span style="font-size:0.8125rem;color:var(--white);font-weight:600;">North East England</span>
+            </div>
+            <div style="display:flex;justify-content:space-between;align-items:center;">
+              <span style="font-size:0.8125rem;color:rgba(255,255,255,0.45);font-weight:500;">Referral route</span>
+              <span style="font-size:0.8125rem;color:var(--teal);font-weight:600;">contact.html →</span>
+            </div>
+          </div>
         </div>
-
-        <!-- Decorative ring -->
-        <div class="absolute -top-8 -right-8 w-32 h-32 border border-white/10 rounded-full"></div>
-        <div class="absolute -top-4 -right-4 w-16 h-16 border border-secondary/20 rounded-full"></div>
       </div>
-
     </div>
   </div>
 </section>
 
-<!-- ═══════════════════ WHO WE ARE ════════════════════ -->
-<section id="about" class="py-section-padding bg-surface-container-low">
-  <div class="max-w-page mx-auto px-6">
-    <div class="grid lg:grid-cols-12 gap-12 items-start">
+<!-- ════════════════════════════════════════════════════
+     SECTION 01 — ABOUT
+════════════════════════════════════════════════════ -->
+<section id="about" style="padding:5rem 0;background:var(--white);" aria-labelledby="about-heading">
+  <div class="container">
 
-      <!-- Left: mentors photo -->
-      <div class="lg:col-span-4 hidden lg:block">
-        <div class="relative rounded-2xl overflow-hidden aspect-[3/4] shadow-xl">
-          <img
-            src="/public/homepage/mentors.webp"
-            alt="Kiipwell support team in discussion, experienced professionals in housing, safeguarding and youth support"
-            class="w-full h-full object-cover object-top"
-          >
-          <div class="absolute inset-0 bg-gradient-to-t from-primary/50 via-transparent to-transparent"></div>
-          <div class="absolute bottom-0 left-0 right-0 p-6">
-            <p class="text-white font-bold text-sm leading-tight">Our Support Team</p>
-            <p class="text-white/70 text-xs mt-1">Housing · Safeguarding · Youth Support</p>
-          </div>
-        </div>
-      </div>
+    <div style="display:grid;grid-template-columns:280px 1fr;gap:6rem;align-items:start;" class="grid-2">
 
-      <!-- Middle: copy -->
-      <div class="lg:col-span-4">
-        <div class="flex items-center gap-3 mb-6">
-          <div class="h-px w-10 bg-secondary flex-shrink-0"></div>
-          <span class="text-secondary text-xs font-bold tracking-[0.2em] uppercase">Who We Are</span>
-        </div>
-        <h2 class="font-serif text-4xl font-bold text-primary leading-tight mb-6">
-          A Home Built on Trust<br>&amp; Lived Experience
+      <!-- Left: section label -->
+      <div style="padding-top:0.25rem;">
+        <div class="section-number">01 — Organisation</div>
+        <h2 id="about-heading" style="font-size:1.75rem;font-weight:800;color:var(--navy-dark);letter-spacing:-0.025em;line-height:1.2;margin-bottom:1.5rem;">
+          Who We Are
         </h2>
-        <div class="space-y-4 text-on-surface-variant leading-relaxed text-[15px]">
-          <p>We are a supported housing provider dedicated to working with young people aged 16–21, including asylum seekers and refugees.</p>
-          <p>Our team brings together experience in housing, safeguarding, and youth support, alongside <strong class="text-primary font-semibold">lived experience of the asylum journey</strong>.</p>
-          <p>We are committed to supporting young people to grow, develop independence, and build a positive future.</p>
+        <div style="border-left:3px solid var(--teal);padding-left:1rem;">
+          <p style="font-size:0.875rem;color:var(--muted);line-height:1.7;">
+            An independent registered provider delivering structured, specialist accommodation and wrap-around support for young people across the North East.
+          </p>
         </div>
-        <a href="#contact" class="inline-flex items-center gap-2 mt-8 bg-secondary text-white font-bold text-sm px-6 py-3 rounded-xl hover:bg-secondary-dark transition-all">
-          Make a Referral
-          <span class="material-symbols-outlined text-[16px]">arrow_forward</span>
-        </a>
       </div>
 
-      <!-- Right: What We Offer -->
-      <div class="lg:col-span-4">
-      <!-- What We Offer -->
-      <div class="bg-surface-container-lowest border border-outline-variant rounded-xl p-8 card-lift">
-        <h3 class="font-serif text-xl font-bold text-primary mb-6">What We Offer</h3>
-        <ul class="space-y-4">
-          <li class="flex items-start gap-4">
-            <div class="w-9 h-9 rounded-lg bg-secondary/10 flex items-center justify-center flex-shrink-0 mt-0.5">
-              <span class="material-symbols-outlined text-secondary text-[20px]">home</span>
-            </div>
-            <span class="text-on-surface-variant text-[15px] leading-relaxed">Safe, semi-independent accommodation</span>
-          </li>
-          <li class="flex items-start gap-4">
-            <div class="w-9 h-9 rounded-lg bg-secondary/10 flex items-center justify-center flex-shrink-0 mt-0.5">
-              <span class="material-symbols-outlined text-secondary text-[20px]">support_agent</span>
-            </div>
-            <span class="text-on-surface-variant text-[15px] leading-relaxed">Structured support tailored to each young person</span>
-          </li>
-          <li class="flex items-start gap-4">
-            <div class="w-9 h-9 rounded-lg bg-secondary/10 flex items-center justify-center flex-shrink-0 mt-0.5">
-              <span class="material-symbols-outlined text-secondary text-[20px]">psychology</span>
-            </div>
-            <span class="text-on-surface-variant text-[15px] leading-relaxed">Life skills development and independence training</span>
-          </li>
-          <li class="flex items-start gap-4">
-            <div class="w-9 h-9 rounded-lg bg-secondary/10 flex items-center justify-center flex-shrink-0 mt-0.5">
-              <span class="material-symbols-outlined text-secondary text-[20px]">favorite</span>
-            </div>
-            <span class="text-on-surface-variant text-[15px] leading-relaxed">Emotional wellbeing and resilience support</span>
-          </li>
-          <li class="flex items-start gap-4">
-            <div class="w-9 h-9 rounded-lg bg-secondary/10 flex items-center justify-center flex-shrink-0 mt-0.5">
-              <span class="material-symbols-outlined text-secondary text-[20px]">school</span>
-            </div>
-            <span class="text-on-surface-variant text-[15px] leading-relaxed">Education, training, and employment guidance</span>
-          </li>
-          <li class="flex items-start gap-4">
-            <div class="w-9 h-9 rounded-lg bg-secondary/10 flex items-center justify-center flex-shrink-0 mt-0.5">
-              <span class="material-symbols-outlined text-secondary text-[20px]">groups</span>
-            </div>
-            <span class="text-on-surface-variant text-[15px] leading-relaxed">Community integration and social development</span>
-          </li>
-        </ul>
-      </div>
-      </div><!-- /right col -->
-    </div>
-  </div>
-</section>
+      <!-- Right: structured detail -->
+      <div>
+        <p style="font-size:1rem;color:var(--text);line-height:1.75;margin-bottom:1.5rem;">
+          Kiipwell Solutions is a supported housing provider operating in the North East of England. We work exclusively with young people aged 16 to 21, including unaccompanied asylum-seeking children (UASC), care leavers, and young people at risk of homelessness or social isolation.
+        </p>
+        <p style="font-size:1rem;color:var(--text);line-height:1.75;margin-bottom:2rem;">
+          Our team combines professional backgrounds in housing management, safeguarding, and statutory youth support with direct lived experience of the asylum process — enabling a uniquely informed approach to complex needs.
+        </p>
 
-<!-- ═══════════════════ OUR SERVICE ══════════════════ -->
-<section id="services" class="py-section-padding bg-surface">
-  <div class="max-w-page mx-auto px-6">
-
-    <div class="text-center mb-14">
-      <div class="flex items-center justify-center gap-3 mb-4">
-        <div class="h-px w-10 bg-secondary"></div>
-        <span class="text-secondary text-xs font-bold tracking-[0.2em] uppercase">Our Service</span>
-        <div class="h-px w-10 bg-secondary"></div>
-      </div>
-      <h2 class="font-serif text-4xl font-bold text-primary mb-4">Semi-Independent Supported Accommodation</h2>
-      <p class="text-on-surface-variant max-w-2xl mx-auto leading-relaxed text-[15px]">
-        We provide a safe, nurturing, and structured environment where young people can develop the skills needed for independent living.
-      </p>
-    </div>
-
-    <div class="grid lg:grid-cols-2 gap-8">
-
-      <div class="bg-primary rounded-xl p-8 text-white relative overflow-hidden">
-        <div class="absolute -top-10 -right-10 w-40 h-40 bg-white/5 rounded-full"></div>
-        <div class="relative z-10">
-          <div class="w-12 h-12 rounded-lg bg-white/10 flex items-center justify-center mb-6">
-            <span class="material-symbols-outlined text-secondary text-[24px]">diversity_3</span>
+        <!-- Key facts structured list -->
+        <div class="structured-list">
+          <div class="structured-list__row">
+            <span class="structured-list__key">Organisation type</span>
+            <span class="structured-list__val">Independent registered supported housing provider</span>
           </div>
-          <h3 class="font-serif text-xl font-bold mb-6">Our service is designed for:</h3>
-          <ul class="space-y-4">
-            <li class="flex items-center gap-3">
-              <span class="w-1.5 h-1.5 rounded-full bg-secondary flex-shrink-0"></span>
-              <span class="text-white/85 text-[15px]">Asylum seekers and refugees</span>
-            </li>
-            <li class="flex items-center gap-3">
-              <span class="w-1.5 h-1.5 rounded-full bg-secondary flex-shrink-0"></span>
-              <span class="text-white/85 text-[15px]">Young people transitioning to independence</span>
-            </li>
-            <li class="flex items-center gap-3">
-              <span class="w-1.5 h-1.5 rounded-full bg-secondary flex-shrink-0"></span>
-              <span class="text-white/85 text-[15px]">Those at risk of homelessness or social isolation</span>
-            </li>
-          </ul>
+          <div class="structured-list__row">
+            <span class="structured-list__key">Client group</span>
+            <span class="structured-list__val">Young people aged 16–21: UASC, care leavers, at-risk youth</span>
+          </div>
+          <div class="structured-list__row">
+            <span class="structured-list__key">Geographic area</span>
+            <span class="structured-list__val">North East England</span>
+          </div>
+          <div class="structured-list__row">
+            <span class="structured-list__key">Established</span>
+            <span class="structured-list__val">2024</span>
+          </div>
+          <div class="structured-list__row">
+            <span class="structured-list__key">Framework alignment</span>
+            <span class="structured-list__val">Working Towards Ofsted Registration · Local Authority commissioning frameworks</span>
+          </div>
         </div>
       </div>
-
-      <div class="bg-surface-container-lowest border border-outline-variant rounded-xl p-8 card-lift">
-        <div class="w-12 h-12 rounded-lg bg-secondary/10 flex items-center justify-center mb-6">
-          <span class="material-symbols-outlined text-secondary text-[24px]">verified_user</span>
-        </div>
-        <h3 class="font-serif text-xl font-bold text-primary mb-6">What We Provide</h3>
-        <ul class="space-y-3">
-          <li class="flex items-center gap-3">
-            <span class="w-1.5 h-1.5 rounded-full bg-secondary flex-shrink-0"></span>
-            <span class="text-on-surface-variant text-[15px]">24/7 supported accommodation</span>
-          </li>
-          <li class="flex items-center gap-3">
-            <span class="w-1.5 h-1.5 rounded-full bg-secondary flex-shrink-0"></span>
-            <span class="text-on-surface-variant text-[15px]">Dedicated key worker support</span>
-          </li>
-          <li class="flex items-center gap-3">
-            <span class="w-1.5 h-1.5 rounded-full bg-secondary flex-shrink-0"></span>
-            <span class="text-on-surface-variant text-[15px]">Individual support plans</span>
-          </li>
-          <li class="flex items-center gap-3">
-            <span class="w-1.5 h-1.5 rounded-full bg-secondary flex-shrink-0"></span>
-            <span class="text-on-surface-variant text-[15px]">Regular welfare checks</span>
-          </li>
-          <li class="flex items-center gap-3">
-            <span class="w-1.5 h-1.5 rounded-full bg-secondary flex-shrink-0"></span>
-            <span class="text-on-surface-variant text-[15px]">Safe and well-maintained properties</span>
-          </li>
-        </ul>
-      </div>
-
     </div>
   </div>
 </section>
 
-<!-- ═══════════════════ CORE SUPPORT ══════════════════ -->
-<section class="py-section-padding bg-surface-container-low">
-  <div class="max-w-page mx-auto px-6">
+<div class="rule container" style="max-width:1280px;margin:0 auto;"></div>
 
-    <div class="mb-12">
-      <div class="flex items-center gap-3 mb-4">
-        <div class="h-px w-10 bg-secondary flex-shrink-0"></div>
-        <span class="text-secondary text-xs font-bold tracking-[0.2em] uppercase">Our Core Support</span>
+<!-- ════════════════════════════════════════════════════
+     SECTION 02 — WHAT WE OFFER
+════════════════════════════════════════════════════ -->
+<section id="services" style="padding:5rem 0;background:var(--navy);" aria-labelledby="services-heading">
+  <div class="container">
+
+    <div style="display:grid;grid-template-columns:280px 1fr;gap:6rem;align-items:start;" class="grid-2">
+
+      <!-- Left: section label -->
+      <div style="padding-top:0.25rem;">
+        <div class="section-number" style="color:var(--teal);">02 — Services</div>
+        <h2 id="services-heading" style="font-size:1.75rem;font-weight:800;color:var(--white);letter-spacing:-0.025em;line-height:1.2;margin-bottom:1.5rem;">
+          What We Offer
+        </h2>
+        <p style="font-size:0.875rem;color:rgba(255,255,255,0.45);line-height:1.7;">
+          A structured programme of accommodation and specialist support services, commissioned through local authority and health frameworks.
+        </p>
       </div>
-      <h2 class="font-serif text-4xl font-bold text-primary max-w-xl leading-tight">
-        Comprehensive Support<br>for Every Young Person
+
+      <!-- Right: offer list -->
+      <div>
+        <div class="offer-row">
+          <svg class="offer-row__icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+          <div>
+            <div class="offer-row__text" style="font-weight:600;color:rgba(255,255,255,0.95);margin-bottom:0.25rem;">Safe, semi-independent accommodation</div>
+            <div class="offer-row__text" style="font-size:0.875rem;color:rgba(255,255,255,0.5);">Well-maintained, registered properties with 24/7 staff presence</div>
+          </div>
+        </div>
+        <div class="offer-row">
+          <svg class="offer-row__icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87M16 3.13a4 4 0 010 7.75"/></svg>
+          <div>
+            <div class="offer-row__text" style="font-weight:600;color:rgba(255,255,255,0.95);margin-bottom:0.25rem;">Dedicated key worker and structured support</div>
+            <div class="offer-row__text" style="font-size:0.875rem;color:rgba(255,255,255,0.5);">Individual support plans, regular welfare reviews, case coordination</div>
+          </div>
+        </div>
+        <div class="offer-row">
+          <svg class="offer-row__icon" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M12 8v4l3 3"/></svg>
+          <div>
+            <div class="offer-row__text" style="font-weight:600;color:rgba(255,255,255,0.95);margin-bottom:0.25rem;">Life skills and independence development</div>
+            <div class="offer-row__text" style="font-size:0.875rem;color:rgba(255,255,255,0.5);">Budgeting, tenancy management, cooking, daily living</div>
+          </div>
+        </div>
+        <div class="offer-row">
+          <svg class="offer-row__icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013 5.18 2 2 0 014.96 3h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L9.09 10.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 17.92z"/></svg>
+          <div>
+            <div class="offer-row__text" style="font-weight:600;color:rgba(255,255,255,0.95);margin-bottom:0.25rem;">Health and emotional wellbeing support</div>
+            <div class="offer-row__text" style="font-size:0.875rem;color:rgba(255,255,255,0.5);">Trauma-informed care, mental health signposting, NHS access coordination</div>
+          </div>
+        </div>
+        <div class="offer-row">
+          <svg class="offer-row__icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/></svg>
+          <div>
+            <div class="offer-row__text" style="font-weight:600;color:rgba(255,255,255,0.95);margin-bottom:0.25rem;">Education, training and employment guidance</div>
+            <div class="offer-row__text" style="font-size:0.875rem;color:rgba(255,255,255,0.5);">College enrolment, ESOL, vocational pathways, volunteering</div>
+          </div>
+        </div>
+        <div class="offer-row">
+          <svg class="offer-row__icon" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 014 10 15.3 15.3 0 01-4 10 15.3 15.3 0 01-4-10 15.3 15.3 0 014-10z"/></svg>
+          <div>
+            <div class="offer-row__text" style="font-weight:600;color:rgba(255,255,255,0.95);margin-bottom:0.25rem;">Specialist UASC and asylum process support</div>
+            <div class="offer-row__text" style="font-size:0.875rem;color:rgba(255,255,255,0.5);">Legal appointment support, English language, cultural integration</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ════════════════════════════════════════════════════
+     SECTION 03 — SERVICE SPECIFICATION
+════════════════════════════════════════════════════ -->
+<section style="padding:5rem 0;background:var(--off-white);" aria-labelledby="spec-heading">
+  <div class="container">
+
+    <div style="margin-bottom:3rem;">
+      <div class="section-number">03 — Specification</div>
+      <h2 id="spec-heading" style="font-size:1.75rem;font-weight:800;color:var(--navy-dark);letter-spacing:-0.025em;max-width:560px;line-height:1.2;">
+        Semi-Independent Supported Accommodation
       </h2>
     </div>
 
-    <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:2rem;" class="grid-2">
 
-      <div class="bg-surface-container-lowest border border-outline-variant rounded-xl p-6 card-lift">
-        <div class="w-11 h-11 rounded-lg bg-secondary/10 flex items-center justify-center mb-5">
-          <span class="material-symbols-outlined text-secondary text-[22px]">construction</span>
+      <!-- Designed for -->
+      <div class="sharp-card sharp-card--teal-left">
+        <div class="label label--navy" style="margin-bottom:1.25rem;">Designed for</div>
+        <div style="display:flex;flex-direction:column;gap:0.75rem;">
+          <div style="display:flex;align-items:center;gap:0.75rem;padding:0.75rem 0;border-bottom:1px solid var(--border);">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--teal)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+            <span style="font-size:0.9375rem;">Unaccompanied asylum-seeking children (UASC)</span>
+          </div>
+          <div style="display:flex;align-items:center;gap:0.75rem;padding:0.75rem 0;border-bottom:1px solid var(--border);">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--teal)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+            <span style="font-size:0.9375rem;">Care leavers transitioning to independence</span>
+          </div>
+          <div style="display:flex;align-items:center;gap:0.75rem;padding:0.75rem 0;">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--teal)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+            <span style="font-size:0.9375rem;">Young people at risk of homelessness or isolation</span>
+          </div>
         </div>
-        <h3 class="font-serif text-lg font-bold text-primary mb-4">Life Skills &amp; Independence</h3>
-        <ul class="space-y-2">
-          <li class="flex items-start gap-2 text-[13px] text-on-surface-variant leading-relaxed">
-            <span class="w-1 h-1 rounded-full bg-secondary flex-shrink-0 mt-[7px]"></span>
-            Budgeting and money management
-          </li>
-          <li class="flex items-start gap-2 text-[13px] text-on-surface-variant leading-relaxed">
-            <span class="w-1 h-1 rounded-full bg-secondary flex-shrink-0 mt-[7px]"></span>
-            Cooking and daily living skills
-          </li>
-          <li class="flex items-start gap-2 text-[13px] text-on-surface-variant leading-relaxed">
-            <span class="w-1 h-1 rounded-full bg-secondary flex-shrink-0 mt-[7px]"></span>
-            Managing a tenancy
-          </li>
-        </ul>
       </div>
 
-      <div class="bg-surface-container-lowest border border-outline-variant rounded-xl p-6 card-lift">
-        <div class="w-11 h-11 rounded-lg bg-secondary/10 flex items-center justify-center mb-5">
-          <span class="material-symbols-outlined text-secondary text-[22px]">favorite</span>
+      <!-- What we provide -->
+      <div class="sharp-card">
+        <div class="label label--navy" style="margin-bottom:1.25rem;">What We Provide</div>
+        <div style="display:flex;flex-direction:column;gap:0;">
+          <div style="display:flex;justify-content:space-between;align-items:center;padding:0.75rem 0;border-bottom:1px solid var(--border);">
+            <span style="font-size:0.9375rem;color:var(--text);">24/7 supported accommodation</span>
+            <span style="font-size:0.75rem;font-weight:700;letter-spacing:0.06em;text-transform:uppercase;color:var(--teal);background:rgba(0,184,159,0.08);padding:0.2rem 0.5rem;border-radius:2px;">Included</span>
+          </div>
+          <div style="display:flex;justify-content:space-between;align-items:center;padding:0.75rem 0;border-bottom:1px solid var(--border);">
+            <span style="font-size:0.9375rem;color:var(--text);">Dedicated key worker</span>
+            <span style="font-size:0.75rem;font-weight:700;letter-spacing:0.06em;text-transform:uppercase;color:var(--teal);background:rgba(0,184,159,0.08);padding:0.2rem 0.5rem;border-radius:2px;">Included</span>
+          </div>
+          <div style="display:flex;justify-content:space-between;align-items:center;padding:0.75rem 0;border-bottom:1px solid var(--border);">
+            <span style="font-size:0.9375rem;color:var(--text);">Individual support plan (ISP)</span>
+            <span style="font-size:0.75rem;font-weight:700;letter-spacing:0.06em;text-transform:uppercase;color:var(--teal);background:rgba(0,184,159,0.08);padding:0.2rem 0.5rem;border-radius:2px;">Included</span>
+          </div>
+          <div style="display:flex;justify-content:space-between;align-items:center;padding:0.75rem 0;border-bottom:1px solid var(--border);">
+            <span style="font-size:0.9375rem;color:var(--text);">Regular welfare checks</span>
+            <span style="font-size:0.75rem;font-weight:700;letter-spacing:0.06em;text-transform:uppercase;color:var(--teal);background:rgba(0,184,159,0.08);padding:0.2rem 0.5rem;border-radius:2px;">Included</span>
+          </div>
+          <div style="display:flex;justify-content:space-between;align-items:center;padding:0.75rem 0;">
+            <span style="font-size:0.9375rem;color:var(--text);">Safe, inspected properties</span>
+            <span style="font-size:0.75rem;font-weight:700;letter-spacing:0.06em;text-transform:uppercase;color:var(--teal);background:rgba(0,184,159,0.08);padding:0.2rem 0.5rem;border-radius:2px;">Included</span>
+          </div>
         </div>
-        <h3 class="font-serif text-lg font-bold text-primary mb-4">Health &amp; Wellbeing</h3>
-        <ul class="space-y-2">
-          <li class="flex items-start gap-2 text-[13px] text-on-surface-variant leading-relaxed">
-            <span class="w-1 h-1 rounded-full bg-secondary flex-shrink-0 mt-[7px]"></span>
-            Emotional support
-          </li>
-          <li class="flex items-start gap-2 text-[13px] text-on-surface-variant leading-relaxed">
-            <span class="w-1 h-1 rounded-full bg-secondary flex-shrink-0 mt-[7px]"></span>
-            Trauma-informed care
-          </li>
-          <li class="flex items-start gap-2 text-[13px] text-on-surface-variant leading-relaxed">
-            <span class="w-1 h-1 rounded-full bg-secondary flex-shrink-0 mt-[7px]"></span>
-            Access to health services
-          </li>
-        </ul>
       </div>
-
-      <div class="bg-surface-container-lowest border border-outline-variant rounded-xl p-6 card-lift">
-        <div class="w-11 h-11 rounded-lg bg-secondary/10 flex items-center justify-center mb-5">
-          <span class="material-symbols-outlined text-secondary text-[22px]">school</span>
-        </div>
-        <h3 class="font-serif text-lg font-bold text-primary mb-4">Education &amp; Employment</h3>
-        <ul class="space-y-2">
-          <li class="flex items-start gap-2 text-[13px] text-on-surface-variant leading-relaxed">
-            <span class="w-1 h-1 rounded-full bg-secondary flex-shrink-0 mt-[7px]"></span>
-            College and training support
-          </li>
-          <li class="flex items-start gap-2 text-[13px] text-on-surface-variant leading-relaxed">
-            <span class="w-1 h-1 rounded-full bg-secondary flex-shrink-0 mt-[7px]"></span>
-            Career guidance
-          </li>
-          <li class="flex items-start gap-2 text-[13px] text-on-surface-variant leading-relaxed">
-            <span class="w-1 h-1 rounded-full bg-secondary flex-shrink-0 mt-[7px]"></span>
-            Volunteering opportunities
-          </li>
-        </ul>
-      </div>
-
-      <div class="bg-primary rounded-xl p-6 card-lift">
-        <div class="w-11 h-11 rounded-lg bg-white/10 flex items-center justify-center mb-5">
-          <span class="material-symbols-outlined text-secondary text-[22px]">translate</span>
-        </div>
-        <h3 class="font-serif text-lg font-bold text-white mb-4">Specialist Support for Asylum Seekers</h3>
-        <ul class="space-y-2">
-          <li class="flex items-start gap-2 text-[13px] text-white/75 leading-relaxed">
-            <span class="w-1 h-1 rounded-full bg-secondary flex-shrink-0 mt-[7px]"></span>
-            Support with legal processes and appointments
-          </li>
-          <li class="flex items-start gap-2 text-[13px] text-white/75 leading-relaxed">
-            <span class="w-1 h-1 rounded-full bg-secondary flex-shrink-0 mt-[7px]"></span>
-            English language development
-          </li>
-          <li class="flex items-start gap-2 text-[13px] text-white/75 leading-relaxed">
-            <span class="w-1 h-1 rounded-full bg-secondary flex-shrink-0 mt-[7px]"></span>
-            Cultural and community integration
-          </li>
-        </ul>
-      </div>
-
     </div>
   </div>
 </section>
 
-<!-- ═══════════════════ OUR APPROACH ══════════════════ -->
-<section class="py-section-padding bg-surface">
-  <div class="max-w-page mx-auto px-6">
+<!-- ════════════════════════════════════════════════════
+     SECTION 04 — CORE SUPPORT AREAS
+════════════════════════════════════════════════════ -->
+<section style="padding:5rem 0;background:var(--white);" aria-labelledby="support-heading">
+  <div class="container">
 
-    <div class="grid lg:grid-cols-2 gap-12 items-center mb-14">
+    <div style="margin-bottom:3rem;display:flex;align-items:flex-end;justify-content:space-between;gap:2rem;flex-wrap:wrap;">
       <div>
-        <div class="flex items-center gap-3 mb-4">
-          <div class="h-px w-10 bg-secondary flex-shrink-0"></div>
-          <span class="text-secondary text-xs font-bold tracking-[0.2em] uppercase">Our Approach</span>
-        </div>
-        <h2 class="font-serif text-4xl font-bold text-primary leading-tight">
-          Not Just to Survive,<br>But to Thrive
+        <div class="section-number">04 — Support Areas</div>
+        <h2 id="support-heading" style="font-size:1.75rem;font-weight:800;color:var(--navy-dark);letter-spacing:-0.025em;line-height:1.2;">
+          Core Support Programme
         </h2>
       </div>
-      <p class="text-on-surface-variant leading-relaxed text-[15px]">
-        We work alongside young people to help them prepare for independence. Each young person receives tailored support based on their needs, goals, and lived experiences.
+      <p style="font-size:0.875rem;color:var(--muted);max-width:360px;line-height:1.7;">
+        Each young person receives a tailored programme drawn from four core support areas, reviewed regularly against agreed outcomes.
       </p>
     </div>
 
-    <div class="grid md:grid-cols-3 gap-6">
+    <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--border);border:1px solid var(--border);border-radius:var(--radius);overflow:hidden;" class="grid-4">
 
-      <div class="relative bg-surface-container-lowest border border-outline-variant rounded-xl p-8 overflow-hidden card-lift">
-        <span class="step-number">01</span>
-        <div class="w-11 h-11 rounded-lg bg-secondary/10 flex items-center justify-center mb-5">
-          <span class="material-symbols-outlined text-secondary text-[22px]">person</span>
+      <!-- Life Skills -->
+      <div style="background:var(--white);padding:2rem;">
+        <div class="pillar-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="var(--teal)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14.7 6.3a1 1 0 000 1.4l1.6 1.6a1 1 0 001.4 0l3.77-3.77a6 6 0 01-7.94 7.94l-6.91 6.91a2.12 2.12 0 01-3-3l6.91-6.91a6 6 0 017.94-7.94l-3.76 3.76z"/></svg>
         </div>
-        <h3 class="font-serif text-xl font-bold text-primary mb-3">Person-Centred</h3>
-        <p class="text-on-surface-variant text-[14px] leading-relaxed">
-          Every plan, every decision, every interaction begins and ends with the individual: their voice, their goals, their pace.
+        <div class="label label--navy" style="margin-bottom:0.75rem;">Life Skills</div>
+        <h3 style="font-size:1rem;font-weight:700;color:var(--navy-dark);margin-bottom:1rem;">Independence Development</h3>
+        <ul style="list-style:none;display:flex;flex-direction:column;gap:0.5rem;">
+          <li style="font-size:0.875rem;color:var(--muted);padding-left:1rem;border-left:2px solid var(--border);">Budgeting and money management</li>
+          <li style="font-size:0.875rem;color:var(--muted);padding-left:1rem;border-left:2px solid var(--border);">Cooking and daily living</li>
+          <li style="font-size:0.875rem;color:var(--muted);padding-left:1rem;border-left:2px solid var(--border);">Tenancy management</li>
+        </ul>
+      </div>
+
+      <!-- Health -->
+      <div style="background:var(--white);padding:2rem;">
+        <div class="pillar-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="var(--teal)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg>
+        </div>
+        <div class="label label--navy" style="margin-bottom:0.75rem;">Health</div>
+        <h3 style="font-size:1rem;font-weight:700;color:var(--navy-dark);margin-bottom:1rem;">Wellbeing and Health</h3>
+        <ul style="list-style:none;display:flex;flex-direction:column;gap:0.5rem;">
+          <li style="font-size:0.875rem;color:var(--muted);padding-left:1rem;border-left:2px solid var(--border);">Emotional support</li>
+          <li style="font-size:0.875rem;color:var(--muted);padding-left:1rem;border-left:2px solid var(--border);">Trauma-informed care</li>
+          <li style="font-size:0.875rem;color:var(--muted);padding-left:1rem;border-left:2px solid var(--border);">NHS and GP access</li>
+        </ul>
+      </div>
+
+      <!-- Education -->
+      <div style="background:var(--white);padding:2rem;">
+        <div class="pillar-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="var(--teal)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/></svg>
+        </div>
+        <div class="label label--navy" style="margin-bottom:0.75rem;">Education</div>
+        <h3 style="font-size:1rem;font-weight:700;color:var(--navy-dark);margin-bottom:1rem;">Education and Employment</h3>
+        <ul style="list-style:none;display:flex;flex-direction:column;gap:0.5rem;">
+          <li style="font-size:0.875rem;color:var(--muted);padding-left:1rem;border-left:2px solid var(--border);">College and ESOL support</li>
+          <li style="font-size:0.875rem;color:var(--muted);padding-left:1rem;border-left:2px solid var(--border);">Career guidance</li>
+          <li style="font-size:0.875rem;color:var(--muted);padding-left:1rem;border-left:2px solid var(--border);">Volunteering pathways</li>
+        </ul>
+      </div>
+
+      <!-- UASC Specialist -->
+      <div style="background:var(--navy-dark);padding:2rem;">
+        <div class="pillar-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="var(--teal)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 014 10 15.3 15.3 0 01-4 10 15.3 15.3 0 01-4-10 15.3 15.3 0 014-10z"/></svg>
+        </div>
+        <div class="label label--white" style="margin-bottom:0.75rem;">Specialist</div>
+        <h3 style="font-size:1rem;font-weight:700;color:var(--white);margin-bottom:1rem;">UASC Support</h3>
+        <ul style="list-style:none;display:flex;flex-direction:column;gap:0.5rem;">
+          <li style="font-size:0.875rem;color:rgba(255,255,255,0.5);padding-left:1rem;border-left:2px solid rgba(0,184,159,0.4);">Legal process support</li>
+          <li style="font-size:0.875rem;color:rgba(255,255,255,0.5);padding-left:1rem;border-left:2px solid rgba(0,184,159,0.4);">English language development</li>
+          <li style="font-size:0.875rem;color:rgba(255,255,255,0.5);padding-left:1rem;border-left:2px solid rgba(0,184,159,0.4);">Cultural integration</li>
+        </ul>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ════════════════════════════════════════════════════
+     SECTION 05 — APPROACH
+════════════════════════════════════════════════════ -->
+<section style="padding:5rem 0;background:var(--off-white);" aria-labelledby="approach-heading">
+  <div class="container">
+
+    <div style="margin-bottom:3rem;">
+      <div class="section-number">05 — Methodology</div>
+      <h2 id="approach-heading" style="font-size:1.75rem;font-weight:800;color:var(--navy-dark);letter-spacing:-0.025em;max-width:560px;line-height:1.2;">
+        Our Approach to Supported Living
+      </h2>
+    </div>
+
+    <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:2rem;" class="grid-3">
+
+      <div class="approach-step">
+        <div class="approach-step__num">01</div>
+        <h3 style="font-size:1.0625rem;font-weight:700;color:var(--navy-dark);margin-bottom:0.75rem;letter-spacing:-0.01em;">Person-Centred Planning</h3>
+        <p style="font-size:0.9rem;color:var(--muted);line-height:1.7;">
+          Every support plan is built around the individual — their history, goals, language needs, and pace. No template-driven care. Reviews are held at regular intervals with the young person's active participation.
         </p>
       </div>
 
-      <div class="relative bg-primary rounded-xl p-8 overflow-hidden card-lift">
-        <span class="step-number" style="color:rgba(255,255,255,0.07)">02</span>
-        <div class="w-11 h-11 rounded-lg bg-white/10 flex items-center justify-center mb-5">
-          <span class="material-symbols-outlined text-secondary text-[22px]">healing</span>
-        </div>
-        <h3 class="font-serif text-xl font-bold text-white mb-3">Trauma-Informed</h3>
-        <p class="text-white/70 text-[14px] leading-relaxed">
-          We understand that many of our young people carry significant experiences. Our team is trained to provide care that never retraumatises.
+      <div class="approach-step">
+        <div class="approach-step__num">02</div>
+        <h3 style="font-size:1.0625rem;font-weight:700;color:var(--navy-dark);margin-bottom:0.75rem;letter-spacing:-0.01em;">Trauma-Informed Practice</h3>
+        <p style="font-size:0.9rem;color:var(--muted);line-height:1.7;">
+          All staff are trained in trauma-informed approaches. We recognise that many young people carry significant adverse experiences. Our environment and interactions are designed to build safety and trust, not to retraumatise.
         </p>
       </div>
 
-      <div class="relative bg-surface-container-lowest border border-outline-variant rounded-xl p-8 overflow-hidden card-lift">
-        <span class="step-number">03</span>
-        <div class="w-11 h-11 rounded-lg bg-secondary/10 flex items-center justify-center mb-5">
-          <span class="material-symbols-outlined text-secondary text-[22px]">language</span>
-        </div>
-        <h3 class="font-serif text-xl font-bold text-primary mb-3">Culturally Responsive</h3>
-        <p class="text-on-surface-variant text-[14px] leading-relaxed">
-          We celebrate and respect the cultural backgrounds of those we support, embedding this into every aspect of our service.
+      <div class="approach-step">
+        <div class="approach-step__num">03</div>
+        <h3 style="font-size:1.0625rem;font-weight:700;color:var(--navy-dark);margin-bottom:0.75rem;letter-spacing:-0.01em;">Culturally Responsive Delivery</h3>
+        <p style="font-size:0.9rem;color:var(--muted);line-height:1.7;">
+          We employ staff with lived experience of the asylum journey and cultural contexts relevant to our client group. Support is delivered with genuine understanding of language barriers, cultural norms, and religious observance.
         </p>
       </div>
 
@@ -544,315 +866,229 @@
   </div>
 </section>
 
-<!-- ═══════════════════ MISSION ════════════════════════ -->
-<section class="bg-primary py-24 relative overflow-hidden">
-  <div class="absolute inset-0 opacity-[0.025]" aria-hidden="true">
-    <div class="grid grid-cols-12 h-full">
-      <div class="border-r border-white"></div><div class="border-r border-white"></div>
-      <div class="border-r border-white"></div><div class="border-r border-white"></div>
-      <div class="border-r border-white"></div><div class="border-r border-white"></div>
-      <div class="border-r border-white"></div><div class="border-r border-white"></div>
-      <div class="border-r border-white"></div><div class="border-r border-white"></div>
-      <div class="border-r border-white"></div><div></div>
+<!-- ════════════════════════════════════════════════════
+     MISSION STATEMENT — high contrast
+════════════════════════════════════════════════════ -->
+<section style="padding:5rem 0;background:var(--navy-dark);" aria-labelledby="mission-heading">
+  <div class="container">
+    <div style="max-width:800px;margin:0 auto;text-align:center;">
+      <div class="label label--teal" style="margin-bottom:1.5rem;justify-content:center;display:flex;align-items:center;gap:0.5rem;">
+        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+        Statement of Purpose
+      </div>
+      <h2 id="mission-heading" style="font-size:clamp(1.5rem,3vw,2.5rem);font-weight:800;color:var(--white);letter-spacing:-0.025em;line-height:1.2;margin-bottom:2rem;">
+        "To provide safe, registered accommodation where young people can develop the skills and confidence needed for independent living."
+      </h2>
+      <div style="height:1px;background:rgba(255,255,255,0.1);margin-bottom:2rem;"></div>
+      <p style="font-size:0.9375rem;color:rgba(255,255,255,0.5);line-height:1.75;max-width:600px;margin:0 auto 2.5rem;">
+        We are committed to outcomes-focused delivery, collaborative working with commissioning bodies, and continuous improvement through feedback and inspection readiness.
+      </p>
+      <a href="contact.html" class="btn btn-primary">
+        Discuss a Placement
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+      </a>
     </div>
-  </div>
-  <div class="max-w-page mx-auto px-6 text-center relative z-10">
-    <div class="inline-flex items-center gap-3 px-5 py-2 border border-white/20 rounded-full mb-10">
-      <span class="w-1 h-1 rounded-full bg-secondary"></span>
-      <span class="text-white/70 text-xs font-bold tracking-[0.2em] uppercase">Our Mission</span>
-    </div>
-    <h2 class="font-serif text-5xl md:text-6xl font-bold text-white max-w-4xl mx-auto leading-[1.1] -tracking-[0.02em] mb-8">
-      To Rebuild Lives and<br>Build Futures with Confidence
-    </h2>
-    <p class="text-white/65 text-lg leading-relaxed max-w-2xl mx-auto mb-12">
-      To provide safe, supportive accommodation where young people can rebuild their lives, gain independence, and move forward with confidence.
-    </p>
-    <a href="#contact" class="inline-flex items-center gap-2 bg-secondary text-white font-bold px-8 py-4 rounded-xl hover:bg-secondary-dark transition-all hover:-translate-y-0.5 shadow-lg shadow-secondary/30 text-sm">
-      Make a Referral
-      <span class="material-symbols-outlined text-[18px]">arrow_forward</span>
-    </a>
   </div>
 </section>
 
-<!-- ═══════════════════ SAFEGUARDING ══════════════════ -->
-<section id="safeguarding" class="py-section-padding bg-surface-container-low">
-  <div class="max-w-page mx-auto px-6">
-    <div class="grid lg:grid-cols-2 gap-16 items-center">
+<!-- ════════════════════════════════════════════════════
+     SECTION 06 — SAFEGUARDING
+════════════════════════════════════════════════════ -->
+<section id="safeguarding" style="padding:5rem 0;background:var(--white);" aria-labelledby="sg-heading">
+  <div class="container">
+
+    <div style="display:grid;grid-template-columns:280px 1fr;gap:6rem;align-items:start;" class="grid-2">
 
       <div>
-        <div class="flex items-center gap-3 mb-6">
-          <div class="h-px w-10 bg-secondary flex-shrink-0"></div>
-          <span class="text-secondary text-xs font-bold tracking-[0.2em] uppercase">Safeguarding</span>
-        </div>
-        <h2 class="font-serif text-4xl font-bold text-primary leading-tight mb-6">
-          Safeguarding is Central<br>to Everything We Do
+        <div class="section-number">06 — Safeguarding</div>
+        <h2 id="sg-heading" style="font-size:1.75rem;font-weight:800;color:var(--navy-dark);letter-spacing:-0.025em;line-height:1.2;margin-bottom:1.25rem;">
+          Our Safeguarding Commitment
         </h2>
-        <p class="text-on-surface-variant leading-relaxed mb-8 text-[15px]">
-          The safety and wellbeing of every young person in our care is our highest priority. Our safeguarding framework is embedded into every level of our service.
-        </p>
-        <a href="#contact" class="inline-flex items-center gap-2 bg-secondary text-white font-bold text-sm px-6 py-3 rounded-xl hover:bg-secondary-dark transition-all">
-          Get in Touch
-          <span class="material-symbols-outlined text-[16px]">arrow_forward</span>
-        </a>
+        <div style="border-left:3px solid var(--teal);padding-left:1rem;">
+          <p style="font-size:0.875rem;color:var(--muted);line-height:1.7;">
+            Safeguarding is a statutory requirement and a central organisational priority. Our policies, procedures, and staff competencies are maintained to the standard required by commissioning local authorities.
+          </p>
+        </div>
       </div>
 
-      <div class="grid grid-cols-2 gap-4">
-
-        <div class="bg-surface-container-lowest border border-outline-variant rounded-xl p-6 card-lift">
-          <div class="w-10 h-10 rounded-lg bg-secondary/10 flex items-center justify-center mb-4">
-            <span class="material-symbols-outlined text-secondary text-[20px]">policy</span>
+      <div>
+        <div class="policy-item">
+          <svg class="policy-item__icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg>
+          <div>
+            <div class="policy-item__title">Comprehensive Safeguarding Policies</div>
+            <div class="policy-item__body">Up-to-date policies covering child protection, adults at risk, missing persons, county lines, and online safety. Reviewed annually and following any significant incident.</div>
           </div>
-          <h4 class="font-serif text-base font-bold text-primary mb-2">Strong Policies</h4>
-          <p class="text-on-surface-variant text-[13px] leading-relaxed">Robust, up-to-date safeguarding policies reviewed regularly.</p>
         </div>
-
-        <div class="bg-surface-container-lowest border border-outline-variant rounded-xl p-6 card-lift">
-          <div class="w-10 h-10 rounded-lg bg-secondary/10 flex items-center justify-center mb-4">
-            <span class="material-symbols-outlined text-secondary text-[20px]">badge</span>
+        <div class="policy-item">
+          <svg class="policy-item__icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+          <div>
+            <div class="policy-item__title">Enhanced DBS and Vetted Workforce</div>
+            <div class="policy-item__body">All staff and volunteers hold enhanced DBS clearance. Safer recruitment procedures applied across the organisation including references, employment history verification, and interview assessment.</div>
           </div>
-          <h4 class="font-serif text-base font-bold text-primary mb-2">Trained &amp; Vetted Staff</h4>
-          <p class="text-on-surface-variant text-[13px] leading-relaxed">DBS-checked team with ongoing safeguarding training.</p>
         </div>
-
-        <div class="bg-surface-container-lowest border border-outline-variant rounded-xl p-6 card-lift">
-          <div class="w-10 h-10 rounded-lg bg-secondary/10 flex items-center justify-center mb-4">
-            <span class="material-symbols-outlined text-secondary text-[20px]">assignment</span>
+        <div class="policy-item">
+          <svg class="policy-item__icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013 5.18 2 2 0 014.96 3h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L9.09 10.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 17.92z"/></svg>
+          <div>
+            <div class="policy-item__title">Clear Referral and Reporting Procedures</div>
+            <div class="policy-item__body">Designated Safeguarding Lead (DSL) in post. All staff trained in recognising and reporting concerns. Referral pathways to MASH, local authority children's services, and police clearly established.</div>
           </div>
-          <h4 class="font-serif text-base font-bold text-primary mb-2">Clear Reporting</h4>
-          <p class="text-on-surface-variant text-[13px] leading-relaxed">Defined procedures for reporting concerns, quickly and safely.</p>
         </div>
-
-        <div class="bg-surface-container-lowest border border-outline-variant rounded-xl p-6 card-lift">
-          <div class="w-10 h-10 rounded-lg bg-secondary/10 flex items-center justify-center mb-4">
-            <span class="material-symbols-outlined text-secondary text-[20px]">handshake</span>
+        <div class="policy-item">
+          <svg class="policy-item__icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87M16 3.13a4 4 0 010 7.75"/></svg>
+          <div>
+            <div class="policy-item__title">Partnership with Statutory Authorities</div>
+            <div class="policy-item__body">Active engagement with local authority children's services, virtual school heads, leaving care teams, and HNSS. Regular liaison with placing authority social workers and participation in LAC reviews.</div>
           </div>
-          <h4 class="font-serif text-base font-bold text-primary mb-2">Authority Partnership</h4>
-          <p class="text-on-surface-variant text-[13px] leading-relaxed">Working closely with councils, social workers, and statutory bodies.</p>
         </div>
-
       </div>
     </div>
   </div>
 </section>
 
-<!-- ═══════════════════ CONTACT ════════════════════════ -->
-<section id="contact" class="py-section-padding bg-surface">
-  <div class="max-w-page mx-auto px-6">
-    <div class="grid lg:grid-cols-2 gap-16 items-start">
-
-      <div>
-        <div class="flex items-center gap-3 mb-6">
-          <div class="h-px w-10 bg-secondary flex-shrink-0"></div>
-          <span class="text-secondary text-xs font-bold tracking-[0.2em] uppercase">Contact Us</span>
-        </div>
-        <h2 class="font-serif text-4xl font-bold text-primary leading-tight mb-6">Get in Touch</h2>
-        <p class="text-on-surface-variant leading-relaxed mb-10 text-[15px]">
-          Get in touch to learn more about our service or discuss referrals. We aim to respond within one working day.
-        </p>
-
-        <div class="space-y-4">
-          <div class="flex items-center gap-4 p-4 bg-surface-container-low rounded-xl border border-outline-variant">
-            <div class="w-10 h-10 rounded-lg bg-secondary/10 flex items-center justify-center flex-shrink-0">
-              <span class="material-symbols-outlined text-secondary text-[20px]">mail</span>
-            </div>
-            <div>
-              <p class="text-xs font-bold text-on-surface-variant uppercase tracking-wide mb-0.5">Email</p>
-              <p class="text-primary font-semibold text-[15px]">hello@kiipwellsolutions.co.uk</p>
-            </div>
-          </div>
-          <div class="flex items-center gap-4 p-4 bg-surface-container-low rounded-xl border border-outline-variant">
-            <div class="w-10 h-10 rounded-lg bg-secondary/10 flex items-center justify-center flex-shrink-0">
-              <span class="material-symbols-outlined text-secondary text-[20px]">call</span>
-            </div>
-            <div>
-              <p class="text-xs font-bold text-on-surface-variant uppercase tracking-wide mb-0.5">Phone</p>
-              <p class="text-primary font-semibold text-[15px]">+44 (0) 191 000 0000</p>
-            </div>
-          </div>
-          <div class="flex items-center gap-4 p-4 bg-surface-container-low rounded-xl border border-outline-variant">
-            <div class="w-10 h-10 rounded-lg bg-secondary/10 flex items-center justify-center flex-shrink-0">
-              <span class="material-symbols-outlined text-secondary text-[20px]">location_on</span>
-            </div>
-            <div>
-              <p class="text-xs font-bold text-on-surface-variant uppercase tracking-wide mb-0.5">Region</p>
-              <p class="text-primary font-semibold text-[15px]">North East England</p>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <!-- Referral form -->
-      <div class="bg-surface-container-lowest border border-outline-variant rounded-xl p-8">
-        <h3 class="font-serif text-2xl font-bold text-primary mb-2">Make a Referral</h3>
-        <p class="text-on-surface-variant text-sm mb-8">Complete the form and our team will be in touch within one working day.</p>
-
-        <form class="space-y-5">
-          <div class="grid sm:grid-cols-2 gap-4">
-            <div>
-              <label class="block text-xs font-bold text-primary tracking-wide uppercase mb-2">First Name</label>
-              <input type="text" placeholder="Jane" class="w-full px-4 py-3 bg-surface-container-low border border-outline-variant rounded-xl text-on-surface text-sm focus:outline-none focus:ring-2 focus:ring-secondary/30 focus:border-secondary transition-all">
-            </div>
-            <div>
-              <label class="block text-xs font-bold text-primary tracking-wide uppercase mb-2">Last Name</label>
-              <input type="text" placeholder="Smith" class="w-full px-4 py-3 bg-surface-container-low border border-outline-variant rounded-xl text-on-surface text-sm focus:outline-none focus:ring-2 focus:ring-secondary/30 focus:border-secondary transition-all">
-            </div>
-          </div>
-          <div>
-            <label class="block text-xs font-bold text-primary tracking-wide uppercase mb-2">Organisation</label>
-            <input type="text" placeholder="Local Authority / Agency name" class="w-full px-4 py-3 bg-surface-container-low border border-outline-variant rounded-xl text-on-surface text-sm focus:outline-none focus:ring-2 focus:ring-secondary/30 focus:border-secondary transition-all">
-          </div>
-          <div>
-            <label class="block text-xs font-bold text-primary tracking-wide uppercase mb-2">Email Address</label>
-            <input type="email" placeholder="jane.smith@council.gov.uk" class="w-full px-4 py-3 bg-surface-container-low border border-outline-variant rounded-xl text-on-surface text-sm focus:outline-none focus:ring-2 focus:ring-secondary/30 focus:border-secondary transition-all">
-          </div>
-          <div>
-            <label class="block text-xs font-bold text-primary tracking-wide uppercase mb-2">Type of Enquiry</label>
-            <select class="w-full px-4 py-3 bg-surface-container-low border border-outline-variant rounded-xl text-on-surface text-sm focus:outline-none focus:ring-2 focus:ring-secondary/30 focus:border-secondary transition-all appearance-none">
-              <option value="">Select one…</option>
-              <option>Referral: Young Person (16–21)</option>
-              <option>Referral: Asylum Seeker / Refugee</option>
-              <option>General Enquiry</option>
-              <option>Partnership / Commissioning</option>
-            </select>
-          </div>
-          <div>
-            <label class="block text-xs font-bold text-primary tracking-wide uppercase mb-2">Message</label>
-            <textarea rows="4" placeholder="Tell us about the young person or your enquiry…" class="w-full px-4 py-3 bg-surface-container-low border border-outline-variant rounded-xl text-on-surface text-sm focus:outline-none focus:ring-2 focus:ring-secondary/30 focus:border-secondary transition-all resize-none"></textarea>
-          </div>
-          <button type="submit" class="w-full bg-secondary text-white font-bold py-4 rounded-xl hover:bg-secondary-dark transition-all hover:-translate-y-0.5 shadow-md shadow-secondary/20 text-sm">
-            Send Referral
-          </button>
-        </form>
-      </div>
-
+<!-- ════════════════════════════════════════════════════
+     REFERRAL CTA STRIP
+════════════════════════════════════════════════════ -->
+<section style="background:var(--navy);padding:3rem 0;border-top:1px solid rgba(255,255,255,0.06);">
+  <div class="container" style="display:flex;align-items:center;justify-content:space-between;gap:2rem;flex-wrap:wrap;">
+    <div>
+      <div class="label label--teal" style="margin-bottom:0.625rem;">Referrals</div>
+      <h2 style="font-size:1.375rem;font-weight:700;color:var(--white);letter-spacing:-0.02em;">
+        To refer a young person or request a service specification
+      </h2>
+    </div>
+    <div style="display:flex;gap:0.75rem;flex-shrink:0;flex-wrap:wrap;">
+      <a href="contact.html" class="btn btn-primary">
+        Make a Referral
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+      </a>
+      <a href="contact.html" class="btn btn-outline-white">Download Service Spec</a>
     </div>
   </div>
 </section>
 
-<!-- ═══════════════════ FOOTER ════════════════════════ -->
-<footer class="bg-primary-dark text-white pt-16 pb-8">
-  <div class="max-w-page mx-auto px-6">
+<!-- ════════════════════════════════════════════════════
+     FOOTER
+════════════════════════════════════════════════════ -->
+<footer style="background:var(--navy-dark);padding:3.5rem 0 2rem;border-top:1px solid rgba(255,255,255,0.06);" role="contentinfo">
+  <div class="container">
 
-    <div class="grid lg:grid-cols-4 gap-12 pb-12 border-b border-white/10">
-      <div class="lg:col-span-2">
-        <div class="flex items-center gap-2 mb-4">
-          <span class="font-serif text-xl font-bold tracking-tight">Kiipwell</span>
-          <span class="text-secondary font-bold text-sm tracking-wide">Solutions</span>
-        </div>
-        <p class="text-white/50 text-sm leading-relaxed max-w-xs mb-5">
-          Caring Beyond Limits. Providing safe, structured, and supportive environments for young people across the North East.
+    <div style="display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:3rem;margin-bottom:3rem;padding-bottom:2.5rem;border-bottom:1px solid rgba(255,255,255,0.08);" class="grid-4">
+
+      <!-- Brand -->
+      <div>
+        <div style="font-size:0.9375rem;font-weight:800;letter-spacing:-0.01em;color:var(--white);text-transform:uppercase;margin-bottom:0.375rem;">Kiipwell Solutions</div>
+        <div style="font-size:0.6875rem;font-weight:600;letter-spacing:0.08em;text-transform:uppercase;color:var(--teal);margin-bottom:1.25rem;">Registered Supported Accommodation Provider</div>
+        <p style="font-size:0.875rem;color:rgba(255,255,255,0.4);line-height:1.7;max-width:280px;">
+          Semi-independent supported accommodation for young people aged 16 to 21. North East England.
         </p>
-        <span class="inline-flex items-center gap-2 px-3 py-1.5 border border-white/10 rounded-full text-white/40 text-xs font-bold tracking-wide">
-          <span class="w-1.5 h-1.5 rounded-full bg-secondary"></span>
-          North East England
-        </span>
       </div>
 
+      <!-- Services -->
       <div>
-        <h4 class="text-xs font-bold tracking-[0.2em] uppercase text-white/30 mb-5">Services</h4>
-        <ul class="space-y-3">
-          <li><a href="#services"     class="text-white/55 text-sm hover:text-white transition-colors">Supported Accommodation</a></li>
-          <li><a href="#services"     class="text-white/55 text-sm hover:text-white transition-colors">Life Skills &amp; Independence</a></li>
-          <li><a href="#services"     class="text-white/55 text-sm hover:text-white transition-colors">Asylum Seeker Support</a></li>
-          <li><a href="#safeguarding" class="text-white/55 text-sm hover:text-white transition-colors">Safeguarding</a></li>
+        <div class="label label--white" style="margin-bottom:1rem;">Services</div>
+        <ul style="list-style:none;display:flex;flex-direction:column;gap:0.625rem;">
+          <li><a href="#services" style="font-size:0.875rem;color:rgba(255,255,255,0.45);transition:color 0.15s;" onmouseover="this.style.color='white'" onmouseout="this.style.color='rgba(255,255,255,0.45)'">Supported Accommodation</a></li>
+          <li><a href="#services" style="font-size:0.875rem;color:rgba(255,255,255,0.45);transition:color 0.15s;" onmouseover="this.style.color='white'" onmouseout="this.style.color='rgba(255,255,255,0.45)'">Life Skills Programme</a></li>
+          <li><a href="#services" style="font-size:0.875rem;color:rgba(255,255,255,0.45);transition:color 0.15s;" onmouseover="this.style.color='white'" onmouseout="this.style.color='rgba(255,255,255,0.45)'">UASC Specialist Support</a></li>
+          <li><a href="#safeguarding" style="font-size:0.875rem;color:rgba(255,255,255,0.45);transition:color 0.15s;" onmouseover="this.style.color='white'" onmouseout="this.style.color='rgba(255,255,255,0.45)'">Safeguarding</a></li>
         </ul>
       </div>
 
+      <!-- Organisation -->
       <div>
-        <h4 class="text-xs font-bold tracking-[0.2em] uppercase text-white/30 mb-5">Contact</h4>
-        <ul class="space-y-3">
-          <li><a href="#about"   class="text-white/55 text-sm hover:text-white transition-colors">About Us</a></li>
-          <li><a href="#contact" class="text-white/55 text-sm hover:text-white transition-colors">Make a Referral</a></li>
-          <li><a href="mailto:hello@kiipwellsolutions.co.uk" class="text-white/55 text-sm hover:text-white transition-colors">hello@kiipwellsolutions.co.uk</a></li>
-          <li><span class="text-white/55 text-sm">+44 (0) 191 000 0000</span></li>
+        <div class="label label--white" style="margin-bottom:1rem;">Organisation</div>
+        <ul style="list-style:none;display:flex;flex-direction:column;gap:0.625rem;">
+          <li><a href="#about" style="font-size:0.875rem;color:rgba(255,255,255,0.45);transition:color 0.15s;" onmouseover="this.style.color='white'" onmouseout="this.style.color='rgba(255,255,255,0.45)'">About Us</a></li>
+          <li><a href="#approach" style="font-size:0.875rem;color:rgba(255,255,255,0.45);transition:color 0.15s;" onmouseover="this.style.color='white'" onmouseout="this.style.color='rgba(255,255,255,0.45)'">Our Approach</a></li>
+          <li><a href="contact.html" style="font-size:0.875rem;color:rgba(255,255,255,0.45);transition:color 0.15s;" onmouseover="this.style.color='white'" onmouseout="this.style.color='rgba(255,255,255,0.45)'">Contact</a></li>
         </ul>
       </div>
+
+      <!-- Contact -->
+      <div>
+        <div class="label label--white" style="margin-bottom:1rem;">Contact</div>
+        <ul style="list-style:none;display:flex;flex-direction:column;gap:0.75rem;">
+          <li style="display:flex;align-items:center;gap:0.625rem;">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="var(--teal)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+            <a href="mailto:hello@kiipwellsolutions.co.uk" style="font-size:0.875rem;color:rgba(255,255,255,0.45);transition:color 0.15s;" onmouseover="this.style.color='white'" onmouseout="this.style.color='rgba(255,255,255,0.45)'">hello@kiipwellsolutions.co.uk</a>
+          </li>
+          <li style="display:flex;align-items:center;gap:0.625rem;">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="var(--teal)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013 5.18 2 2 0 014.96 3h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L9.09 10.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 17.92z"/></svg>
+            <span style="font-size:0.875rem;color:rgba(255,255,255,0.45);">+44 (0) 191 000 0000</span>
+          </li>
+          <li style="display:flex;align-items:center;gap:0.625rem;">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="var(--teal)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+            <span style="font-size:0.875rem;color:rgba(255,255,255,0.45);">North East England</span>
+          </li>
+        </ul>
+      </div>
+
     </div>
 
-    <div class="pt-8 flex flex-col md:flex-row items-center justify-between gap-4 text-white/30 text-xs">
-      <p>© 2026 Kiipwell Solutions. All rights reserved.</p>
-      <div class="flex gap-6">
-        <a href="#" class="hover:text-white transition-colors">Privacy Policy</a>
-        <a href="#" class="hover:text-white transition-colors">Terms of Service</a>
-        <a href="#" class="hover:text-white transition-colors">Safeguarding Policy</a>
+    <!-- Bottom bar -->
+    <div style="display:flex;align-items:center;justify-content:space-between;gap:1rem;flex-wrap:wrap;">
+      <p style="font-size:0.75rem;color:rgba(255,255,255,0.25);">
+        © 2026 Kiipwell Solutions. All rights reserved. Registered in England and Wales.
+      </p>
+      <div style="display:flex;gap:1.5rem;">
+        <a href="#" style="font-size:0.75rem;color:rgba(255,255,255,0.25);transition:color 0.15s;" onmouseover="this.style.color='white'" onmouseout="this.style.color='rgba(255,255,255,0.25)'">Privacy Notice</a>
+        <a href="#" style="font-size:0.75rem;color:rgba(255,255,255,0.25);transition:color 0.15s;" onmouseover="this.style.color='white'" onmouseout="this.style.color='rgba(255,255,255,0.25)'">Safeguarding Policy</a>
+        <a href="#" style="font-size:0.75rem;color:rgba(255,255,255,0.25);transition:color 0.15s;" onmouseover="this.style.color='white'" onmouseout="this.style.color='rgba(255,255,255,0.25)'">Accessibility Statement</a>
       </div>
     </div>
-
   </div>
 </footer>
 
+<!-- ── Toast ─────────────────────────────────────────── -->
+<div id="toast" role="status" aria-live="polite">
+  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+  <span id="toast-msg"></span>
+</div>
+
 <script>
-  // ── Mobile menu toggle ───────────────────────────────
-  document.getElementById('hamburger').addEventListener('click', function() {
-    document.getElementById('mobile-menu').classList.toggle('open');
+// ── Mobile menu ──────────────────────────────────────
+(function() {
+  var btn = document.getElementById('hamburger');
+  var menu = document.getElementById('mobile-menu');
+  btn.addEventListener('click', function() {
+    var open = menu.classList.toggle('open');
+    btn.setAttribute('aria-expanded', open);
   });
-  document.querySelectorAll('#mobile-menu a').forEach(function(a) {
+  menu.querySelectorAll('a').forEach(function(a) {
     a.addEventListener('click', function() {
-      document.getElementById('mobile-menu').classList.remove('open');
+      menu.classList.remove('open');
+      btn.setAttribute('aria-expanded', 'false');
     });
   });
+})();
 
-  // ── Nav scroll-spy ───────────────────────────────────
-  (function() {
-    const navLinks = document.querySelectorAll('header nav .hidden a[href^="#"]');
-    const sections = ['about','services','safeguarding','contact'].map(id => document.getElementById(id)).filter(Boolean);
+// ── Nav scroll-spy ───────────────────────────────────
+(function() {
+  var links = document.querySelectorAll('#navbar .nav-links .nav-link');
+  var ids = ['about','services','safeguarding'];
+  var sections = ids.map(function(id) { return document.getElementById(id); }).filter(Boolean);
 
-    function updateNav() {
-      const scrollY = window.scrollY + 100;
-      let current = '';
-      sections.forEach(function(section) {
-        if (section.offsetTop <= scrollY) current = section.id;
-      });
-      navLinks.forEach(function(link) {
-        const href = link.getAttribute('href').replace('#','');
-        const isHome = link.textContent.trim() === 'Home';
-        const isActive = current === '' ? isHome : href === current;
-        link.classList.toggle('text-primary', isActive);
-        link.classList.toggle('border-b-2', isActive);
-        link.classList.toggle('border-primary', isActive);
-        link.classList.toggle('pb-px', isActive);
-        link.classList.toggle('text-on-surface-variant', !isActive);
-      });
-    }
-
-    window.addEventListener('scroll', updateNav, { passive: true });
-    updateNav();
-  })();
-
-  // ── Form submit toast ────────────────────────────────
-  (function() {
-    const form = document.querySelector('#contact form');
-    if (!form) return;
-
-    // Create toast element
-    const toast = document.createElement('div');
-    toast.style.cssText = [
-      'position:fixed','bottom:2rem','right:2rem','z-index:9999',
-      'background:#00B89F','color:#fff','font-family:"DM Sans",sans-serif',
-      'font-size:0.875rem','font-weight:700','padding:1rem 1.5rem',
-      'border-radius:0.75rem','box-shadow:0 8px 24px rgba(0,184,159,0.3)',
-      'transform:translateY(8px)','opacity:0',
-      'transition:all 0.3s cubic-bezier(0.16,1,0.3,1)',
-      'display:flex','align-items:center','gap:0.5rem','pointer-events:none'
-    ].join(';');
-    toast.innerHTML = '<span style="font-size:18px;font-family:\'Material Symbols Outlined\'">check_circle</span> Referral submitted. We\'ll be in touch within one working day.';
-    document.body.appendChild(toast);
-
-    function showToast() {
-      toast.style.opacity = '1';
-      toast.style.transform = 'translateY(0)';
-      setTimeout(function() {
-        toast.style.opacity = '0';
-        toast.style.transform = 'translateY(8px)';
-      }, 4000);
-    }
-
-    form.addEventListener('submit', function(e) {
-      e.preventDefault();
-      showToast();
-      form.reset();
+  function update() {
+    var y = window.scrollY + 80;
+    var active = '';
+    sections.forEach(function(s) { if (s.offsetTop <= y) active = s.id; });
+    links.forEach(function(link) {
+      var href = link.getAttribute('href').replace('#','');
+      var isActive = active ? href === active : link.textContent.trim() === 'Home';
+      link.classList.toggle('active', isActive);
     });
-  })();
+  }
+  window.addEventListener('scroll', update, { passive: true });
+  update();
+})();
+
+// ── Toast util ───────────────────────────────────────
+function showToast(msg) {
+  var t = document.getElementById('toast');
+  document.getElementById('toast-msg').textContent = msg;
+  t.classList.add('show');
+  setTimeout(function() { t.classList.remove('show'); }, 4000);
+}
 </script>
 
 </body>

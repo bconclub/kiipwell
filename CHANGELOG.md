@@ -1,5 +1,21 @@
 # Changelog
 
+## 2026-05-13 · Institutional redesign + contact/referral page
+
+- Complete homepage pivot to government/public-sector institutional aesthetic — Inter exclusively, CSS custom properties, no Tailwind CDN
+- Navy `#0a1f4d` / `#1B3A8C` dominant; teal `#00B89F` accent-only; 4px radius; 1px borders; zero box-shadow
+- 6 numbered sections (01 Organisation, 02 Services, 03 Specification, 04 Support Areas, 05 Methodology, 06 Safeguarding)
+- Data-led hero: credential bar, service spec panel with stat grid, dark navy background
+- Gov.uk-style structured lists, `sharp-card`, `data-cell`, `policy-item` CSS components
+- Lucide icons via `unpkg.com/lucide@latest`
+- All contact/referral CTAs moved off homepage to new `contact.html`
+- Created `contact.html`: full institutional referral page with 4-section structured form (Referrer Details, Young Person Details, Needs Assessment, Placement Details) + Declaration
+- Contact sidebar: 4 contact info cards, "Who Can Refer" list, service spec download link
+- UASC conditional panel revealed on radio selection; form reset + toast on submit
+- Page header with navy dark background, credential panel with age/region data cells
+- Nav active state correctly set to "Contact" when on contact.html
+- User-facing: homepage live at localhost:3000; referral form at localhost:3000/contact.html
+
 ## 2026-05-13 · Kiipwell homepage: design system rebuild, images, bug fixes
 
 - Replaced old custom-CSS homepage (Syne/Inter, dark navy split hero) with Stitch-sourced Civic Excellence design system (Playfair Display + DM Sans, Tailwind CDN)
