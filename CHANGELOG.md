@@ -1,5 +1,12 @@
 # Changelog
 
+## 2026-05-14 · Parallax on About + Safeguarding split images
+
+- **Parallax scroll effect**: added lightweight JS scroll listener — `[data-parallax]` images translate ±40px on `translateY` as user scrolls, creating a depth effect inside their clipped containers
+- **Image overscan**: `.split__img img` set to `inset: -15%; height: 130%` so parallax movement never exposes white edges
+- **Reduced-motion safe**: effect is skipped entirely if `prefers-reduced-motion: reduce` is set
+- Applied to: About section (`about.jpg`) and Safeguarding section (`team.jpg`)
+
 ## 2026-05-14 · Remove duplicate stats bar from hero
 
 - **Hero stats strip removed**: deleted the 16–21 / 24/7 / 100% / Tier 3 glass bar from the bottom of the hero — identical stats already exist in the Impact section below

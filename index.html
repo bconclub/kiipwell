@@ -358,11 +358,13 @@ h1, h2, h3, h4 { font-family: 'Inter', sans-serif; letter-spacing: -0.02em; line
 }
 .split__img img {
   position: absolute;
-  inset: 0;
+  inset: -15%;
   width: 100%;
-  height: 100%;
+  height: 130%;
   object-fit: cover;
   object-position: center;
+  will-change: transform;
+  transition: transform 0.05s linear;
 }
 .split__content {
   padding: 6rem 5rem;
@@ -762,7 +764,7 @@ h1, h2, h3, h4 { font-family: 'Inter', sans-serif; letter-spacing: -0.02em; line
 
     <!-- Left: mentors.webp bleeds to edge -->
     <div class="split__img">
-      <img src="/public/unsplash/about.jpg" alt="Kiipwell support team in discussion" loading="lazy">
+      <img src="/public/unsplash/about.jpg" alt="Kiipwell support team in discussion" loading="lazy" data-parallax>
     </div>
 
     <!-- Right: content -->
@@ -1172,7 +1174,7 @@ h1, h2, h3, h4 { font-family: 'Inter', sans-serif; letter-spacing: -0.02em; line
 
     <!-- Left: placeholder image -->
     <div class="sg-split__img">
-      <img src="/public/unsplash/team.jpg" alt="Professional safeguarding team" loading="lazy">
+      <img src="/public/unsplash/team.jpg" alt="Professional safeguarding team" loading="lazy" data-parallax>
     </div>
 
     <!-- Right: content -->
@@ -1365,6 +1367,28 @@ function showToast(msg) {
   t.classList.add('show');
   setTimeout(function() { t.classList.remove('show'); }, 4000);
 }
+</script>
+
+<script>
+// ── Parallax — split images ───────────────────────────
+(function() {
+  var imgs = document.querySelectorAll('[data-parallax]');
+  if (!imgs.length || window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+
+  function tick() {
+    imgs.forEach(function(img) {
+      var rect = img.closest('.split__img, .sg-split__img').getBoundingClientRect();
+      var vh = window.innerHeight;
+      // progress: -1 (above viewport) → 0 (centered) → 1 (below viewport)
+      var progress = (rect.top + rect.height / 2 - vh / 2) / (vh * 0.8);
+      var offset = progress * 40; // px shift — tweak for more/less travel
+      img.style.transform = 'translateY(' + offset + 'px)';
+    });
+  }
+
+  window.addEventListener('scroll', tick, { passive: true });
+  tick();
+})();
 </script>
 
 </body>
