@@ -1,5 +1,10 @@
 # Changelog
 
+## 2026-05-14 · Remove About structured-list table
+
+- **Structured data table removed**: deleted the 5-row "Organisation type / Client group / Geographic area / Established / Framework" table from the About section — looked institutional and redundant
+- User-facing: About section now reads as clean prose only, no data table below the paragraphs
+
 ## 2026-05-14 · Hero overlay contrast fix
 
 - **Hero overlay lightened**: left-stop reduced from 0.92 → 0.82, mid-stop 0.80 → 0.60, right stops 0.35/0.15 → 0.20/0.05 — photo now shows through with warmth and depth rather than flat navy wash
