@@ -1,5 +1,10 @@
 # Changelog
 
+## 2026-05-14 · Remove duplicate stats bar from hero
+
+- **Hero stats strip removed**: deleted the 16–21 / 24/7 / 100% / Tier 3 glass bar from the bottom of the hero — identical stats already exist in the Impact section below
+- User-facing: hero flows cleanly into About with no repeated metrics
+
 ## 2026-05-14 · Remove About structured-list table
 
 - **Structured data table removed**: deleted the 5-row "Organisation type / Client group / Geographic area / Established / Framework" table from the About section — looked institutional and redundant
