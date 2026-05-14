@@ -1,5 +1,12 @@
 # Changelog
 
+## 2026-05-14 · Hero cleanup + pillar card image fix
+
+- **Hero credential bar removed**: eliminated the 4-pill credential strip (Registered Provider, North East England, Safeguarding Compliant, Est. 2024) from the hero — it was misaligned and redundant since "Registered Provider" already appears in the nav
+- **Hero eyebrow pill**: `.hero__eyebrow` converted from line-style flex layout to matching pill badge (`inline-flex`, teal tint background + border, `border-radius: 9999px`) — consistent with all other section eyebrows
+- **Pillar card white overlay removed**: deleted `.pillar-card__img::after` gradient pseudo-element (white fade at bottom of card photos) — images now cut cleanly into the card body with no wash-out
+- User-facing: hero opens with clean pill eyebrow directly under nav; pillar card photos display at full contrast with no white overlay
+
 ## 2026-05-14 · Premium layout elevation — spacing, type scale, gradient textures
 
 - **Typography scale**: all section h2 headings enlarged to `clamp(2–3.75rem)` — commands the page like the reference design
