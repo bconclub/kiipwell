@@ -500,48 +500,34 @@ h1, h2, h3, h4 {
         </div>
       </div>
 
-      <!-- Right: key data -->
-      <div>
-        <div style="border:1px solid rgba(255,255,255,0.1);border-radius:var(--radius);padding:2rem;background:rgba(255,255,255,0.03);">
-          <div class="label label--white" style="margin-bottom:1.5rem;">Service Specification</div>
-
-          <div style="display:grid;grid-template-columns:1fr 1fr;gap:2rem 1.5rem;margin-bottom:2rem;" class="stat-row">
-            <div class="data-cell">
-              <div class="data-cell__value">16–21</div>
-              <div class="data-cell__label">Age range served</div>
+      <!-- Right: hero image with floating stats -->
+      <div style="position:relative;height:480px;border-radius:var(--radius);overflow:hidden;flex-shrink:0;">
+        <img
+          src="/public/homepage/Hero.webp"
+          alt="Young person at home in supported accommodation"
+          style="width:100%;height:100%;object-fit:cover;object-position:center top;"
+          loading="eager"
+        >
+        <!-- gradient scrim -->
+        <div style="position:absolute;inset:0;background:linear-gradient(to top,rgba(10,31,77,0.82) 0%,rgba(10,31,77,0.1) 55%,transparent 100%);pointer-events:none;"></div>
+        <!-- floating stats bar -->
+        <div style="position:absolute;bottom:1.5rem;left:1.5rem;right:1.5rem;background:rgba(10,31,77,0.78);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);border:1px solid rgba(255,255,255,0.12);border-radius:var(--radius);padding:1.125rem 1.5rem;">
+          <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:1rem;text-align:center;">
+            <div>
+              <div style="font-size:1.375rem;font-weight:800;color:var(--white);letter-spacing:-0.02em;">16–21</div>
+              <div style="font-size:0.6875rem;font-weight:600;letter-spacing:0.08em;text-transform:uppercase;color:rgba(255,255,255,0.4);margin-top:0.2rem;">Age range</div>
             </div>
-            <div class="data-cell">
-              <div class="data-cell__value">24/7</div>
-              <div class="data-cell__label">On-call support</div>
+            <div>
+              <div style="font-size:1.375rem;font-weight:800;color:var(--white);letter-spacing:-0.02em;">24/7</div>
+              <div style="font-size:0.6875rem;font-weight:600;letter-spacing:0.08em;text-transform:uppercase;color:rgba(255,255,255,0.4);margin-top:0.2rem;">On-call</div>
             </div>
-            <div class="data-cell">
-              <div class="data-cell__value">100%</div>
-              <div class="data-cell__label">DBS-checked staff</div>
+            <div>
+              <div style="font-size:1.375rem;font-weight:800;color:var(--teal);letter-spacing:-0.02em;">100%</div>
+              <div style="font-size:0.6875rem;font-weight:600;letter-spacing:0.08em;text-transform:uppercase;color:rgba(255,255,255,0.4);margin-top:0.2rem;">DBS-checked</div>
             </div>
-            <div class="data-cell">
-              <div class="data-cell__value">Tier 3</div>
-              <div class="data-cell__label">Semi-independent</div>
-            </div>
-          </div>
-
-          <div class="rule--dark" style="height:1px;background:rgba(255,255,255,0.08);margin-bottom:1.25rem;"></div>
-
-          <div style="display:flex;flex-direction:column;gap:0.625rem;">
-            <div style="display:flex;justify-content:space-between;align-items:center;">
-              <span style="font-size:0.8125rem;color:rgba(255,255,255,0.45);font-weight:500;">Service type</span>
-              <span style="font-size:0.8125rem;color:var(--white);font-weight:600;">Semi-independent</span>
-            </div>
-            <div style="display:flex;justify-content:space-between;align-items:center;">
-              <span style="font-size:0.8125rem;color:rgba(255,255,255,0.45);font-weight:500;">Commissioning</span>
-              <span style="font-size:0.8125rem;color:var(--white);font-weight:600;">Local Authority / HNSS</span>
-            </div>
-            <div style="display:flex;justify-content:space-between;align-items:center;">
-              <span style="font-size:0.8125rem;color:rgba(255,255,255,0.45);font-weight:500;">Region</span>
-              <span style="font-size:0.8125rem;color:var(--white);font-weight:600;">North East England</span>
-            </div>
-            <div style="display:flex;justify-content:space-between;align-items:center;">
-              <span style="font-size:0.8125rem;color:rgba(255,255,255,0.45);font-weight:500;">Referral route</span>
-              <span style="font-size:0.8125rem;color:var(--teal);font-weight:600;">contact.html →</span>
+            <div>
+              <div style="font-size:1.375rem;font-weight:800;color:var(--white);letter-spacing:-0.02em;">Tier 3</div>
+              <div style="font-size:0.6875rem;font-weight:600;letter-spacing:0.08em;text-transform:uppercase;color:rgba(255,255,255,0.4);margin-top:0.2rem;">Semi-indep.</div>
             </div>
           </div>
         </div>
@@ -556,22 +542,38 @@ h1, h2, h3, h4 {
 <section id="about" style="padding:5rem 0;background:var(--white);" aria-labelledby="about-heading">
   <div class="container">
 
-    <div style="display:grid;grid-template-columns:280px 1fr;gap:6rem;align-items:start;" class="grid-2">
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:5rem;align-items:center;" class="grid-2">
 
-      <!-- Left: section label -->
-      <div style="padding-top:0.25rem;">
+      <!-- Left: heading + detail -->
+      <div>
         <div class="section-number">01 — Organisation</div>
-        <h2 id="about-heading" style="font-size:1.75rem;font-weight:800;color:var(--navy-dark);letter-spacing:-0.025em;line-height:1.2;margin-bottom:1.5rem;">
+        <h2 id="about-heading" style="font-size:1.75rem;font-weight:800;color:var(--navy-dark);letter-spacing:-0.025em;line-height:1.2;margin-bottom:1rem;">
           Who We Are
         </h2>
-        <div style="border-left:3px solid var(--teal);padding-left:1rem;">
+        <div style="border-left:3px solid var(--teal);padding-left:1rem;margin-bottom:1.75rem;">
           <p style="font-size:0.875rem;color:var(--muted);line-height:1.7;">
             An independent registered provider delivering structured, specialist accommodation and wrap-around support for young people across the North East.
           </p>
         </div>
       </div>
 
-      <!-- Right: structured detail -->
+      <!-- Right: team photo -->
+      <div style="position:relative;height:420px;border-radius:var(--radius);overflow:hidden;order:1;">
+        <img
+          src="/public/homepage/mentors.webp"
+          alt="Kiipwell team in a meeting"
+          style="width:100%;height:100%;object-fit:cover;object-position:center;"
+          loading="lazy"
+        >
+        <div style="position:absolute;inset:0;background:linear-gradient(135deg,rgba(27,58,140,0.25) 0%,transparent 60%);pointer-events:none;"></div>
+        <!-- badge -->
+        <div style="position:absolute;top:1.25rem;left:1.25rem;background:var(--navy);color:var(--white);font-size:0.6875rem;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;padding:0.375rem 0.75rem;border-radius:var(--radius);">Our Team</div>
+      </div>
+
+    </div>
+
+    <!-- Full-width structured detail below -->
+    <div style="margin-top:3.5rem;" class="grid-2-about-detail">
       <div>
         <p style="font-size:1rem;color:var(--text);line-height:1.75;margin-bottom:1.5rem;">
           Kiipwell Solutions is a supported housing provider operating in the North East of England. We work exclusively with young people aged 16 to 21, including unaccompanied asylum-seeking children (UASC), care leavers, and young people at risk of homelessness or social isolation.
@@ -604,7 +606,7 @@ h1, h2, h3, h4 {
           </div>
         </div>
       </div>
-    </div>
+    </div><!-- /about detail -->
   </div>
 </section>
 
@@ -613,20 +615,46 @@ h1, h2, h3, h4 {
 <!-- ════════════════════════════════════════════════════
      SECTION 02 — WHAT WE OFFER
 ════════════════════════════════════════════════════ -->
-<section id="services" style="padding:5rem 0;background:var(--navy);" aria-labelledby="services-heading">
-  <div class="container">
+<section id="services" style="background:var(--navy);overflow:hidden;" aria-labelledby="services-heading">
 
-    <div style="display:grid;grid-template-columns:280px 1fr;gap:6rem;align-items:start;" class="grid-2">
+  <!-- Full-width image banner with overlay -->
+  <div style="position:relative;height:320px;overflow:hidden;">
+    <img
+      src="https://picsum.photos/seed/kiipwell-property/1400/400"
+      alt="Supported accommodation property — placeholder"
+      style="width:100%;height:100%;object-fit:cover;object-position:center 60%;"
+      loading="lazy"
+    >
+    <div style="position:absolute;inset:0;background:linear-gradient(to bottom,rgba(27,58,140,0.55) 0%,rgba(10,31,77,0.92) 100%);"></div>
+    <!-- overlay label -->
+    <div style="position:absolute;bottom:2rem;left:50%;transform:translateX(-50%);text-align:center;">
+      <div style="font-size:0.6875rem;font-weight:700;letter-spacing:0.14em;text-transform:uppercase;color:var(--teal);margin-bottom:0.5rem;">02 — Services</div>
+      <h2 id="services-heading" style="font-size:clamp(1.5rem,3vw,2.25rem);font-weight:800;color:var(--white);letter-spacing:-0.025em;line-height:1.15;">
+        What We Offer
+      </h2>
+    </div>
+  </div>
 
-      <!-- Left: section label -->
-      <div style="padding-top:0.25rem;">
-        <div class="section-number" style="color:var(--teal);">02 — Services</div>
-        <h2 id="services-heading" style="font-size:1.75rem;font-weight:800;color:var(--white);letter-spacing:-0.025em;line-height:1.2;margin-bottom:1.5rem;">
-          What We Offer
-        </h2>
-        <p style="font-size:0.875rem;color:rgba(255,255,255,0.45);line-height:1.7;">
+  <div class="container" style="padding-top:4rem;padding-bottom:5rem;">
+
+    <div style="display:grid;grid-template-columns:300px 1fr;gap:5rem;align-items:start;" class="grid-2">
+
+      <!-- Left: sub-label + property image -->
+      <div>
+        <p style="font-size:0.9375rem;color:rgba(255,255,255,0.5);line-height:1.75;margin-bottom:2rem;">
           A structured programme of accommodation and specialist support services, commissioned through local authority and health frameworks.
         </p>
+        <!-- second property image -->
+        <div style="position:relative;height:220px;border-radius:var(--radius);overflow:hidden;">
+          <img
+            src="https://picsum.photos/seed/kiipwell-house2/500/300"
+            alt="Kiipwell accommodation — placeholder"
+            style="width:100%;height:100%;object-fit:cover;"
+            loading="lazy"
+          >
+          <div style="position:absolute;inset:0;background:rgba(27,58,140,0.3);"></div>
+          <div style="position:absolute;bottom:1rem;left:1rem;font-size:0.6875rem;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:rgba(255,255,255,0.6);">Placeholder — Property Photo</div>
+        </div>
       </div>
 
       <!-- Right: offer list -->
@@ -682,8 +710,21 @@ h1, h2, h3, h4 {
 <!-- ════════════════════════════════════════════════════
      SECTION 03 — SERVICE SPECIFICATION
 ════════════════════════════════════════════════════ -->
-<section style="padding:5rem 0;background:var(--off-white);" aria-labelledby="spec-heading">
-  <div class="container">
+<section style="background:var(--off-white);overflow:hidden;" aria-labelledby="spec-heading">
+
+  <!-- Wide image panel -->
+  <div style="position:relative;height:260px;overflow:hidden;">
+    <img
+      src="https://picsum.photos/seed/kiipwell-terrace/1400/360"
+      alt="Residential terrace street — placeholder"
+      style="width:100%;height:100%;object-fit:cover;object-position:center 40%;"
+      loading="lazy"
+    >
+    <div style="position:absolute;inset:0;background:linear-gradient(to right,rgba(249,250,251,0.0) 40%,rgba(249,250,251,0.95) 100%);"></div>
+    <div style="position:absolute;inset:0;background:linear-gradient(to bottom,transparent 30%,rgba(249,250,251,0.9) 100%);"></div>
+  </div>
+
+  <div class="container" style="padding-top:3.5rem;padding-bottom:5rem;">
 
     <div style="margin-bottom:3rem;">
       <div class="section-number">03 — Specification</div>
@@ -740,14 +781,26 @@ h1, h2, h3, h4 {
         </div>
       </div>
     </div>
-  </div>
+  </div><!-- /container -->
 </section>
 
 <!-- ════════════════════════════════════════════════════
      SECTION 04 — CORE SUPPORT AREAS
 ════════════════════════════════════════════════════ -->
-<section style="padding:5rem 0;background:var(--white);" aria-labelledby="support-heading">
-  <div class="container">
+<section style="background:var(--white);overflow:hidden;" aria-labelledby="support-heading">
+
+  <!-- Wide team/support photo banner -->
+  <div style="position:relative;height:280px;overflow:hidden;">
+    <img
+      src="https://picsum.photos/seed/kiipwell-support/1400/380"
+      alt="Young people in supported accommodation — placeholder"
+      style="width:100%;height:100%;object-fit:cover;object-position:center 35%;"
+      loading="lazy"
+    >
+    <div style="position:absolute;inset:0;background:linear-gradient(to bottom,rgba(255,255,255,0) 0%,rgba(255,255,255,0.96) 100%);"></div>
+  </div>
+
+  <div class="container" style="padding-top:2rem;padding-bottom:5rem;">
 
     <div style="margin-bottom:3rem;display:flex;align-items:flex-end;justify-content:space-between;gap:2rem;flex-wrap:wrap;">
       <div>
@@ -820,14 +873,27 @@ h1, h2, h3, h4 {
       </div>
 
     </div>
-  </div>
+  </div><!-- /container -->
 </section>
 
 <!-- ════════════════════════════════════════════════════
      SECTION 05 — APPROACH
 ════════════════════════════════════════════════════ -->
-<section style="padding:5rem 0;background:var(--off-white);" aria-labelledby="approach-heading">
-  <div class="container">
+<section style="position:relative;overflow:hidden;" aria-labelledby="approach-heading">
+
+  <!-- Background image with near-opaque wash -->
+  <div style="position:absolute;inset:0;z-index:0;">
+    <img
+      src="https://picsum.photos/seed/kiipwell-approach/1400/700"
+      alt="Approach background — placeholder"
+      style="width:100%;height:100%;object-fit:cover;object-position:center;"
+      loading="lazy"
+      aria-hidden="true"
+    >
+    <div style="position:absolute;inset:0;background:rgba(249,250,251,0.93);"></div>
+  </div>
+
+  <div class="container" style="position:relative;z-index:1;padding-top:5rem;padding-bottom:5rem;">
 
     <div style="margin-bottom:3rem;">
       <div class="section-number">05 — Methodology</div>
@@ -863,14 +929,25 @@ h1, h2, h3, h4 {
       </div>
 
     </div>
-  </div>
+  </div><!-- /container -->
 </section>
 
 <!-- ════════════════════════════════════════════════════
      MISSION STATEMENT — high contrast
 ════════════════════════════════════════════════════ -->
-<section style="padding:5rem 0;background:var(--navy-dark);" aria-labelledby="mission-heading">
-  <div class="container">
+<section style="position:relative;overflow:hidden;" aria-labelledby="mission-heading">
+  <!-- Background image with deep navy overlay -->
+  <div style="position:absolute;inset:0;z-index:0;">
+    <img
+      src="https://picsum.photos/seed/kiipwell-mission/1400/600"
+      alt="Mission background — placeholder"
+      style="width:100%;height:100%;object-fit:cover;object-position:center;"
+      loading="lazy"
+      aria-hidden="true"
+    >
+    <div style="position:absolute;inset:0;background:rgba(10,31,77,0.88);"></div>
+  </div>
+  <div class="container" style="position:relative;z-index:1;padding-top:5rem;padding-bottom:5rem;">
     <div style="max-width:800px;margin:0 auto;text-align:center;">
       <div class="label label--teal" style="margin-bottom:1.5rem;justify-content:center;display:flex;align-items:center;gap:0.5rem;">
         <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
@@ -888,14 +965,27 @@ h1, h2, h3, h4 {
         <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
       </a>
     </div>
-  </div>
+  </div><!-- /container -->
 </section>
 
 <!-- ════════════════════════════════════════════════════
      SECTION 06 — SAFEGUARDING
 ════════════════════════════════════════════════════ -->
-<section id="safeguarding" style="padding:5rem 0;background:var(--white);" aria-labelledby="sg-heading">
-  <div class="container">
+<section id="safeguarding" style="background:var(--white);overflow:hidden;" aria-labelledby="sg-heading">
+
+  <!-- Wide safeguarding image banner -->
+  <div style="position:relative;height:240px;overflow:hidden;">
+    <img
+      src="https://picsum.photos/seed/kiipwell-safeguard/1400/340"
+      alt="Safeguarding and community — placeholder"
+      style="width:100%;height:100%;object-fit:cover;object-position:center 30%;"
+      loading="lazy"
+    >
+    <div style="position:absolute;inset:0;background:linear-gradient(to bottom,rgba(255,255,255,0) 0%,rgba(255,255,255,0.97) 100%);"></div>
+    <div style="position:absolute;inset:0;background:linear-gradient(to right,rgba(27,58,140,0.35) 0%,transparent 50%);"></div>
+  </div>
+
+  <div class="container" style="padding-top:2rem;padding-bottom:5rem;">
 
     <div style="display:grid;grid-template-columns:280px 1fr;gap:6rem;align-items:start;" class="grid-2">
 
@@ -942,7 +1032,7 @@ h1, h2, h3, h4 {
         </div>
       </div>
     </div>
-  </div>
+  </div><!-- /container -->
 </section>
 
 <!-- ════════════════════════════════════════════════════

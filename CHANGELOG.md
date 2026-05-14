@@ -1,5 +1,18 @@
 # Changelog
 
+## 2026-05-14 · Visual overhaul — images throughout homepage
+
+- Hero: replaced data panel with `Hero.webp` as a full-height split image; floating stats bar (16-21 / 24/7 / 100% DBS / Tier 3) overlaid at bottom with glass-blur effect
+- About (01): restructured to 1fr+1fr grid; `mentors.webp` fills right column with "Our Team" badge overlay
+- Services (02): added 320px full-bleed property image banner with navy-to-dark gradient at top of section; secondary inline property placeholder image alongside text
+- Specification (03): added 260px wide residential terrace image strip with fade-to-white gradient flowing into cards below
+- Core Support (04): added 280px support/people image banner fading to white above the 4-pillar card grid
+- Approach (05): full section background image with 93% off-white wash (photo visible as texture through content)
+- Mission: full-bleed background image with deep navy 88% overlay — darkened cinematic feel
+- Safeguarding (06): 240px banner image with white fade-out bottom + left navy tint
+- All 7 placeholder images use `picsum.photos` with deterministic seeds (`kiipwell-property`, `kiipwell-house2`, `kiipwell-terrace`, `kiipwell-support`, `kiipwell-approach`, `kiipwell-mission`, `kiipwell-safeguard`) — swap seeds for real photos when ready
+- User-facing: page now has 9 images across 9 sections, both real assets (Hero.webp, mentors.webp) loading at full 1536px resolution
+
 ## 2026-05-13 · Institutional redesign + contact/referral page
 
 - Complete homepage pivot to government/public-sector institutional aesthetic — Inter exclusively, CSS custom properties, no Tailwind CDN
