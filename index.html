@@ -20,14 +20,21 @@ html { scroll-behavior: smooth; font-size: 16px; }
   --navy-mid:   #162f73;
   --teal:       #00B89F;
   --teal-dark:  #009984;
+  --teal-light: #e6f9f6;
   --white:      #ffffff;
-  --off-white:  #F9FAFB;
+  --off-white:  #F8FAFD;
   --text:       #111827;
   --muted:      #6B7280;
-  --border:     #D1D5DB;
+  --border:     #E5E7EB;
   --border-dark:#9CA3AF;
-  --radius:     4px;
-  --nav-h:      64px;
+  --radius:     14px;
+  --radius-sm:  8px;
+  --radius-full:9999px;
+  --nav-h:      68px;
+  --shadow-sm:  0 2px 8px rgba(0,0,0,0.06);
+  --shadow-md:  0 6px 20px rgba(0,0,0,0.08), 0 2px 6px rgba(0,0,0,0.04);
+  --shadow-card:0 4px 24px rgba(27,58,140,0.08), 0 1px 4px rgba(0,0,0,0.04);
+  --shadow-hover:0 16px 40px rgba(27,58,140,0.14), 0 4px 12px rgba(0,0,0,0.06);
 }
 
 body {
@@ -57,23 +64,25 @@ img { display: block; max-width: 100%; }
 h1, h2, h3, h4 { font-family: 'Inter', sans-serif; letter-spacing: -0.02em; line-height: 1.15; }
 
 .section-number {
+  display: inline-flex;
+  align-self: flex-start;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.375rem 1rem;
+  background: rgba(0,184,159,0.1);
+  border: 1px solid rgba(0,184,159,0.25);
+  border-radius: var(--radius-full);
   font-size: 0.6875rem;
   font-weight: 700;
-  letter-spacing: 0.12em;
+  letter-spacing: 0.1em;
   text-transform: uppercase;
   color: var(--teal);
-  display: flex;
-  align-items: center;
-  gap: 0.75rem;
-  margin-bottom: 1.25rem;
+  margin-bottom: 1.5rem;
 }
-.section-number::after {
-  content: '';
-  display: block;
-  height: 1px;
-  width: 2.5rem;
-  background: var(--teal);
-  flex-shrink: 0;
+.section-number--white {
+  background: rgba(255,255,255,0.1);
+  border-color: rgba(255,255,255,0.2);
+  color: rgba(255,255,255,0.8);
 }
 
 /* ── Layout ────────────────────────────────────────────── */
@@ -86,22 +95,34 @@ h1, h2, h3, h4 { font-family: 'Inter', sans-serif; letter-spacing: -0.02em; line
   align-items: center;
   gap: 0.5rem;
   font-family: 'Inter', sans-serif;
-  font-size: 0.8125rem;
-  font-weight: 700;
-  letter-spacing: 0.05em;
-  text-transform: uppercase;
-  padding: 0.8125rem 1.625rem;
-  border-radius: var(--radius);
+  font-size: 0.9375rem;
+  font-weight: 600;
+  letter-spacing: -0.01em;
+  padding: 0.8125rem 1.75rem;
+  border-radius: var(--radius-full);
   border: 1.5px solid transparent;
   cursor: pointer;
-  transition: background 0.15s, color 0.15s, border-color 0.15s, transform 0.15s;
+  transition: background 0.2s, color 0.2s, border-color 0.2s, transform 0.2s, box-shadow 0.2s;
   white-space: nowrap;
 }
-.btn:hover { transform: translateY(-1px); }
-.btn-primary { background: var(--teal); color: var(--white); border-color: var(--teal); }
-.btn-primary:hover { background: var(--teal-dark); border-color: var(--teal-dark); }
-.btn-outline-white { background: transparent; color: var(--white); border-color: rgba(255,255,255,0.4); }
-.btn-outline-white:hover { background: rgba(255,255,255,0.1); border-color: rgba(255,255,255,0.7); }
+.btn:hover { transform: translateY(-2px); }
+.btn-primary {
+  background: linear-gradient(135deg, var(--teal) 0%, var(--teal-dark) 100%);
+  color: var(--white);
+  border-color: transparent;
+  box-shadow: 0 4px 14px rgba(0,184,159,0.35);
+}
+.btn-primary:hover {
+  background: linear-gradient(135deg, var(--teal-dark) 0%, #007f6d 100%);
+  box-shadow: 0 8px 22px rgba(0,184,159,0.45);
+}
+.btn-outline-white {
+  background: rgba(255,255,255,0.1);
+  color: var(--white);
+  border-color: rgba(255,255,255,0.3);
+  backdrop-filter: blur(8px);
+}
+.btn-outline-white:hover { background: rgba(255,255,255,0.2); border-color: rgba(255,255,255,0.6); }
 .btn-outline-navy { background: transparent; color: var(--navy); border-color: var(--navy); }
 .btn-outline-navy:hover { background: var(--navy); color: var(--white); }
 
@@ -111,30 +132,67 @@ h1, h2, h3, h4 { font-family: 'Inter', sans-serif; letter-spacing: -0.02em; line
   align-items: center;
   gap: 0.5rem;
   padding: 0.375rem 0.875rem;
-  border: 1px solid rgba(255,255,255,0.2);
-  border-radius: var(--radius);
+  border: 1px solid rgba(255,255,255,0.15);
+  border-radius: var(--radius-full);
   font-size: 0.6875rem;
-  font-weight: 700;
-  letter-spacing: 0.08em;
+  font-weight: 600;
+  letter-spacing: 0.06em;
   text-transform: uppercase;
-  color: rgba(255,255,255,0.65);
+  color: rgba(255,255,255,0.7);
+  background: rgba(255,255,255,0.06);
+  backdrop-filter: blur(4px);
 }
 .credential svg { width: 12px; height: 12px; stroke: var(--teal); flex-shrink: 0; }
 
 /* ── Structured list ───────────────────────────────────── */
-.structured-list { border-top: 1px solid var(--border); }
-.structured-list__row { display: flex; align-items: baseline; gap: 2rem; padding: 0.875rem 0; border-bottom: 1px solid var(--border); }
-.structured-list__key { font-size: 0.8125rem; font-weight: 600; color: var(--muted); min-width: 200px; flex-shrink: 0; }
-.structured-list__val { font-size: 0.9375rem; color: var(--text); }
+.structured-list { display: flex; flex-direction: column; gap: 0.875rem; }
+.structured-list__row {
+  display: flex;
+  align-items: flex-start;
+  gap: 1rem;
+  padding: 0.875rem 1rem;
+  background: var(--off-white);
+  border-radius: var(--radius-sm);
+}
+.structured-list__row::before {
+  content: '';
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--teal);
+  flex-shrink: 0;
+  margin-top: 5px;
+}
+.structured-list__key { font-size: 0.8125rem; font-weight: 600; color: var(--muted); min-width: 160px; flex-shrink: 0; }
+.structured-list__val { font-size: 0.875rem; color: var(--text); line-height: 1.5; }
 
 /* ── Sharp card ────────────────────────────────────────── */
-.sharp-card { border: 1px solid var(--border); border-radius: var(--radius); padding: 1.5rem; background: var(--white); }
+.sharp-card { border-radius: var(--radius); padding: 1.75rem; background: var(--white); box-shadow: var(--shadow-card); }
 .sharp-card--teal-left { border-left: 3px solid var(--teal); }
 
 /* ── Policy item ───────────────────────────────────────── */
-.policy-item { display: flex; align-items: flex-start; gap: 1rem; padding: 1.25rem 0; border-bottom: 1px solid var(--border); }
-.policy-item:first-child { border-top: 1px solid var(--border); }
-.policy-item__icon { width: 16px; height: 16px; stroke: var(--teal); stroke-width: 2; fill: none; flex-shrink: 0; margin-top: 3px; }
+.policy-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 1.25rem;
+  padding: 1.25rem;
+  border-radius: var(--radius-sm);
+  background: var(--off-white);
+  margin-bottom: 0.75rem;
+  transition: background 0.2s;
+}
+.policy-item:hover { background: var(--teal-light); }
+.policy-item__icon-wrap {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: rgba(0,184,159,0.12);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+.policy-item__icon { width: 16px; height: 16px; stroke: var(--teal); stroke-width: 2; fill: none; }
 .policy-item__title { font-size: 0.9375rem; font-weight: 600; color: var(--text); margin-bottom: 0.25rem; }
 .policy-item__body { font-size: 0.875rem; color: var(--muted); line-height: 1.6; }
 
@@ -155,9 +213,9 @@ h1, h2, h3, h4 { font-family: 'Inter', sans-serif; letter-spacing: -0.02em; line
 .nav-logo__divider { width: 1px; height: 20px; background: var(--border); }
 .nav-logo__sub { font-size: 0.6875rem; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: var(--muted); }
 .nav-links { display: flex; align-items: center; gap: 0.25rem; }
-.nav-link { font-size: 0.8125rem; font-weight: 600; letter-spacing: 0.02em; color: var(--muted); padding: 0.5rem 0.875rem; border-radius: var(--radius); transition: color 0.15s, background 0.15s; }
+.nav-link { font-size: 0.875rem; font-weight: 500; letter-spacing: 0; color: var(--muted); padding: 0.5rem 1rem; border-radius: var(--radius-full); transition: color 0.15s, background 0.15s; }
 .nav-link:hover { color: var(--navy); background: var(--off-white); }
-.nav-link.active { color: var(--navy); font-weight: 700; }
+.nav-link.active { color: var(--navy); font-weight: 700; background: var(--off-white); }
 .nav-cta { margin-left: 0.5rem; }
 .hamburger { display: none; flex-direction: column; gap: 4px; cursor: pointer; padding: 8px; background: none; border: none; }
 .hamburger span { display: block; width: 20px; height: 1.5px; background: var(--navy-dark); border-radius: 1px; }
@@ -247,25 +305,26 @@ h1, h2, h3, h4 { font-family: 'Inter', sans-serif; letter-spacing: -0.02em; line
 .hero__stats-bar {
   position: relative;
   z-index: 1;
-  border-top: 1px solid rgba(255,255,255,0.12);
-  background: rgba(10,31,77,0.7);
-  backdrop-filter: blur(16px);
-  -webkit-backdrop-filter: blur(16px);
-  padding: 2rem 0;
+  padding: 2.5rem 0;
 }
-.hero__stats-grid {
+.hero__stats-inner {
+  background: rgba(10,31,77,0.65);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(255,255,255,0.1);
+  border-radius: var(--radius);
+  padding: 0.5rem 0;
   display: grid;
   grid-template-columns: repeat(4, 1fr);
-  gap: 0;
 }
 .hero__stat {
   text-align: center;
-  padding: 0 1.5rem;
-  border-right: 1px solid rgba(255,255,255,0.1);
+  padding: 1.25rem 1.5rem;
+  border-right: 1px solid rgba(255,255,255,0.08);
 }
 .hero__stat:last-child { border-right: none; }
 .hero__stat-val {
-  font-size: 2rem;
+  font-size: 2.25rem;
   font-weight: 800;
   color: var(--white);
   letter-spacing: -0.04em;
@@ -275,12 +334,11 @@ h1, h2, h3, h4 { font-family: 'Inter', sans-serif; letter-spacing: -0.02em; line
 .hero__stat-val--teal { color: var(--teal); }
 .hero__stat-label {
   font-size: 0.6875rem;
-  font-weight: 600;
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
-  color: rgba(255,255,255,0.4);
+  font-weight: 500;
+  letter-spacing: 0.04em;
+  color: rgba(255,255,255,0.45);
   display: block;
-  margin-top: 0.375rem;
+  margin-top: 0.5rem;
 }
 
 /* ══════════════════════════════════════════════════════════
@@ -326,29 +384,30 @@ h1, h2, h3, h4 { font-family: 'Inter', sans-serif; letter-spacing: -0.02em; line
    SERVICE CARDS — 3×2 grid
 ══════════════════════════════════════════════════════════ */
 .service-card {
-  background: rgba(255,255,255,0.04);
-  border: 1px solid rgba(255,255,255,0.1);
+  background: rgba(255,255,255,0.05);
+  border: 1px solid rgba(255,255,255,0.08);
   border-radius: var(--radius);
-  padding: 1.75rem;
-  transition: background 0.2s, border-color 0.2s;
+  padding: 2rem;
+  transition: background 0.25s, border-color 0.25s, transform 0.25s;
 }
 .service-card:hover {
-  background: rgba(255,255,255,0.07);
-  border-color: rgba(0,184,159,0.45);
+  background: rgba(255,255,255,0.09);
+  border-color: rgba(0,184,159,0.4);
+  transform: translateY(-3px);
 }
 .service-card__icon {
-  width: 2.5rem;
-  height: 2.5rem;
-  background: rgba(0,184,159,0.14);
-  border-radius: var(--radius);
+  width: 2.75rem;
+  height: 2.75rem;
+  background: rgba(0,184,159,0.15);
+  border-radius: 50%;
   display: flex;
   align-items: center;
   justify-content: center;
-  margin-bottom: 1.25rem;
+  margin-bottom: 1.5rem;
 }
 .service-card__icon svg { width: 1.125rem; height: 1.125rem; stroke: var(--teal); stroke-width: 2; fill: none; }
-.service-card__title { font-size: 0.9375rem; font-weight: 700; color: rgba(255,255,255,0.95); margin-bottom: 0.5rem; letter-spacing: -0.01em; }
-.service-card__body { font-size: 0.875rem; color: rgba(255,255,255,0.5); line-height: 1.65; }
+.service-card__title { font-size: 1rem; font-weight: 700; color: rgba(255,255,255,0.95); margin-bottom: 0.625rem; letter-spacing: -0.015em; }
+.service-card__body { font-size: 0.875rem; color: rgba(255,255,255,0.5); line-height: 1.7; }
 
 /* ══════════════════════════════════════════════════════════
    SPEC SECTION
@@ -378,18 +437,18 @@ h1, h2, h3, h4 { font-family: 'Inter', sans-serif; letter-spacing: -0.02em; line
    PILLAR CARDS — image top
 ══════════════════════════════════════════════════════════ */
 .pillar-card {
-  border: 1px solid var(--border);
   border-radius: var(--radius);
   overflow: hidden;
   background: var(--white);
-  transition: transform 0.25s, box-shadow 0.25s;
+  box-shadow: var(--shadow-card);
+  transition: transform 0.3s, box-shadow 0.3s;
 }
 .pillar-card:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 12px 32px rgba(27,58,140,0.12);
+  transform: translateY(-6px);
+  box-shadow: var(--shadow-hover);
 }
 .pillar-card__img {
-  height: 200px;
+  height: 240px;
   overflow: hidden;
   position: relative;
 }
@@ -397,26 +456,28 @@ h1, h2, h3, h4 { font-family: 'Inter', sans-serif; letter-spacing: -0.02em; line
   width: 100%;
   height: 100%;
   object-fit: cover;
-  transition: transform 0.5s ease;
+  transition: transform 0.6s ease;
 }
-.pillar-card:hover .pillar-card__img img { transform: scale(1.06); }
+.pillar-card:hover .pillar-card__img img { transform: scale(1.07); }
 .pillar-card__img::after {
   content: '';
   position: absolute;
   bottom: 0; left: 0; right: 0;
-  height: 60px;
-  background: linear-gradient(to top, rgba(255,255,255,0.9), transparent);
+  height: 80px;
+  background: linear-gradient(to top, rgba(255,255,255,1), transparent);
 }
-.pillar-card__body { padding: 1.5rem 1.5rem 2rem; }
+.pillar-card__body { padding: 1.5rem 1.75rem 2rem; }
 .pillar-card__icon {
-  width: 2rem;
-  height: 2rem;
+  width: 2.25rem;
+  height: 2.25rem;
+  background: var(--teal-light);
+  border-radius: 50%;
   display: flex;
   align-items: center;
   justify-content: center;
   margin-bottom: 1rem;
 }
-.pillar-card__icon svg { width: 18px; height: 18px; stroke: var(--teal); stroke-width: 1.75; fill: none; }
+.pillar-card__icon svg { width: 16px; height: 16px; stroke: var(--teal); stroke-width: 2; fill: none; }
 
 /* ══════════════════════════════════════════════════════════
    APPROACH PANELS — full image background
@@ -592,9 +653,10 @@ h1, h2, h3, h4 { font-family: 'Inter', sans-serif; letter-spacing: -0.02em; line
   .sg-split__img img { position: absolute; }
   .sg-split__img::after { background: linear-gradient(to bottom, transparent 50%, var(--white) 100%); }
   .sg-split__content { padding: 3.5rem 2.5rem; }
-  .hero__stats-grid { grid-template-columns: repeat(2, 1fr); }
-  .hero__stat { border-right: none; border-bottom: 1px solid rgba(255,255,255,0.1); padding: 1rem; }
+  .hero__stats-inner { grid-template-columns: repeat(2, 1fr); }
+  .hero__stat { border-right: none; border-bottom: 1px solid rgba(255,255,255,0.08); }
   .hero__stat:nth-child(2n) { border-right: none; }
+  .hero__stat:nth-child(3), .hero__stat:nth-child(4) { border-bottom: none; }
   .spec-grid { grid-template-columns: 1fr; }
 }
 @media (max-width: 767px) {
@@ -602,11 +664,15 @@ h1, h2, h3, h4 { font-family: 'Inter', sans-serif; letter-spacing: -0.02em; line
   .split__content { padding: 3rem 1.5rem; }
   .sg-split__content { padding: 3rem 1.5rem; }
   .hero__h1 { font-size: 2.25rem; }
-  .hero__stats-grid { grid-template-columns: repeat(2, 1fr); }
+  .hero__stats-inner { grid-template-columns: repeat(2, 1fr); }
   .pillar-grid { grid-template-columns: 1fr !important; }
   .service-grid { grid-template-columns: 1fr !important; }
+  .impact-grid { grid-template-columns: repeat(2, 1fr) !important; gap: 1.5rem; }
   .structured-list__row { flex-direction: column; gap: 0.25rem; }
   .structured-list__key { min-width: unset; }
+  .services-header { grid-template-columns: 1fr !important; gap: 1.5rem !important; }
+  .spec-cols { grid-template-columns: 1fr !important; }
+  .footer-grid { grid-template-columns: 1fr 1fr !important; gap: 2rem !important; }
 }
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after { transition-duration: 0.01ms !important; }
@@ -717,7 +783,7 @@ h1, h2, h3, h4 { font-family: 'Inter', sans-serif; letter-spacing: -0.02em; line
   <!-- Stats strip -->
   <div class="hero__stats-bar">
     <div class="container">
-      <div class="hero__stats-grid">
+      <div class="hero__stats-inner">
         <div class="hero__stat">
           <span class="hero__stat-val">16–21</span>
           <span class="hero__stat-label">Age Range Served</span>
@@ -792,6 +858,32 @@ h1, h2, h3, h4 { font-family: 'Inter', sans-serif; letter-spacing: -0.02em; line
 </section>
 
 <!-- ════════════════════════════════════════════════════
+     IMPACT STRIP — bold numbers
+════════════════════════════════════════════════════ -->
+<section style="background:var(--off-white);padding:4rem 0;border-top:1px solid var(--border);border-bottom:1px solid var(--border);" aria-label="Impact statistics">
+  <div class="container">
+    <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:2rem;text-align:center;" class="impact-grid">
+      <div>
+        <div style="font-size:clamp(2.25rem,4vw,3rem);font-weight:800;color:var(--navy-dark);letter-spacing:-0.04em;line-height:1;">16–21</div>
+        <div style="font-size:0.875rem;color:var(--muted);margin-top:0.5rem;line-height:1.4;">Age group supported</div>
+      </div>
+      <div>
+        <div style="font-size:clamp(2.25rem,4vw,3rem);font-weight:800;color:var(--teal);letter-spacing:-0.04em;line-height:1;">24/7</div>
+        <div style="font-size:0.875rem;color:var(--muted);margin-top:0.5rem;line-height:1.4;">On-call support available</div>
+      </div>
+      <div>
+        <div style="font-size:clamp(2.25rem,4vw,3rem);font-weight:800;color:var(--navy-dark);letter-spacing:-0.04em;line-height:1;">100%</div>
+        <div style="font-size:0.875rem;color:var(--muted);margin-top:0.5rem;line-height:1.4;">DBS-checked workforce</div>
+      </div>
+      <div>
+        <div style="font-size:clamp(2.25rem,4vw,3rem);font-weight:800;color:var(--navy-dark);letter-spacing:-0.04em;line-height:1;">Tier 3</div>
+        <div style="font-size:0.875rem;color:var(--muted);margin-top:0.5rem;line-height:1.4;">Semi-independent placement</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ════════════════════════════════════════════════════
      SECTION 02 — SERVICES — dark bg, 3×2 card grid
 ════════════════════════════════════════════════════ -->
 <section id="services" style="background:var(--navy-dark);padding:6rem 0;" aria-labelledby="services-heading">
@@ -799,7 +891,7 @@ h1, h2, h3, h4 { font-family: 'Inter', sans-serif; letter-spacing: -0.02em; line
 
     <div style="display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:end;margin-bottom:3.5rem;" class="services-header">
       <div>
-        <div class="section-number" style="color:var(--teal);">02 — Services</div>
+        <div class="section-number section-number--white">02 — Services</div>
         <h2 id="services-heading" style="font-size:clamp(1.75rem,3vw,2.5rem);font-weight:800;color:var(--white);letter-spacing:-0.025em;line-height:1.1;">
           What We Offer
         </h2>
@@ -884,7 +976,7 @@ h1, h2, h3, h4 { font-family: 'Inter', sans-serif; letter-spacing: -0.02em; line
     <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:1.5rem;align-items:stretch;" class="spec-cols">
 
       <!-- Property image -->
-      <div style="position:relative;border-radius:var(--radius);overflow:hidden;min-height:360px;">
+      <div style="position:relative;border-radius:var(--radius);overflow:hidden;min-height:360px;box-shadow:var(--shadow-md);">
         <img
           src="/public/unsplash/terrace.jpg"
           alt="Supported accommodation — residential property"
@@ -981,9 +1073,9 @@ h1, h2, h3, h4 { font-family: 'Inter', sans-serif; letter-spacing: -0.02em; line
           <div class="label label--navy" style="margin-bottom:0.625rem;">Life Skills</div>
           <h3 style="font-size:1rem;font-weight:700;color:var(--navy-dark);margin-bottom:0.875rem;letter-spacing:-0.01em;">Independence Development</h3>
           <ul style="list-style:none;display:flex;flex-direction:column;gap:0.5rem;">
-            <li style="font-size:0.875rem;color:var(--muted);padding-left:1rem;border-left:2px solid var(--border);">Budgeting and money management</li>
-            <li style="font-size:0.875rem;color:var(--muted);padding-left:1rem;border-left:2px solid var(--border);">Cooking and daily living</li>
-            <li style="font-size:0.875rem;color:var(--muted);padding-left:1rem;border-left:2px solid var(--border);">Tenancy management</li>
+            <li style="font-size:0.875rem;color:var(--muted);display:flex;align-items:center;gap:0.5rem;"><span style="width:6px;height:6px;border-radius:50%;background:var(--teal);flex-shrink:0;"></span>Budgeting and money management</li>
+            <li style="font-size:0.875rem;color:var(--muted);display:flex;align-items:center;gap:0.5rem;"><span style="width:6px;height:6px;border-radius:50%;background:var(--teal);flex-shrink:0;"></span>Cooking and daily living</li>
+            <li style="font-size:0.875rem;color:var(--muted);display:flex;align-items:center;gap:0.5rem;"><span style="width:6px;height:6px;border-radius:50%;background:var(--teal);flex-shrink:0;"></span>Tenancy management</li>
           </ul>
         </div>
       </div>
@@ -1000,9 +1092,9 @@ h1, h2, h3, h4 { font-family: 'Inter', sans-serif; letter-spacing: -0.02em; line
           <div class="label label--navy" style="margin-bottom:0.625rem;">Health</div>
           <h3 style="font-size:1rem;font-weight:700;color:var(--navy-dark);margin-bottom:0.875rem;letter-spacing:-0.01em;">Wellbeing and Health</h3>
           <ul style="list-style:none;display:flex;flex-direction:column;gap:0.5rem;">
-            <li style="font-size:0.875rem;color:var(--muted);padding-left:1rem;border-left:2px solid var(--border);">Emotional support</li>
-            <li style="font-size:0.875rem;color:var(--muted);padding-left:1rem;border-left:2px solid var(--border);">Trauma-informed care</li>
-            <li style="font-size:0.875rem;color:var(--muted);padding-left:1rem;border-left:2px solid var(--border);">NHS and GP access</li>
+            <li style="font-size:0.875rem;color:var(--muted);display:flex;align-items:center;gap:0.5rem;"><span style="width:6px;height:6px;border-radius:50%;background:var(--teal);flex-shrink:0;"></span>Emotional support</li>
+            <li style="font-size:0.875rem;color:var(--muted);display:flex;align-items:center;gap:0.5rem;"><span style="width:6px;height:6px;border-radius:50%;background:var(--teal);flex-shrink:0;"></span>Trauma-informed care</li>
+            <li style="font-size:0.875rem;color:var(--muted);display:flex;align-items:center;gap:0.5rem;"><span style="width:6px;height:6px;border-radius:50%;background:var(--teal);flex-shrink:0;"></span>NHS and GP access</li>
           </ul>
         </div>
       </div>
@@ -1019,9 +1111,9 @@ h1, h2, h3, h4 { font-family: 'Inter', sans-serif; letter-spacing: -0.02em; line
           <div class="label label--navy" style="margin-bottom:0.625rem;">Education</div>
           <h3 style="font-size:1rem;font-weight:700;color:var(--navy-dark);margin-bottom:0.875rem;letter-spacing:-0.01em;">Education and Employment</h3>
           <ul style="list-style:none;display:flex;flex-direction:column;gap:0.5rem;">
-            <li style="font-size:0.875rem;color:var(--muted);padding-left:1rem;border-left:2px solid var(--border);">College and ESOL support</li>
-            <li style="font-size:0.875rem;color:var(--muted);padding-left:1rem;border-left:2px solid var(--border);">Career guidance</li>
-            <li style="font-size:0.875rem;color:var(--muted);padding-left:1rem;border-left:2px solid var(--border);">Volunteering pathways</li>
+            <li style="font-size:0.875rem;color:var(--muted);display:flex;align-items:center;gap:0.5rem;"><span style="width:6px;height:6px;border-radius:50%;background:var(--teal);flex-shrink:0;"></span>College and ESOL support</li>
+            <li style="font-size:0.875rem;color:var(--muted);display:flex;align-items:center;gap:0.5rem;"><span style="width:6px;height:6px;border-radius:50%;background:var(--teal);flex-shrink:0;"></span>Career guidance</li>
+            <li style="font-size:0.875rem;color:var(--muted);display:flex;align-items:center;gap:0.5rem;"><span style="width:6px;height:6px;border-radius:50%;background:var(--teal);flex-shrink:0;"></span>Volunteering pathways</li>
           </ul>
         </div>
       </div>
@@ -1038,9 +1130,9 @@ h1, h2, h3, h4 { font-family: 'Inter', sans-serif; letter-spacing: -0.02em; line
           <div class="label label--teal" style="margin-bottom:0.625rem;">UASC</div>
           <h3 style="font-size:1rem;font-weight:700;color:var(--navy-dark);margin-bottom:0.875rem;letter-spacing:-0.01em;">Asylum and Cultural Support</h3>
           <ul style="list-style:none;display:flex;flex-direction:column;gap:0.5rem;">
-            <li style="font-size:0.875rem;color:var(--muted);padding-left:1rem;border-left:2px solid rgba(0,184,159,0.4);">Legal process support</li>
-            <li style="font-size:0.875rem;color:var(--muted);padding-left:1rem;border-left:2px solid rgba(0,184,159,0.4);">English language development</li>
-            <li style="font-size:0.875rem;color:var(--muted);padding-left:1rem;border-left:2px solid rgba(0,184,159,0.4);">Cultural integration</li>
+            <li style="font-size:0.875rem;color:var(--muted);display:flex;align-items:center;gap:0.5rem;"><span style="width:6px;height:6px;border-radius:50%;background:var(--teal);flex-shrink:0;"></span>Legal process support</li>
+            <li style="font-size:0.875rem;color:var(--muted);display:flex;align-items:center;gap:0.5rem;"><span style="width:6px;height:6px;border-radius:50%;background:var(--teal);flex-shrink:0;"></span>English language development</li>
+            <li style="font-size:0.875rem;color:var(--muted);display:flex;align-items:center;gap:0.5rem;"><span style="width:6px;height:6px;border-radius:50%;background:var(--teal);flex-shrink:0;"></span>Cultural integration</li>
           </ul>
         </div>
       </div>
@@ -1057,7 +1149,7 @@ h1, h2, h3, h4 { font-family: 'Inter', sans-serif; letter-spacing: -0.02em; line
   <!-- Section header above panels -->
   <div style="background:var(--navy-dark);padding:4rem 0 3rem;">
     <div class="container">
-      <div class="section-number" style="color:var(--teal);">05 — Methodology</div>
+      <div class="section-number section-number--white">05 — Methodology</div>
       <h2 id="approach-heading" style="font-size:clamp(1.5rem,2.5vw,2rem);font-weight:800;color:var(--white);letter-spacing:-0.025em;line-height:1.2;max-width:560px;">
         Our Approach to Supported Living
       </h2>
@@ -1165,28 +1257,36 @@ h1, h2, h3, h4 { font-family: 'Inter', sans-serif; letter-spacing: -0.02em; line
 
       <div>
         <div class="policy-item">
-          <svg class="policy-item__icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg>
+          <div class="policy-item__icon-wrap">
+            <svg class="policy-item__icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg>
+          </div>
           <div>
             <div class="policy-item__title">Comprehensive Safeguarding Policies</div>
             <div class="policy-item__body">Up-to-date policies covering child protection, adults at risk, missing persons, county lines, and online safety. Reviewed annually.</div>
           </div>
         </div>
         <div class="policy-item">
-          <svg class="policy-item__icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+          <div class="policy-item__icon-wrap">
+            <svg class="policy-item__icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+          </div>
           <div>
             <div class="policy-item__title">Enhanced DBS and Vetted Workforce</div>
             <div class="policy-item__body">All staff hold enhanced DBS clearance. Safer recruitment procedures applied including references, employment history verification, and interview assessment.</div>
           </div>
         </div>
         <div class="policy-item">
-          <svg class="policy-item__icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013 5.18 2 2 0 014.96 3h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L9.09 10.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 17.92z"/></svg>
+          <div class="policy-item__icon-wrap">
+            <svg class="policy-item__icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013 5.18 2 2 0 014.96 3h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L9.09 10.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 17.92z"/></svg>
+          </div>
           <div>
             <div class="policy-item__title">Clear Referral and Reporting Procedures</div>
             <div class="policy-item__body">Designated Safeguarding Lead in post. All staff trained in recognising and reporting concerns. Clear referral pathways to MASH and children's services.</div>
           </div>
         </div>
         <div class="policy-item">
-          <svg class="policy-item__icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87M16 3.13a4 4 0 010 7.75"/></svg>
+          <div class="policy-item__icon-wrap">
+            <svg class="policy-item__icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87M16 3.13a4 4 0 010 7.75"/></svg>
+          </div>
           <div>
             <div class="policy-item__title">Partnership with Statutory Authorities</div>
             <div class="policy-item__body">Active engagement with local authority children's services, leaving care teams, and HNSS. Regular liaison with placing authority social workers and LAC reviews.</div>
@@ -1201,16 +1301,17 @@ h1, h2, h3, h4 { font-family: 'Inter', sans-serif; letter-spacing: -0.02em; line
 <!-- ════════════════════════════════════════════════════
      REFERRAL CTA STRIP
 ════════════════════════════════════════════════════ -->
-<section style="background:var(--navy);padding:3.5rem 0;border-top:1px solid rgba(255,255,255,0.06);">
-  <div class="container" style="display:flex;align-items:center;justify-content:space-between;gap:2rem;flex-wrap:wrap;">
+<section style="background:linear-gradient(135deg, var(--teal-dark) 0%, #007f6d 40%, var(--navy-dark) 100%);padding:4.5rem 0;position:relative;overflow:hidden;">
+  <div style="position:absolute;inset:0;background:url('data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><circle cx=%2280%22 cy=%2220%22 r=%2260%22 fill=%22rgba(255,255,255,0.03)%22/><circle cx=%2210%22 cy=%2280%22 r=%2240%22 fill=%22rgba(255,255,255,0.03)%22/></svg>');pointer-events:none;" aria-hidden="true"></div>
+  <div class="container" style="position:relative;display:flex;align-items:center;justify-content:space-between;gap:2rem;flex-wrap:wrap;">
     <div>
-      <div class="label label--teal" style="margin-bottom:0.625rem;">Referrals</div>
-      <h2 style="font-size:1.375rem;font-weight:700;color:var(--white);letter-spacing:-0.02em;">
-        To refer a young person or request a service specification
+      <div style="font-size:0.75rem;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:rgba(255,255,255,0.6);margin-bottom:0.75rem;">Ready to Refer?</div>
+      <h2 style="font-size:clamp(1.375rem,2.5vw,1.875rem);font-weight:800;color:var(--white);letter-spacing:-0.025em;line-height:1.2;">
+        Refer a young person or request a service specification
       </h2>
     </div>
     <div style="display:flex;gap:0.75rem;flex-shrink:0;flex-wrap:wrap;">
-      <a href="contact.html" class="btn btn-primary">
+      <a href="contact.html" class="btn" style="background:var(--white);color:var(--teal-dark);font-weight:700;border-color:transparent;box-shadow:0 4px 14px rgba(0,0,0,0.15);">
         Make a Referral
         <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
       </a>

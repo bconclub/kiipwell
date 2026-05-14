@@ -1,5 +1,23 @@
 # Changelog
 
+## 2026-05-14 · Modern design overhaul — inspired by NewME reference
+
+- **Border radius**: `--radius` increased from 4px → 14px across all components; pill badges at `9999px`
+- **Section eyebrows**: all "01 — Section" labels now render as teal pill badges (inline-flex, teal bg tint + border); white variant for dark sections
+- **Buttons**: removed `text-transform: uppercase`; all CTAs now pill-shaped (`border-radius: 9999px`); primary button gets teal gradient + glow shadow
+- **Credential badges**: pill-shaped, glass-blur backdrop
+- **Pillar cards**: replaced `1px solid border` with `box-shadow`; photo height 200px → 240px; teal circle icon containers; teal dot bullets replacing left-border list items
+- **Service cards**: circular icon containers; hover lift; extra padding
+- **Policy items** (safeguarding): replaced flat list with icon-circle cards on hover-tinted off-white background
+- **Structured list** (about): replaced table-style rows with teal dot rows on off-white pill cards
+- **Sharp cards** (spec): border replaced with shadow
+- **Hero stats bar**: floated inside glass card with 14px radius instead of full-width strip
+- **Impact strip**: new section between About and Services with large bold stat numbers (16-21, 24/7, 100%, Tier 3) — inspired by the NewME metrics row
+- **CTA strip**: changed from flat navy to teal → dark gradient; white "Make a Referral" button with shadow; outline secondary button
+- **Nav links**: pill hover state; slightly larger base font
+- **CSS variables**: added `--shadow-sm`, `--shadow-md`, `--shadow-card`, `--shadow-hover`, `--teal-light`, `--radius-sm`, `--radius-full`; `--border` lightened; `--off-white` adjusted
+- User-facing: entire homepage now looks modern, clean, and 2024-quality — not institutional
+
 ## 2026-05-14 · Real Unsplash photos + split-grid fix
 
 - **Images**: replaced all placeholder/picsum URLs and local Hero.webp/mentors.webp with 8 contextually relevant Unsplash photos downloaded to `public/unsplash/`
