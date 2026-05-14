@@ -88,6 +88,8 @@ h1, h2, h3, h4 { font-family: 'Inter', sans-serif; letter-spacing: -0.02em; line
 /* ── Layout ────────────────────────────────────────────── */
 .container { max-width: 1280px; margin: 0 auto; padding: 0 2.5rem; }
 .rule { height: 1px; background: var(--border); }
+.section-pad { padding: 8rem 0; }
+.section-pad--lg { padding: 10rem 0; }
 
 /* ── Buttons ───────────────────────────────────────────── */
 .btn {
@@ -346,8 +348,8 @@ h1, h2, h3, h4 { font-family: 'Inter', sans-serif; letter-spacing: -0.02em; line
 ══════════════════════════════════════════════════════════ */
 .split {
   display: grid;
-  grid-template-columns: 1fr 1fr;
-  min-height: 640px;
+  grid-template-columns: 55fr 45fr;
+  min-height: 700px;
   width: 100%;
 }
 .split--reverse .split__img { order: 2; }
@@ -365,7 +367,7 @@ h1, h2, h3, h4 { font-family: 'Inter', sans-serif; letter-spacing: -0.02em; line
   object-position: center;
 }
 .split__content {
-  padding: 5rem 4rem;
+  padding: 6rem 5rem;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -583,8 +585,8 @@ h1, h2, h3, h4 { font-family: 'Inter', sans-serif; letter-spacing: -0.02em; line
 ══════════════════════════════════════════════════════════ */
 .sg-split {
   display: grid;
-  grid-template-columns: 5fr 7fr;
-  min-height: 600px;
+  grid-template-columns: 45fr 55fr;
+  min-height: 680px;
 }
 .sg-split__img {
   position: relative;
@@ -604,7 +606,7 @@ h1, h2, h3, h4 { font-family: 'Inter', sans-serif; letter-spacing: -0.02em; line
   background: linear-gradient(to right, transparent 50%, var(--white) 100%);
 }
 .sg-split__content {
-  padding: 5rem 4rem;
+  padding: 6rem 5rem;
   background: var(--white);
   display: flex;
   flex-direction: column;
@@ -820,7 +822,7 @@ h1, h2, h3, h4 { font-family: 'Inter', sans-serif; letter-spacing: -0.02em; line
     <!-- Right: content -->
     <div class="split__content split__content--light">
       <div class="section-number">01 — Organisation</div>
-      <h2 id="about-heading" style="font-size:1.875rem;font-weight:800;color:var(--navy-dark);letter-spacing:-0.025em;line-height:1.15;margin-bottom:1.25rem;">
+      <h2 id="about-heading" style="font-size:clamp(2.25rem,3.5vw,3.25rem);font-weight:800;color:var(--navy-dark);letter-spacing:-0.03em;line-height:1.1;margin-bottom:1.5rem;">
         Who We Are
       </h2>
       <p style="font-size:1rem;color:var(--text);line-height:1.8;margin-bottom:1.25rem;">
@@ -860,24 +862,25 @@ h1, h2, h3, h4 { font-family: 'Inter', sans-serif; letter-spacing: -0.02em; line
 <!-- ════════════════════════════════════════════════════
      IMPACT STRIP — bold numbers
 ════════════════════════════════════════════════════ -->
-<section style="background:var(--off-white);padding:4rem 0;border-top:1px solid var(--border);border-bottom:1px solid var(--border);" aria-label="Impact statistics">
-  <div class="container">
-    <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:2rem;text-align:center;" class="impact-grid">
-      <div>
-        <div style="font-size:clamp(2.25rem,4vw,3rem);font-weight:800;color:var(--navy-dark);letter-spacing:-0.04em;line-height:1;">16–21</div>
-        <div style="font-size:0.875rem;color:var(--muted);margin-top:0.5rem;line-height:1.4;">Age group supported</div>
+<section style="background:var(--navy-dark);padding:5rem 0;position:relative;overflow:hidden;" aria-label="Impact statistics">
+  <div style="position:absolute;inset:0;pointer-events:none;background:radial-gradient(ellipse 50% 100% at 50% 50%, rgba(0,184,159,0.08) 0%, transparent 70%);" aria-hidden="true"></div>
+  <div class="container" style="position:relative;">
+    <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:0;text-align:center;" class="impact-grid">
+      <div style="padding:1.5rem;border-right:1px solid rgba(255,255,255,0.08);">
+        <div style="font-size:clamp(2.75rem,5vw,4rem);font-weight:800;color:var(--white);letter-spacing:-0.04em;line-height:1;">16–21</div>
+        <div style="font-size:0.8125rem;color:rgba(255,255,255,0.45);margin-top:0.75rem;line-height:1.4;letter-spacing:0.02em;">Age group supported</div>
       </div>
-      <div>
-        <div style="font-size:clamp(2.25rem,4vw,3rem);font-weight:800;color:var(--teal);letter-spacing:-0.04em;line-height:1;">24/7</div>
-        <div style="font-size:0.875rem;color:var(--muted);margin-top:0.5rem;line-height:1.4;">On-call support available</div>
+      <div style="padding:1.5rem;border-right:1px solid rgba(255,255,255,0.08);">
+        <div style="font-size:clamp(2.75rem,5vw,4rem);font-weight:800;color:var(--teal);letter-spacing:-0.04em;line-height:1;">24/7</div>
+        <div style="font-size:0.8125rem;color:rgba(255,255,255,0.45);margin-top:0.75rem;line-height:1.4;letter-spacing:0.02em;">On-call support available</div>
       </div>
-      <div>
-        <div style="font-size:clamp(2.25rem,4vw,3rem);font-weight:800;color:var(--navy-dark);letter-spacing:-0.04em;line-height:1;">100%</div>
-        <div style="font-size:0.875rem;color:var(--muted);margin-top:0.5rem;line-height:1.4;">DBS-checked workforce</div>
+      <div style="padding:1.5rem;border-right:1px solid rgba(255,255,255,0.08);">
+        <div style="font-size:clamp(2.75rem,5vw,4rem);font-weight:800;color:var(--white);letter-spacing:-0.04em;line-height:1;">100%</div>
+        <div style="font-size:0.8125rem;color:rgba(255,255,255,0.45);margin-top:0.75rem;line-height:1.4;letter-spacing:0.02em;">DBS-checked workforce</div>
       </div>
-      <div>
-        <div style="font-size:clamp(2.25rem,4vw,3rem);font-weight:800;color:var(--navy-dark);letter-spacing:-0.04em;line-height:1;">Tier 3</div>
-        <div style="font-size:0.875rem;color:var(--muted);margin-top:0.5rem;line-height:1.4;">Semi-independent placement</div>
+      <div style="padding:1.5rem;">
+        <div style="font-size:clamp(2.75rem,5vw,4rem);font-weight:800;color:var(--white);letter-spacing:-0.04em;line-height:1;">Tier 3</div>
+        <div style="font-size:0.8125rem;color:rgba(255,255,255,0.45);margin-top:0.75rem;line-height:1.4;letter-spacing:0.02em;">Semi-independent placement</div>
       </div>
     </div>
   </div>
@@ -886,13 +889,15 @@ h1, h2, h3, h4 { font-family: 'Inter', sans-serif; letter-spacing: -0.02em; line
 <!-- ════════════════════════════════════════════════════
      SECTION 02 — SERVICES — dark bg, 3×2 card grid
 ════════════════════════════════════════════════════ -->
-<section id="services" style="background:var(--navy-dark);padding:6rem 0;" aria-labelledby="services-heading">
+<section id="services" style="background:var(--navy-dark);padding:8rem 0;position:relative;overflow:hidden;" aria-labelledby="services-heading">
+  <!-- subtle radial gradient blobs for depth -->
+  <div style="position:absolute;inset:0;pointer-events:none;background:radial-gradient(ellipse 80% 60% at 10% 20%, rgba(0,184,159,0.07) 0%, transparent 60%), radial-gradient(ellipse 60% 80% at 90% 80%, rgba(27,58,140,0.15) 0%, transparent 60%);" aria-hidden="true"></div>
   <div class="container">
 
-    <div style="display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:end;margin-bottom:3.5rem;" class="services-header">
+    <div style="position:relative;z-index:1;display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:end;margin-bottom:4rem;" class="services-header">
       <div>
         <div class="section-number section-number--white">02 — Services</div>
-        <h2 id="services-heading" style="font-size:clamp(1.75rem,3vw,2.5rem);font-weight:800;color:var(--white);letter-spacing:-0.025em;line-height:1.1;">
+        <h2 id="services-heading" style="font-size:clamp(2.5rem,4vw,3.75rem);font-weight:800;color:var(--white);letter-spacing:-0.03em;line-height:1.05;">
           What We Offer
         </h2>
       </div>
@@ -904,7 +909,7 @@ h1, h2, h3, h4 { font-family: 'Inter', sans-serif; letter-spacing: -0.02em; line
     </div>
 
     <!-- 3×2 service card grid -->
-    <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:rgba(255,255,255,0.06);border-radius:var(--radius);overflow:hidden;" class="service-grid">
+    <div style="position:relative;z-index:1;display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:rgba(255,255,255,0.06);border-radius:var(--radius);overflow:hidden;" class="service-grid">
 
       <div class="service-card">
         <div class="service-card__icon">
@@ -962,12 +967,13 @@ h1, h2, h3, h4 { font-family: 'Inter', sans-serif; letter-spacing: -0.02em; line
 <!-- ════════════════════════════════════════════════════
      SECTION 03 — SPECIFICATION — image + two cards
 ════════════════════════════════════════════════════ -->
-<section style="padding:6rem 0;background:var(--off-white);" aria-labelledby="spec-heading">
-  <div class="container">
+<section style="padding:8rem 0;background:var(--off-white);position:relative;overflow:hidden;" aria-labelledby="spec-heading">
+  <div style="position:absolute;inset:0;pointer-events:none;background:radial-gradient(ellipse 70% 70% at 95% 50%, rgba(0,184,159,0.06) 0%, transparent 60%);" aria-hidden="true"></div>
+  <div class="container" style="position:relative;">
 
-    <div style="margin-bottom:3rem;">
+    <div style="margin-bottom:4rem;">
       <div class="section-number">03 — Specification</div>
-      <h2 id="spec-heading" style="font-size:clamp(1.5rem,2.5vw,2rem);font-weight:800;color:var(--navy-dark);letter-spacing:-0.025em;max-width:560px;line-height:1.2;">
+      <h2 id="spec-heading" style="font-size:clamp(2rem,3.5vw,3rem);font-weight:800;color:var(--navy-dark);letter-spacing:-0.03em;max-width:640px;line-height:1.1;">
         Semi-Independent Supported Accommodation
       </h2>
     </div>
@@ -1044,13 +1050,14 @@ h1, h2, h3, h4 { font-family: 'Inter', sans-serif; letter-spacing: -0.02em; line
 <!-- ════════════════════════════════════════════════════
      SECTION 04 — CORE SUPPORT — 4 pillar cards with photos
 ════════════════════════════════════════════════════ -->
-<section style="padding:6rem 0;background:var(--white);" aria-labelledby="support-heading">
+<section style="padding:8rem 0;background:var(--white);position:relative;overflow:hidden;" aria-labelledby="support-heading">
+  <div style="position:absolute;inset:0;pointer-events:none;background:radial-gradient(ellipse 80% 50% at 50% 100%, rgba(0,184,159,0.04) 0%, transparent 60%);" aria-hidden="true"></div>
   <div class="container">
 
-    <div style="display:flex;align-items:flex-end;justify-content:space-between;gap:2rem;flex-wrap:wrap;margin-bottom:3rem;">
+    <div style="display:flex;align-items:flex-end;justify-content:space-between;gap:2rem;flex-wrap:wrap;margin-bottom:4rem;">
       <div>
         <div class="section-number">04 — Support Areas</div>
-        <h2 id="support-heading" style="font-size:clamp(1.5rem,2.5vw,2rem);font-weight:800;color:var(--navy-dark);letter-spacing:-0.025em;line-height:1.2;">
+        <h2 id="support-heading" style="font-size:clamp(2rem,3.5vw,3rem);font-weight:800;color:var(--navy-dark);letter-spacing:-0.03em;line-height:1.1;">
           Core Support Programme
         </h2>
       </div>
@@ -1059,7 +1066,7 @@ h1, h2, h3, h4 { font-family: 'Inter', sans-serif; letter-spacing: -0.02em; line
       </p>
     </div>
 
-    <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:1.5rem;" class="pillar-grid">
+    <div style="position:relative;z-index:1;display:grid;grid-template-columns:repeat(4,1fr);gap:2rem;" class="pillar-grid">
 
       <!-- Life Skills -->
       <div class="pillar-card">
@@ -1147,10 +1154,11 @@ h1, h2, h3, h4 { font-family: 'Inter', sans-serif; letter-spacing: -0.02em; line
 <section aria-labelledby="approach-heading">
 
   <!-- Section header above panels -->
-  <div style="background:var(--navy-dark);padding:4rem 0 3rem;">
-    <div class="container">
+  <div style="background:var(--navy-dark);padding:7rem 0 4rem;position:relative;overflow:hidden;">
+    <div style="position:absolute;inset:0;pointer-events:none;background:radial-gradient(ellipse 60% 80% at 80% 50%, rgba(0,184,159,0.08) 0%, transparent 60%);" aria-hidden="true"></div>
+    <div class="container" style="position:relative;">
       <div class="section-number section-number--white">05 — Methodology</div>
-      <h2 id="approach-heading" style="font-size:clamp(1.5rem,2.5vw,2rem);font-weight:800;color:var(--white);letter-spacing:-0.025em;line-height:1.2;max-width:560px;">
+      <h2 id="approach-heading" style="font-size:clamp(2.25rem,4vw,3.5rem);font-weight:800;color:var(--white);letter-spacing:-0.03em;line-height:1.05;max-width:640px;">
         Our Approach to Supported Living
       </h2>
     </div>
@@ -1217,7 +1225,7 @@ h1, h2, h3, h4 { font-family: 'Inter', sans-serif; letter-spacing: -0.02em; line
         <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
         Statement of Purpose
       </div>
-      <h2 id="mission-heading" style="font-size:clamp(1.5rem,3vw,2.5rem);font-weight:800;color:var(--white);letter-spacing:-0.025em;line-height:1.2;margin-bottom:2rem;">
+      <h2 id="mission-heading" style="font-size:clamp(1.875rem,3.5vw,3rem);font-weight:800;color:var(--white);letter-spacing:-0.03em;line-height:1.2;margin-bottom:2rem;">
         "To provide safe, registered accommodation where young people can develop the skills and confidence needed for independent living."
       </h2>
       <div style="height:1px;background:rgba(255,255,255,0.12);margin-bottom:2rem;"></div>
@@ -1246,7 +1254,7 @@ h1, h2, h3, h4 { font-family: 'Inter', sans-serif; letter-spacing: -0.02em; line
     <!-- Right: content -->
     <div class="sg-split__content">
       <div class="section-number">06 — Safeguarding</div>
-      <h2 id="sg-heading" style="font-size:1.875rem;font-weight:800;color:var(--navy-dark);letter-spacing:-0.025em;line-height:1.15;margin-bottom:1.25rem;">
+      <h2 id="sg-heading" style="font-size:clamp(2rem,3vw,2.75rem);font-weight:800;color:var(--navy-dark);letter-spacing:-0.03em;line-height:1.1;margin-bottom:1.5rem;">
         Our Safeguarding Commitment
       </h2>
       <div style="border-left:3px solid var(--teal);padding-left:1rem;margin-bottom:2.5rem;">

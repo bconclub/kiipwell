@@ -1,5 +1,17 @@
 # Changelog
 
+## 2026-05-14 · Premium layout elevation — spacing, type scale, gradient textures
+
+- **Typography scale**: all section h2 headings enlarged to `clamp(2–3.75rem)` — commands the page like the reference design
+- **Section padding**: major sections increased from 6rem → 8rem; approach header 4rem → 7rem
+- **About split**: changed 1fr/1fr → 55fr/45fr; content padding 5rem/4rem → 6rem/5rem; min-height 640px → 700px
+- **Safeguarding split**: changed 5fr/7fr → 45fr/55fr; content padding increased; min-height 600px → 680px
+- **Impact strip**: moved to dark navy background (matching section colours); numbers enlarged to `clamp(2.75rem,5vw,4rem)`; subtle teal radial glow texture added
+- **Gradient textures**: radial gradient blobs added to Services, Spec, Core Support, and Approach sections — gives depth without changing brand colours
+- **Pillar grid gap**: 1.5rem → 2rem
+- **Mission quote**: headline enlarged to `clamp(1.875rem,3.5vw,3rem)`
+- User-facing: every section now breathes; typography is bold and confident; the page feels premium
+
 ## 2026-05-14 · Modern design overhaul — inspired by NewME reference
 
 - **Border radius**: `--radius` increased from 4px → 14px across all components; pill badges at `9999px`
