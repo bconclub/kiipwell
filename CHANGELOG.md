@@ -1,5 +1,13 @@
 # Changelog
 
+## 2026-05-14 · Services, pillar cards, hero glow + entrance animation
+
+- **Service cards**: replaced `gap:1px` divider grid with `gap:1.5rem` floating cards; padding 2rem → 2.5rem/2.25rem; stronger hover lift + glow shadow; icon gets border + hover tint; title 1.0625rem
+- **Pillar cards**: image height 240px → 260px; cubic-bezier transitions; teal bottom accent line slides in on hover; flex column for consistent height; icon border added
+- **Hero glow layer**: `hero__glow` div added — teal radial blob upper-left + deep navy radial lower-left — gives hero depth and warmth beyond the photo overlay
+- **Hero entrance animation**: `heroFadeUp` keyframe — eyebrow, h1, subtext, CTAs each stagger in 120ms apart on page load
+- **Lenis removed**: CDN caused white-screen render conflict; native CSS `scroll-behavior: smooth` handles smooth scrolling without JS overhead
+
 ## 2026-05-14 · Parallax on About + Safeguarding split images
 
 - **Parallax scroll effect**: added lightweight JS scroll listener — `[data-parallax]` images translate ±40px on `translateY` as user scrolls, creating a depth effect inside their clipped containers
