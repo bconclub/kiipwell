@@ -1,5 +1,19 @@
 # Changelog
 
+## 2026-05-14 · Full visual redesign — proper image-first layout
+
+- **Hero**: full 100vh with `Hero.webp` as genuine full-bleed background; gradient overlay weighted left; large display H1; credential bar; bottom stats strip (glass-blur panel)
+- **About (01)**: true edge-to-edge split — `mentors.webp` fills entire left half with no container constraints; structured list on right
+- **Services (02)**: replaced text list with 3×2 service card grid on dark navy; each card has icon container, title, description; UASC card accent-highlighted in teal
+- **Spec (03)**: 3-column layout — property placeholder image filling left column, "Designed For" and "What We Provide" cards beside it
+- **Core Support (04)**: 4 pillar cards each with 200px top photo, hover zoom, lift-on-hover shadow; photo fades to white at bottom
+- **Approach (05)**: 3 full-height cinematic panels (560px min) — each panel has a background image with deep gradient overlay; middle panel uses teal gradient for contrast; section header in dark navy above
+- **Mission**: genuine full-bleed background image with 87% navy overlay; centered quote layout
+- **Safeguarding (06)**: true image-left split (`sg-split`) — image fills left 5/12, policy items on right; no container padding on image side
+- All images: 12 total (Hero.webp + mentors.webp at native 1536px; 10 picsum seeds for pillars, approach panels, property, mission, safeguarding)
+- CSS: complete rewrite with dedicated component classes (`hero`, `split`, `service-card`, `pillar-card`, `approach-panel`, `mission`, `sg-split`)
+- User-facing: every section now has meaningful imagery, not decorative strips
+
 ## 2026-05-14 · Visual overhaul — images throughout homepage
 
 - Hero: replaced data panel with `Hero.webp` as a full-height split image; floating stats bar (16-21 / 24/7 / 100% DBS / Tier 3) overlaid at bottom with glass-blur effect
