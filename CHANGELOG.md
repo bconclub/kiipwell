@@ -1,5 +1,10 @@
 # Changelog
 
+## 2026-05-14 · Hero overlay contrast fix
+
+- **Hero overlay lightened**: left-stop reduced from 0.92 → 0.82, mid-stop 0.80 → 0.60, right stops 0.35/0.15 → 0.20/0.05 — photo now shows through with warmth and depth rather than flat navy wash
+- User-facing: hero background image (young person reading, warm orange sofa) is visibly rich; text still reads clearly on the left
+
 ## 2026-05-14 · Hero cleanup + pillar card image fix
 
 - **Hero credential bar removed**: eliminated the 4-pill credential strip (Registered Provider, North East England, Safeguarding Compliant, Est. 2024) from the hero — it was misaligned and redundant since "Registered Provider" already appears in the nav
