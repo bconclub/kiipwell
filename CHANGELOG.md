@@ -1,5 +1,21 @@
 # Changelog
 
+## 2026-05-14 · Real Unsplash photos + split-grid fix
+
+- **Images**: replaced all placeholder/picsum URLs and local Hero.webp/mentors.webp with 8 contextually relevant Unsplash photos downloaded to `public/unsplash/`
+  - `hero.jpg` — young person reading at home (Anita Jankovic)
+  - `about.jpg` — support worker meeting (Rémi Walle)
+  - `terrace.jpg` — UK residential terrace exterior (Viktor Forgacs)
+  - `education.jpg` — young people studying together (Brooke Cagle)
+  - `wellbeing.jpg` — calm mental health / wellbeing (Priscilla Du Preez)
+  - `lifeskills.jpg` — person cooking / independent living (Douglas Fehr)
+  - `community.jpg` — diverse community support (Rajiv Perera)
+  - `team.jpg` — professional team meeting (Vitaly Gariev)
+- **Credits**: `public/unsplash/_credits.json` — full photographer attribution for all 8 photos
+- **Split-grid fix**: added `width: 100%` to `.split` class — prevents grid collapse to 265px in constrained viewports
+- **Zero picsum remaining**: all 12 image slots now serve real, contextually appropriate photography
+- User-facing: every image across the homepage now shows relevant, high-quality photography
+
 ## 2026-05-14 · Full visual redesign — proper image-first layout
 
 - **Hero**: full 100vh with `Hero.webp` as genuine full-bleed background; gradient overlay weighted left; large display H1; credential bar; bottom stats strip (glass-blur panel)
