@@ -1,5 +1,17 @@
 # Changelog
 
+## 2026-05-15 · Hero redesign — split layout + Vercel deploy fix
+
+- **Vercel fix**: added `vercel.json` with `outputDirectory: "."` — the live `kiipwell.vercel.app` was returning 404 because Vercel's "Other" preset defaults to `public/` as the output dir; with no `index.html` in `public/`, the homepage 404'd
+- **Hero — split layout**: completely rebuilt to match the reference design
+  - Left column (5fr): inline brand mark (custom SVG: teal house + navy person figure) + Kiipwell wordmark with "SOLUTIONS" subtext + heading + teal accent bar + description + two CTAs
+  - Right column (6fr): full-bleed photo (`about.jpg` — support worker in conversation) + decorative "Empowering young people. Building independence." poster overlay (dark teal gradient, white text, top-right of photo)
+  - Floating stats card overlapping the hero bottom: 4 stats with circular teal icon badges + value + label, dropped-shadow card with negative margin-top
+- **Buttons**: added `.btn-navy` (solid navy primary for the hero) and `.btn-outline-teal` (teal-outline secondary for "View Services" with heart icon) — keeps site-wide `btn-primary` teal gradient intact for other CTAs
+- **Hero colours**: warm cream gradient background (`#FAFBF6` → `#F2F5EE`); navy text on light surface instead of white-on-photo overlay; teal accent bar; subtle teal radial glow upper-left
+- **Removed**: standalone Impact strip section between About and Services — those 4 stats are now in the hero floating card, no duplication
+- **Mobile responsive**: hero stacks to single column at ≤1023px; photo height 420px (tablet) / 320px (mobile); stats card 2-col grid; poster scales down; entrance animations stagger on brand/h1/divider/sub/ctas
+
 ## 2026-05-15 · Mobile responsiveness overhaul
 
 - **Nav**: hide "REGISTERED PROVIDER" sub-label and divider at ≤767px to prevent logo overflow at 375px
