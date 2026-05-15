@@ -1,4 +1,5 @@
 import SectionLabel from '../ui/SectionLabel'
+import IconCircle from '../ui/IconCircle'
 import { Target, ShieldCheck, Globe } from '../../lib/icons'
 
 const items = [
@@ -40,13 +41,11 @@ export default function Approach() {
           {items.map((it) => (
             <article
               key={it.num}
-              className="bg-white border border-line rounded-lg p-9 transition-all duration-300 hover:-translate-y-1 hover:border-teal/40 hover:shadow-[0_16px_36px_rgba(27,58,140,0.08)]"
+              className="bg-white border border-line rounded-2xl p-8 lg:p-9 transition-all duration-300 hover:-translate-y-1 hover:border-teal/40 hover:shadow-cardHover"
             >
               <div className="text-xs font-extrabold tracking-widest text-teal-dark mb-5">{it.num}</div>
-              <div className="w-11 h-11 rounded-full bg-teal-light border border-teal/20 flex items-center justify-center mb-6">
-                <it.icon className="w-[18px] h-[18px] text-teal-dark" />
-              </div>
-              <h3 className="text-lg font-bold text-navy-dark tracking-tight mb-3 leading-[1.3]">{it.title}</h3>
+              <IconCircle icon={it.icon} size="md" />
+              <h3 className="mt-5 text-lg font-bold text-navy-dark tracking-tight mb-3 leading-[1.3]">{it.title}</h3>
               <p className="text-[15px] text-muted leading-[1.7]">{it.body}</p>
             </article>
           ))}

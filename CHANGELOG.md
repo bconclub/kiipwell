@@ -1,5 +1,14 @@
 # Changelog
 
+## 2026-05-15 · Filled icons, uniform section widths, repo cleanup
+
+- **Icons**: switched the entire icon set from stroke outlines to Heroicons solid (filled). Matches the reference style (filled glyph inside a soft brand-tinted circle). IconCircle component upgraded with bigger sizes (sm 44px, md 56px, lg 64px) and teal-tinted background with navy-dark glyph
+- **Section widths**: every section now uses the same container-x wrapper (max-w-1280, px-5/8/10 by breakpoint). Hero and About no longer full-bleed; photos now live inside the container with rounded-2xl. All section headings start at the same left x coordinate (40px on desktop)
+- **Hero**: photo now inside container with rounded corners. Stats card position adjusted to still float (negative margin-top) but within the same container width
+- **Section padding**: standardised to py-20 lg:py-28 across all sections (was inconsistent: py-32 in some, py-28 in others, py-24 in mission)
+- **Card radii**: bumped from rounded-lg (14px) to rounded-2xl (16px) on the larger surfaces for a softer modern feel
+- **Cleanup**: removed legacy files (`index.legacy.html`, `contact.legacy.html`, `index.old.html`, `kiipwell-homepage.html`) and the `/assets/` folder (logo + favicon now live in `/public/` only)
+
 ## 2026-05-15 · Migrated from vanilla HTML to Vite + React + Tailwind
 
 - **Stack migration**: vanilla HTML/CSS rewritten as a React SPA on Vite + Tailwind. Same Vercel deploy, same visual output, much cleaner code architecture for upcoming internal pages

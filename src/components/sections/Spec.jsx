@@ -16,7 +16,7 @@ const provided = [
 
 export default function Spec() {
   return (
-    <section aria-labelledby="spec-heading" className="bg-offwhite py-20 lg:py-32">
+    <section aria-labelledby="spec-heading" className="bg-offwhite py-20 lg:py-28">
       <div className="container-x">
         <div className="mb-12 lg:mb-16">
           <SectionLabel number="03" label="Specification" />
@@ -26,7 +26,7 @@ export default function Spec() {
         </div>
 
         <div className="grid lg:grid-cols-3 gap-6">
-          <div className="relative rounded-lg overflow-hidden min-h-[360px] shadow-card">
+          <div className="relative rounded-2xl overflow-hidden min-h-[360px] shadow-card">
             <img
               src="/unsplash/terrace.jpg"
               alt="Supported accommodation, residential property"
@@ -40,7 +40,7 @@ export default function Spec() {
             </div>
           </div>
 
-          <div className="bg-white rounded-lg border-l-[3px] border-l-teal shadow-card p-8 flex flex-col">
+          <div className="bg-white rounded-2xl border-l-[3px] border-l-teal shadow-card p-8 flex flex-col">
             <div className="text-[11px] font-bold tracking-[0.12em] uppercase text-navy mb-5">Designed for</div>
             <div className="flex flex-col">
               {designedFor.map((d, i) => (
@@ -52,7 +52,7 @@ export default function Spec() {
             </div>
           </div>
 
-          <div className="bg-white rounded-lg shadow-card p-8 flex flex-col">
+          <div className="bg-white rounded-2xl shadow-card p-8 flex flex-col">
             <div className="text-[11px] font-bold tracking-[0.12em] uppercase text-navy mb-5">What We Provide</div>
             <div className="flex flex-col">
               {provided.map((p, i) => (

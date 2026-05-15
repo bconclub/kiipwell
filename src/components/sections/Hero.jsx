@@ -11,58 +11,59 @@ const stats = [
 
 export default function Hero() {
   return (
-    <section aria-label="Introduction" className="relative bg-white pt-20">
-      <div className="grid lg:grid-cols-[5fr_6fr] min-h-[calc(100vh-80px)]">
-        {/* Left: content */}
-        <div className="container-px pt-12 pb-24 lg:pt-16 lg:pb-36 lg:pl-20 lg:pr-12 flex flex-col gap-10 lg:gap-12">
-          <span className="self-start inline-flex items-center px-4 py-1.5 rounded-full bg-teal/10 border border-teal/25 text-[11px] font-bold tracking-[0.14em] uppercase text-teal-dark animate-fadeUp" style={{ animationDelay: '50ms' }}>
-            Supported Accommodation, North East England
-          </span>
+    <section aria-label="Introduction" className="bg-white pt-20">
+      <div className="container-x pt-12 lg:pt-16 pb-28 lg:pb-36">
+        <div className="grid lg:grid-cols-[5fr_6fr] gap-10 lg:gap-16 items-center">
+          <div className="flex flex-col gap-8 lg:gap-10">
+            <span
+              className="self-start inline-flex items-center px-4 py-1.5 rounded-full bg-teal/10 border border-teal/25 text-[11px] font-bold tracking-[0.14em] uppercase text-teal-dark animate-fadeUp"
+              style={{ animationDelay: '50ms' }}
+            >
+              Supported Accommodation, North East England
+            </span>
 
-          <div className="max-w-[580px]">
-            <h1
-              className="text-[clamp(2rem,4.5vw,3.5rem)] font-extrabold text-navy-dark tracking-tighter leading-[1.05] mb-6 animate-fadeUp"
-              style={{ animationDelay: '180ms' }}
-            >
-              Semi-Independent<br />
-              Supported Accommodation<br />
-              <span className="text-teal-dark">for Young People</span>
-            </h1>
-            <div className="w-20 h-1 bg-teal rounded animate-fadeUp mb-6" style={{ animationDelay: '280ms' }} />
-            <p
-              className="text-base text-muted leading-[1.75] mb-9 max-w-[460px] animate-fadeUp"
-              style={{ animationDelay: '360ms' }}
-            >
-              Kiipwell Solutions provides registered, structured accommodation and specialist support services for young people aged 16 to 21, including UASC and care leavers, across the North East.
-            </p>
-            <div className="flex gap-3 flex-wrap animate-fadeUp" style={{ animationDelay: '460ms' }}>
-              <Button to="/contact" variant="navy">
-                <Users className="w-3.5 h-3.5" />
-                Make a Referral
-                <ArrowRight className="w-3.5 h-3.5" />
-              </Button>
-              <Button href="#services" variant="outline">
-                <Heart className="w-3.5 h-3.5" />
-                View Services
-              </Button>
+            <div className="max-w-[580px]">
+              <h1
+                className="text-[clamp(2rem,4.5vw,3.5rem)] font-extrabold text-navy-dark tracking-tighter leading-[1.05] mb-6 animate-fadeUp"
+                style={{ animationDelay: '180ms' }}
+              >
+                Semi-Independent<br />
+                Supported Accommodation<br />
+                <span className="text-teal-dark">for Young People</span>
+              </h1>
+              <div className="w-20 h-1 bg-teal rounded animate-fadeUp mb-6" style={{ animationDelay: '280ms' }} />
+              <p
+                className="text-base text-muted leading-[1.75] mb-9 max-w-[460px] animate-fadeUp"
+                style={{ animationDelay: '360ms' }}
+              >
+                Kiipwell Solutions provides registered, structured accommodation and specialist support services for young people aged 16 to 21, including UASC and care leavers, across the North East.
+              </p>
+              <div className="flex gap-3 flex-wrap animate-fadeUp" style={{ animationDelay: '460ms' }}>
+                <Button to="/contact" variant="navy">
+                  Make a Referral
+                  <ArrowRight className="w-3.5 h-3.5" />
+                </Button>
+                <Button href="#services" variant="outline">
+                  <Heart className="w-3.5 h-3.5" />
+                  View Services
+                </Button>
+              </div>
             </div>
           </div>
-        </div>
 
-        {/* Right: clean photo, no overlays */}
-        <div className="relative bg-offwhite min-h-[420px] lg:min-h-0">
-          <img
-            src="/unsplash/about.jpg"
-            alt="Support worker in conversation with a young person"
-            className="absolute inset-0 w-full h-full object-cover object-[center_30%]"
-            loading="eager"
-          />
+          <div className="relative rounded-2xl overflow-hidden bg-offwhite min-h-[420px] lg:min-h-[600px]">
+            <img
+              src="/unsplash/about.jpg"
+              alt="Support worker in conversation with a young person"
+              className="absolute inset-0 w-full h-full object-cover object-[center_30%]"
+              loading="eager"
+            />
+          </div>
         </div>
       </div>
 
-      {/* Floating stats card */}
-      <div className="relative z-10 -mt-[60px] pb-16 lg:pb-20 container-px">
-        <div className="mx-auto max-w-[1180px] bg-white rounded-lg border border-navy-dark/[0.06] shadow-float p-6 lg:px-8 lg:py-7 grid grid-cols-2 lg:grid-cols-4 gap-5 lg:gap-6">
+      <div className="container-x relative z-10 -mt-20 lg:-mt-24 pb-16 lg:pb-20">
+        <div className="bg-white rounded-2xl border border-navy-dark/[0.06] shadow-float p-6 lg:px-8 lg:py-7 grid grid-cols-2 lg:grid-cols-4 gap-5 lg:gap-6">
           {stats.map((s) => (
             <div key={s.label} className="flex items-center gap-3 lg:gap-4">
               <IconCircle icon={s.icon} size="md" />

@@ -1,4 +1,5 @@
 import SectionLabel from '../ui/SectionLabel'
+import IconCircle from '../ui/IconCircle'
 import { FileText, Users, Phone, UserCheck } from '../../lib/icons'
 
 const cards = [
@@ -26,7 +27,7 @@ const cards = [
 
 export default function Safeguarding() {
   return (
-    <section id="safeguarding" aria-labelledby="sg-heading" className="bg-white py-20 lg:py-32">
+    <section id="safeguarding" aria-labelledby="sg-heading" className="bg-white py-20 lg:py-28">
       <div className="container-x">
         <div className="max-w-[720px] mb-12 lg:mb-14">
           <SectionLabel number="06" label="Safeguarding" />
@@ -42,12 +43,10 @@ export default function Safeguarding() {
           {cards.map((c) => (
             <article
               key={c.title}
-              className="bg-offwhite border border-line rounded-lg p-8 transition-all duration-300 hover:-translate-y-1 hover:bg-white hover:border-teal/35 hover:shadow-[0_12px_28px_rgba(27,58,140,0.06)]"
+              className="bg-offwhite border border-line rounded-2xl p-8 transition-all duration-300 hover:-translate-y-1 hover:bg-white hover:border-teal/35 hover:shadow-cardHover"
             >
-              <div className="w-10 h-10 rounded-full bg-teal-light border border-teal/20 flex items-center justify-center mb-5">
-                <c.icon className="w-4 h-4 text-teal-dark" />
-              </div>
-              <h3 className="text-[17px] font-bold text-navy-dark tracking-tight leading-[1.3] mb-2.5">{c.title}</h3>
+              <IconCircle icon={c.icon} size="sm" />
+              <h3 className="mt-5 text-[17px] font-bold text-navy-dark tracking-tight leading-[1.3] mb-2.5">{c.title}</h3>
               <p className="text-[15px] text-muted leading-[1.7]">{c.body}</p>
             </article>
           ))}

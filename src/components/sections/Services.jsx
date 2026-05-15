@@ -1,4 +1,5 @@
 import SectionLabel from '../ui/SectionLabel'
+import IconCircle from '../ui/IconCircle'
 import { Home, UserCheck, Sparkle, Activity, Book, Globe } from '../../lib/icons'
 
 const services = [
@@ -12,8 +13,8 @@ const services = [
 
 export default function Services() {
   return (
-    <section id="services" aria-labelledby="services-heading" className="bg-navy-dark py-20 lg:py-32 relative overflow-hidden">
-      <div className="container-x relative">
+    <section id="services" aria-labelledby="services-heading" className="bg-navy-dark py-20 lg:py-28">
+      <div className="container-x">
         <div className="grid lg:grid-cols-2 gap-10 lg:gap-16 items-end mb-12 lg:mb-16">
           <div>
             <SectionLabel number="02" label="Services" white />
@@ -24,28 +25,26 @@ export default function Services() {
               What We Offer
             </h2>
           </div>
-          <p className="text-base text-white/50 leading-[1.75]">
+          <p className="text-base text-white/55 leading-[1.75]">
             A structured programme of accommodation and specialist support services, commissioned through local authority and health frameworks across the North East.
           </p>
         </div>
 
-        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
+        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-5 lg:gap-6">
           {services.map((s) => (
             <article
               key={s.title}
-              className={`p-9 lg:p-10 rounded-lg border transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_20px_40px_rgba(0,0,0,0.25)] ${
+              className={`p-8 lg:p-9 rounded-2xl border transition-all duration-300 hover:-translate-y-1 ${
                 s.accent
                   ? 'bg-teal/10 border-teal/30 hover:bg-teal/15'
                   : 'bg-white/[0.04] border-white/10 hover:bg-white/[0.08] hover:border-teal/40'
               }`}
             >
-              <div className="w-12 h-12 rounded-full bg-teal/15 border border-teal/25 flex items-center justify-center mb-7">
-                <s.icon className="w-[18px] h-[18px] text-teal" />
-              </div>
-              <h3 className="text-[17px] font-bold text-white/95 mb-3 tracking-tight leading-[1.3]">
+              <IconCircle icon={s.icon} size="md" tone="onDark" />
+              <h3 className="mt-6 text-[17px] font-bold text-white/95 mb-3 tracking-tight leading-[1.3]">
                 {s.title}
               </h3>
-              <p className="text-sm text-white/55 leading-[1.75]">{s.body}</p>
+              <p className="text-sm text-white/60 leading-[1.75]">{s.body}</p>
             </article>
           ))}
         </div>

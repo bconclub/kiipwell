@@ -1,4 +1,5 @@
 import SectionLabel from '../ui/SectionLabel'
+import IconCircle from '../ui/IconCircle'
 import { Sparkle, Activity, Book, Globe } from '../../lib/icons'
 
 const pillars = [
@@ -39,7 +40,7 @@ const pillars = [
 
 export default function CoreSupport() {
   return (
-    <section aria-labelledby="support-heading" className="bg-white py-20 lg:py-32">
+    <section aria-labelledby="support-heading" className="bg-white py-20 lg:py-28">
       <div className="container-x">
         <div className="flex flex-wrap items-end justify-between gap-6 mb-12 lg:mb-16">
           <div>
@@ -53,11 +54,11 @@ export default function CoreSupport() {
           </p>
         </div>
 
-        <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-8">
+        <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-7">
           {pillars.map((p) => (
             <article
               key={p.label}
-              className={`rounded-lg overflow-hidden bg-white shadow-card border flex flex-col transition-all duration-300 hover:-translate-y-2 hover:shadow-cardHover ${
+              className={`rounded-2xl overflow-hidden bg-white shadow-card border flex flex-col transition-all duration-300 hover:-translate-y-2 hover:shadow-cardHover ${
                 p.accent ? 'border-teal/35' : 'border-line'
               }`}
             >
@@ -65,10 +66,8 @@ export default function CoreSupport() {
                 <img src={p.img} alt={p.alt} loading="lazy" className="w-full h-full object-cover transition-transform duration-700 hover:scale-105" />
               </div>
               <div className="p-7 flex-1 flex flex-col">
-                <div className="w-10 h-10 rounded-full bg-teal-light border border-teal/20 flex items-center justify-center mb-4">
-                  <p.icon className="w-4 h-4 text-teal-dark" />
-                </div>
-                <div className={`text-[11px] font-bold tracking-[0.12em] uppercase mb-2.5 ${p.accent ? 'text-teal-dark' : 'text-navy'}`}>
+                <IconCircle icon={p.icon} size="sm" />
+                <div className={`mt-4 text-[11px] font-bold tracking-[0.12em] uppercase mb-2.5 ${p.accent ? 'text-teal-dark' : 'text-navy'}`}>
                   {p.label}
                 </div>
                 <h3 className="text-base font-bold text-navy-dark tracking-tight mb-3.5">{p.title}</h3>
