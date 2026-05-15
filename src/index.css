@@ -1,0 +1,19 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html { scroll-behavior: smooth; -webkit-font-smoothing: antialiased; }
+  body {
+    @apply font-sans bg-white text-ink;
+    line-height: 1.6;
+  }
+  h1, h2, h3, h4 { font-family: 'Inter', sans-serif; letter-spacing: -0.02em; line-height: 1.15; }
+  a { text-decoration: none; color: inherit; }
+  img { display: block; max-width: 100%; }
+}
+
+@layer components {
+  .container-px { @apply px-5 sm:px-8 lg:px-10; }
+  .container-x { @apply mx-auto w-full max-w-[1280px] container-px; }
+}

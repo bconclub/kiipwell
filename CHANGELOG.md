@@ -1,5 +1,17 @@
 # Changelog
 
+## 2026-05-15 · Migrated from vanilla HTML to Vite + React + Tailwind
+
+- **Stack migration**: vanilla HTML/CSS rewritten as a React SPA on Vite + Tailwind. Same Vercel deploy, same visual output, much cleaner code architecture for upcoming internal pages
+- **Architecture**: src/components/{layout,ui,sections}, src/pages, src/lib/icons.jsx. Components are reusable across the 5 pages we'll be building (home, about, services, safeguarding, contact)
+- **Tailwind theme**: navy / teal / offwhite tokens, custom shadows (card, cardHover, float), Inter sans, fadeUp animation. Drops the 100+ inline styles that were everywhere in the vanilla version
+- **Logo**: 1.5x bigger in the header (60px height, was 40px). Nav bar height grew from 68px to 80px to accommodate
+- **Nav links**: About / Services / Safeguarding are now rendered as greyed-out, non-clickable spans (cursor-not-allowed, aria-disabled, title="Coming soon"). Home and Contact remain live links. Solves the user's request that clicking About should not scroll to a section
+- **Hero**: rebuilt with no white-fog effects. Clean white background (no cream gradient), no radial glow blob, no `::before` overlay on the photo's left edge, no "Empowering young people" poster overlay. Just the photo, clean. Eyebrow pill, big heading, teal divider, description, two CTAs (navy primary + teal-outline secondary). Stats card still floats below
+- **Routing**: React Router v6, catch-all route serves Home for now so the dev server doesn't 404 on /about /services /safeguarding /contact (all renders Home)
+- **Vercel config**: switched from static-only to Vite build, `outputDirectory: dist`, SPA rewrite all routes to /
+- **Legacy files**: index.html and contact.html preserved as index.legacy.html / contact.legacy.html in the repo root for reference; will be deleted once internal pages are ported
+
 ## 2026-05-15 · Multi-page nav, logo image, clean Approach + Safeguarding, no em dashes
 
 - **Em dashes**: stripped every em dash (and en dash) from index.html and contact.html; user preference saved to project memory as a hard, permanent rule
