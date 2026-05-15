@@ -12,7 +12,7 @@ const pillars = [
     items: ['Budgeting and money management', 'Cooking and daily living', 'Tenancy management']
   },
   {
-    img: '/homepage/mentor-young-person.webp',
+    img: '/homepage/wellbeing-support.jpg',
     alt: 'Health and emotional wellbeing',
     label: 'Health',
     title: 'Wellbeing and Health',
@@ -63,7 +63,14 @@ export default function CoreSupport() {
               }`}
             >
               <div className="h-60 overflow-hidden relative">
-                <img src={p.img} alt={p.alt} loading="lazy" className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" />
+                <img
+                  src={p.img}
+                  alt={p.alt}
+                  loading="lazy"
+                  className={`w-full h-full object-cover transition-transform duration-700 group-hover:scale-105 ${
+                    p.label === 'Health' ? 'object-[42%_center]' : ''
+                  }`}
+                />
               </div>
               <div className="p-7 flex-1 flex flex-col">
                 <IconCircle icon={p.icon} size="sm" />
