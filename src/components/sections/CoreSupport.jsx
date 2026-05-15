@@ -58,12 +58,12 @@ export default function CoreSupport() {
           {pillars.map((p) => (
             <article
               key={p.label}
-              className={`rounded-2xl overflow-hidden bg-white shadow-card border flex flex-col transition-all duration-300 hover:-translate-y-2 hover:shadow-cardHover ${
+              className={`group relative rounded-2xl overflow-hidden bg-white shadow-card border flex flex-col transition-all duration-300 hover:-translate-y-2 hover:shadow-cardHover ${
                 p.accent ? 'border-teal/35' : 'border-line'
               }`}
             >
               <div className="h-60 overflow-hidden relative">
-                <img src={p.img} alt={p.alt} loading="lazy" className="w-full h-full object-cover transition-transform duration-700 hover:scale-105" />
+                <img src={p.img} alt={p.alt} loading="lazy" className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" />
               </div>
               <div className="p-7 flex-1 flex flex-col">
                 <IconCircle icon={p.icon} size="sm" />
@@ -80,6 +80,7 @@ export default function CoreSupport() {
                   ))}
                 </ul>
               </div>
+              <span className="absolute bottom-0 left-0 right-0 h-[3px] bg-gradient-to-r from-teal to-teal-dark origin-left scale-x-0 group-hover:scale-x-100 transition-transform duration-500 ease-out" aria-hidden="true" />
             </article>
           ))}
         </div>

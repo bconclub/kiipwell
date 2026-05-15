@@ -51,9 +51,9 @@ export default function Spec() {
             </p>
           </div>
 
-          <div className="flex items-center gap-5 lg:gap-6 flex-shrink-0">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:flex lg:items-center gap-4 lg:gap-6 flex-shrink-0">
             <TrustBadge icon={Shield} title="Registered Tier 3 Placement" desc="Regulated and inspected to national standards" />
-            <div className="h-12 w-px bg-teal/25" />
+            <div className="hidden lg:block h-12 w-px bg-teal/25" />
             <TrustBadge icon={BuildingLibrary} title="Designed for Local Authorities" desc="Trusted partner for councils across the North East" />
           </div>
         </div>

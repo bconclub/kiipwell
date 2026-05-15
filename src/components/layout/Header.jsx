@@ -43,7 +43,7 @@ export default function Header() {
   const [open, setOpen] = useState(false)
 
   return (
-    <header className="fixed top-0 left-0 right-0 z-50 bg-white/95 backdrop-blur-md border-b border-line">
+    <header className="relative z-50 bg-white border-b border-line">
       <div className="container-x h-[80px] flex items-center justify-between gap-8">
         <Link to="/" aria-label="Kiipwell Solutions home" className="flex items-center flex-shrink-0">
           <img src="/logo.png" alt="Kiipwell Solutions" className="h-[60px] w-auto block" />

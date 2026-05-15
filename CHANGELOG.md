@@ -1,5 +1,23 @@
 # Changelog
 
+## 2026-05-15 · Sticky header off, Mission redesigned, pillar accent restored
+
+- **Header**: changed from fixed to relative; no longer sticky on scroll. Hero no longer needs pt-20 to clear nav
+- **Hero eyebrow**: shortened from "Supported Accommodation, North East England" to a simpler "For Young People 16 to 21" so it doesn't wrap on mobile
+- **Hero stats card on mobile**: switched back to 2x2 grid (was 1-col, user requested two rows). Cards use vertical-stacked content (icon on top, value+label below) so labels don't break across multiple lines
+- **Pillar cards**: brought back the teal accent line at the bottom of each card; slides in from left on hover (`scaleX 0 to 1`)
+- **Spec trust badges**: were broken on mobile (horizontal flex with vertical divider didn't fit at 375px). Switched to 1-col grid on mobile, 2-col on sm, flex-row on lg. Divider hidden below lg
+- **Wellbeing pillar image**: replaced the foggy forest photo with a "mindfulness" lettered card on a windowsill - much better fit for the Wellbeing and Health pillar
+- **Mission section completely rebuilt**:
+  - Background image (faded mentor/young-person photo) under deep navy gradient
+  - Centered header: small star icon, "STATEMENT OF PURPOSE" label, short teal divider
+  - Big serif italic quote with teal opening + closing quotation marks
+  - Supporting paragraph
+  - Script-font (Caveat) "Kiipwell Solutions" signature
+  - "COMMITTED TO BETTER OUTCOMES" label
+  - Bottom row: 5 trust pillar items (Local Authority Ready, Safeguarding First, Ofsted Prepared, Outcomes Focused, UASC Specialist Support) with teal icons and vertical dividers between
+- **Fonts**: added Caveat (script) from Google Fonts; added `font-script` and `font-serif` to Tailwind theme
+
 ## 2026-05-15 · Hero stats mobile fix, Spec contextual icons + 2-line heading
 
 - **Hero stats card mobile**: was breaking with text labels wrapping to 3 to 4 lines on 375px. Switched the grid from 2-col to 1-col on mobile (sm: 2-col, lg: 4-col). IconCircle dropped from md (56px) to sm (44px) for tighter rows. Labels now fit on a single line

@@ -11,15 +11,15 @@ const stats = [
 
 export default function Hero() {
   return (
-    <section aria-label="Introduction" className="bg-white pt-20">
+    <section aria-label="Introduction" className="bg-white">
       <div className="container-x pt-12 lg:pt-16 pb-28 lg:pb-36">
         <div className="grid lg:grid-cols-[5fr_6fr] gap-10 lg:gap-16 items-center">
           <div className="flex flex-col gap-8 lg:gap-10">
             <span
-              className="self-start inline-flex items-center px-4 py-1.5 rounded-full bg-teal/10 border border-teal/25 text-[11px] font-bold tracking-[0.14em] uppercase text-teal-dark animate-fadeUp"
+              className="self-start inline-flex items-center px-4 py-1.5 rounded-full bg-teal/10 border border-teal/25 text-[11px] font-bold tracking-[0.16em] uppercase text-teal-dark animate-fadeUp"
               style={{ animationDelay: '50ms' }}
             >
-              Supported Accommodation, North East England
+              For Young People 16 to 21
             </span>
 
             <div className="max-w-[580px]">
@@ -63,15 +63,15 @@ export default function Hero() {
       </div>
 
       <div className="container-x relative z-10 -mt-16 sm:-mt-20 lg:-mt-24 pb-16 lg:pb-20">
-        <div className="bg-white rounded-2xl border border-navy-dark/[0.06] shadow-float p-5 sm:p-6 lg:px-8 lg:py-7 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-5 lg:gap-6">
+        <div className="bg-white rounded-2xl border border-navy-dark/[0.06] shadow-float p-5 sm:p-6 lg:px-8 lg:py-7 grid grid-cols-2 lg:grid-cols-4 gap-5 sm:gap-6">
           {stats.map((s) => (
-            <div key={s.label} className="flex items-center gap-3.5 sm:gap-4">
+            <div key={s.label} className="flex flex-col items-start text-left gap-3 lg:flex-row lg:items-center lg:gap-4">
               <IconCircle icon={s.icon} size="sm" />
               <div className="min-w-0">
-                <div className="text-xl lg:text-2xl font-extrabold text-navy-dark tracking-tight leading-none">
+                <div className="text-lg sm:text-xl lg:text-2xl font-extrabold text-navy-dark tracking-tight leading-none">
                   {s.val}
                 </div>
-                <div className="text-[13px] text-muted mt-1 leading-snug">{s.label}</div>
+                <div className="text-[12px] sm:text-[13px] text-muted mt-1.5 leading-snug">{s.label}</div>
               </div>
             </div>
           ))}

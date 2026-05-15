@@ -20,7 +20,9 @@ export default {
         line: '#E5E7EB'
       },
       fontFamily: {
-        sans: ['Inter', 'system-ui', 'sans-serif']
+        sans: ['Inter', 'system-ui', 'sans-serif'],
+        script: ['Caveat', 'cursive'],
+        serif: ['ui-serif', 'Georgia', 'serif']
       },
       letterSpacing: {
         tightest: '-0.04em',
