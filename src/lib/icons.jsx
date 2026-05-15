@@ -20,5 +20,7 @@ export {
   MapPinIcon as MapPin,
   CheckIcon as Check,
   ArrowRightIcon as ArrowRight,
-  StarIcon as Star
+  StarIcon as Star,
+  ArrowDownTrayIcon as Download,
+  BuildingLibraryIcon as BuildingLibrary
 } from '@heroicons/react/24/solid'

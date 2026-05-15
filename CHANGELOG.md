@@ -1,5 +1,16 @@
 # Changelog
 
+## 2026-05-15 · Spec section rebuilt to match new reference
+
+- **New heading + sub**: "Safe, Structured Supported Accommodation" with a tighter one-sentence lead-in below it
+- **Trust badges in the header right rail**: two icon-and-text blocks separated by a thin teal divider — "Registered Tier 3 Placement" (shield) and "Designed for Local Authorities" (columns/library)
+- **Background**: switched from `bg-offwhite` to a custom `#F2F7F6` soft teal-cream to match the reference
+- **Property image card**: added a navy gradient at the bottom and a pin-icon "Properties Across / North East England" overlay
+- **Designed for card**: redesigned as a list of three items, each with a teal-circled checkmark, a bold title, and a short description underneath (was a flat 3-row list)
+- **What We Provide card**: expanded from 5 items with INCLUDED badges to 6 clean rows with teal-circled checkmarks. Dropped the visually noisy INCLUDED badges entirely
+- **Bottom trust strip**: new soft-teal panel below the grid: white circle + shield icon, headline "Trusted by Local Authorities Across the North East", supporting copy, and an outline-style "Download Statement of Purpose" button on the right
+- **Icons added**: `BuildingLibrary`, `Download`, `MapPin` (re-exported from Heroicons solid)
+
 ## 2026-05-15 · Filled icons, uniform section widths, repo cleanup
 
 - **Icons**: switched the entire icon set from stroke outlines to Heroicons solid (filled). Matches the reference style (filled glyph inside a soft brand-tinted circle). IconCircle component upgraded with bigger sizes (sm 44px, md 56px, lg 64px) and teal-tinted background with navy-dark glyph
