@@ -716,21 +716,49 @@ h1, h2, h3, h4 { font-family: 'Inter', sans-serif; letter-spacing: -0.02em; line
   .hero__stat:nth-child(2n) { border-right: none; }
   .hero__stat:nth-child(3), .hero__stat:nth-child(4) { border-bottom: none; }
   .spec-grid { grid-template-columns: 1fr; }
+  .spec-cols { grid-template-columns: 1fr; }
 }
 @media (max-width: 767px) {
   .container { padding: 0 1.25rem; }
   .split__content { padding: 3rem 1.5rem; }
   .sg-split__content { padding: 3rem 1.5rem; }
-  .hero__h1 { font-size: 2.25rem; }
+
+  /* Nav: hide sub-label to prevent overflow at 375px */
+  .nav-logo__divider, .nav-logo__sub { display: none; }
+
+  /* Hero */
+  .hero__body { padding: 3rem 0; }
+  .hero__h1 { font-size: 1.875rem; overflow-wrap: break-word; }
+
   .hero__stats-inner { grid-template-columns: repeat(2, 1fr); }
   .pillar-grid { grid-template-columns: 1fr !important; }
   .service-grid { grid-template-columns: 1fr !important; }
-  .impact-grid { grid-template-columns: repeat(2, 1fr) !important; gap: 1.5rem; }
-  .structured-list__row { flex-direction: column; gap: 0.25rem; }
-  .structured-list__key { min-width: unset; }
   .services-header { grid-template-columns: 1fr !important; gap: 1.5rem !important; }
   .spec-cols { grid-template-columns: 1fr !important; }
-  .footer-grid { grid-template-columns: 1fr 1fr !important; gap: 2rem !important; }
+
+  /* Impact strip: fix 2-col border layout + reduce padding */
+  section[aria-label="Impact statistics"] { padding: 3rem 0 !important; }
+  .impact-grid { grid-template-columns: repeat(2, 1fr) !important; gap: 1.5rem; }
+  .impact-grid > div:nth-child(2) { border-right: none !important; }
+  .impact-grid > div:nth-child(1),
+  .impact-grid > div:nth-child(2) { border-bottom: 1px solid rgba(255,255,255,0.08); }
+
+  /* Section padding reduction (inline-style sections) */
+  #services { padding: 4.5rem 0 !important; }
+  section[aria-labelledby="spec-heading"] { padding: 4.5rem 0 !important; }
+  section[aria-labelledby="support-heading"] { padding: 4.5rem 0 !important; }
+  section[aria-labelledby="approach-heading"] > div:first-child { padding: 4rem 0 2.5rem !important; }
+  .mission { padding: 4rem 0 !important; }
+
+  /* Approach panels: reduce height when stacked */
+  .approach-panel { min-height: 260px; }
+
+  /* Footer: single column + legal links wrap */
+  .footer-grid { grid-template-columns: 1fr !important; gap: 2rem !important; }
+  .footer-legal { flex-wrap: wrap; gap: 0.75rem; }
+
+  .structured-list__row { flex-direction: column; gap: 0.25rem; }
+  .structured-list__key { min-width: unset; }
 }
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after { transition-duration: 0.01ms !important; }
@@ -1370,7 +1398,7 @@ h1, h2, h3, h4 { font-family: 'Inter', sans-serif; letter-spacing: -0.02em; line
 
     <div style="display:flex;align-items:center;justify-content:space-between;gap:1rem;flex-wrap:wrap;">
       <p style="font-size:0.75rem;color:rgba(255,255,255,0.25);">© 2026 Kiipwell Solutions. All rights reserved. Registered in England and Wales.</p>
-      <div style="display:flex;gap:1.5rem;">
+      <div class="footer-legal" style="display:flex;gap:1.5rem;">
         <a href="#" style="font-size:0.75rem;color:rgba(255,255,255,0.25);" onmouseover="this.style.color='white'" onmouseout="this.style.color='rgba(255,255,255,0.25)'">Privacy Notice</a>
         <a href="#" style="font-size:0.75rem;color:rgba(255,255,255,0.25);" onmouseover="this.style.color='white'" onmouseout="this.style.color='rgba(255,255,255,0.25)'">Safeguarding Policy</a>
         <a href="#" style="font-size:0.75rem;color:rgba(255,255,255,0.25);" onmouseover="this.style.color='white'" onmouseout="this.style.color='rgba(255,255,255,0.25)'">Accessibility Statement</a>

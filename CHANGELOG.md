@@ -1,5 +1,18 @@
 # Changelog
 
+## 2026-05-15 · Mobile responsiveness overhaul
+
+- **Nav**: hide "REGISTERED PROVIDER" sub-label and divider at ≤767px to prevent logo overflow at 375px
+- **Hero h1**: reduce font-size 2.25rem → 1.875rem at mobile; add `overflow-wrap: break-word` so "Supported Accommodation" never overflows
+- **Hero body**: reduce padding 5rem/4rem → 3rem/3rem on mobile — content no longer floats with excessive whitespace above/below
+- **Spec section**: fix class-name bug — `@media(max-width:1023px)` was targeting `.spec-grid` but HTML uses `.spec-cols`; 3-col grid now correctly collapses at tablet
+- **Impact strip**: fix `border-right` on 2nd item (was sticking out at grid edge in 2-col layout); add row separator between first and second row; reduce section padding to 3rem at mobile
+- **Section padding**: reduce Services, Spec, Core Support from 8rem → 4.5rem; Approach header 7rem → 4rem; Mission 7rem → 4rem — all overriding inline styles via aria-attribute selectors
+- **Approach panels**: reduce `min-height` 380px → 260px at mobile; 3 stacked panels was 1140px of content alone
+- **Footer**: collapse 4-col → 2-col → single-column at mobile (was 2-col which crammed content and email into half-width)
+- **Footer legal links**: add `flex-wrap: wrap` so "Privacy Notice / Safeguarding Policy / Accessibility Statement" wraps at narrow widths
+- User-facing: no horizontal overflow, correct grid layouts, proportionate spacing across all sections at 375px
+
 ## 2026-05-14 · Services, pillar cards, hero glow + entrance animation
 
 - **Service cards**: replaced `gap:1px` divider grid with `gap:1.5rem` floating cards; padding 2rem → 2.5rem/2.25rem; stronger hover lift + glow shadow; icon gets border + hover tint; title 1.0625rem
