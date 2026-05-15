@@ -1,5 +1,14 @@
 # Changelog
 
+## 2026-05-15 · Hero stats mobile fix, Spec contextual icons + 2-line heading
+
+- **Hero stats card mobile**: was breaking with text labels wrapping to 3 to 4 lines on 375px. Switched the grid from 2-col to 1-col on mobile (sm: 2-col, lg: 4-col). IconCircle dropped from md (56px) to sm (44px) for tighter rows. Labels now fit on a single line
+- **Spec: tick marks replaced with contextual icons** in both inner cards
+  - Designed for: Globe (UASC), UserCheck (care leavers), Heart (young people at risk)
+  - What we provide: Clock (24/7), Users (key worker), FileText (ISP), ShieldCheck (welfare), Home (properties), Sparkle (life skills)
+- **Spec heading**: was wrapping to 4 lines on wide viewports. Reduced font-size clamp from (2rem,3.5vw,3.25rem) to (1.875rem,3vw,2.875rem), bumped max-w from 640px to 760px, added a forced line break ("Safe, Structured Supported / Accommodation"). Now reliably 2 lines
+- **Spec padding**: section py reduced from py-20 lg:py-28 to py-16 lg:py-24; header mb tightened; bottom strip mt reduced. Total section height down from ~1300px to ~1100px
+
 ## 2026-05-15 · Spec section rebuilt to match new reference
 
 - **New heading + sub**: "Safe, Structured Supported Accommodation" with a tighter one-sentence lead-in below it

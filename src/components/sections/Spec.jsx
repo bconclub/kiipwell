@@ -1,51 +1,57 @@
 import SectionLabel from '../ui/SectionLabel'
-import Button from '../ui/Button'
-import { Check, Shield, BuildingLibrary, Download, MapPin } from '../../lib/icons'
+import {
+  Shield, BuildingLibrary, Download, MapPin,
+  Globe, UserCheck, Heart,
+  Clock, Users, FileText, ShieldCheck, Home, Sparkle
+} from '../../lib/icons'
 
 const designedFor = [
   {
+    icon: Globe,
     title: 'Unaccompanied asylum-seeking children (UASC)',
     desc: 'Providing a safe, stable environment.'
   },
   {
+    icon: UserCheck,
     title: 'Care leavers transitioning to independence',
     desc: 'Supporting the next step with confidence.'
   },
   {
+    icon: Heart,
     title: 'Young people at risk of homelessness or isolation',
     desc: 'Offering stability, reassurance and tailored support.'
   }
 ]
 
 const provided = [
-  '24/7 Supported Accommodation',
-  'Dedicated Key Worker',
-  'Individual Support Plan (ISP)',
-  'Regular Welfare Checks',
-  'Safe, Inspected Properties',
-  'Life Skills & Independence Support'
+  { icon: Clock, label: '24/7 Supported Accommodation' },
+  { icon: Users, label: 'Dedicated Key Worker' },
+  { icon: FileText, label: 'Individual Support Plan (ISP)' },
+  { icon: ShieldCheck, label: 'Regular Welfare Checks' },
+  { icon: Home, label: 'Safe, Inspected Properties' },
+  { icon: Sparkle, label: 'Life Skills & Independence Support' }
 ]
 
 export default function Spec() {
   return (
-    <section aria-labelledby="spec-heading" className="bg-[#F2F7F6] py-20 lg:py-28">
+    <section aria-labelledby="spec-heading" className="bg-[#F2F7F6] py-16 lg:py-24">
       <div className="container-x">
         {/* Header: title + trust badges */}
-        <div className="flex flex-col lg:flex-row lg:items-end justify-between gap-10 mb-12 lg:mb-14">
-          <div className="max-w-[640px]">
+        <div className="flex flex-col lg:flex-row lg:items-end justify-between gap-8 lg:gap-12 mb-10 lg:mb-14">
+          <div className="max-w-[760px]">
             <SectionLabel number="03" label="Specification" />
             <h2
               id="spec-heading"
-              className="mt-6 text-[clamp(2rem,3.5vw,3.25rem)] font-extrabold text-navy-dark tracking-tighter leading-[1.1] mb-5"
+              className="mt-5 text-[clamp(1.875rem,3vw,2.875rem)] font-extrabold text-navy-dark tracking-tighter leading-[1.1] mb-4"
             >
-              Safe, Structured Supported Accommodation
+              Safe, Structured Supported<br className="hidden sm:inline" /> Accommodation
             </h2>
-            <p className="text-base text-muted leading-[1.7] max-w-[520px]">
+            <p className="text-[15px] text-muted leading-[1.7] max-w-[520px]">
               High quality semi-independent homes with tailored support, helping young people build stability and confidence for the future.
             </p>
           </div>
 
-          <div className="flex items-center gap-6 flex-shrink-0">
+          <div className="flex items-center gap-5 lg:gap-6 flex-shrink-0">
             <TrustBadge icon={Shield} title="Registered Tier 3 Placement" desc="Regulated and inspected to national standards" />
             <div className="h-12 w-px bg-teal/25" />
             <TrustBadge icon={BuildingLibrary} title="Designed for Local Authorities" desc="Trusted partner for councils across the North East" />
@@ -55,7 +61,7 @@ export default function Spec() {
         {/* 3-col grid: photo / designed for / what we provide */}
         <div className="grid lg:grid-cols-3 gap-5 lg:gap-6">
           {/* Property image */}
-          <div className="relative rounded-2xl overflow-hidden min-h-[460px] lg:min-h-[520px]">
+          <div className="relative rounded-2xl overflow-hidden min-h-[420px] lg:min-h-[480px]">
             <img
               src="/unsplash/terrace.jpg"
               alt="Supported accommodation, residential property"
@@ -75,18 +81,18 @@ export default function Spec() {
           </div>
 
           {/* Designed for */}
-          <div className="bg-white rounded-2xl p-7 lg:p-8">
-            <div className="text-[11px] font-bold tracking-[0.16em] uppercase text-teal-dark pb-4 border-b border-teal/20">
+          <div className="bg-white rounded-2xl p-6 lg:p-7">
+            <div className="text-[11px] font-bold tracking-[0.16em] uppercase text-teal-dark pb-3 border-b border-teal/20">
               Designed for
             </div>
             <div className="flex flex-col divide-y divide-line">
               {designedFor.map((d) => (
-                <div key={d.title} className="flex gap-3 py-4">
-                  <div className="w-7 h-7 rounded-full bg-teal/15 flex items-center justify-center flex-shrink-0 mt-0.5">
-                    <Check className="w-4 h-4 text-teal-dark" />
+                <div key={d.title} className="flex gap-3 py-3.5">
+                  <div className="w-8 h-8 rounded-full bg-teal/15 flex items-center justify-center flex-shrink-0 mt-0.5">
+                    <d.icon className="w-4 h-4 text-teal-dark" />
                   </div>
-                  <div>
-                    <div className="text-[15px] font-bold text-navy-dark leading-snug mb-1">{d.title}</div>
+                  <div className="min-w-0">
+                    <div className="text-[15px] font-bold text-navy-dark leading-snug mb-0.5">{d.title}</div>
                     <div className="text-[13px] text-muted leading-snug">{d.desc}</div>
                   </div>
                 </div>
@@ -95,17 +101,17 @@ export default function Spec() {
           </div>
 
           {/* What we provide */}
-          <div className="bg-white rounded-2xl p-7 lg:p-8">
-            <div className="text-[11px] font-bold tracking-[0.16em] uppercase text-teal-dark pb-4 border-b border-teal/20">
+          <div className="bg-white rounded-2xl p-6 lg:p-7">
+            <div className="text-[11px] font-bold tracking-[0.16em] uppercase text-teal-dark pb-3 border-b border-teal/20">
               What We Provide
             </div>
             <div className="flex flex-col divide-y divide-line">
               {provided.map((p) => (
-                <div key={p} className="flex items-center gap-3 py-3.5">
-                  <div className="w-7 h-7 rounded-full bg-teal/15 flex items-center justify-center flex-shrink-0">
-                    <Check className="w-4 h-4 text-teal-dark" />
+                <div key={p.label} className="flex items-center gap-3 py-3">
+                  <div className="w-8 h-8 rounded-full bg-teal/15 flex items-center justify-center flex-shrink-0">
+                    <p.icon className="w-4 h-4 text-teal-dark" />
                   </div>
-                  <div className="text-[15px] font-semibold text-navy-dark">{p}</div>
+                  <div className="text-[15px] font-semibold text-navy-dark">{p.label}</div>
                 </div>
               ))}
             </div>
@@ -113,13 +119,13 @@ export default function Spec() {
         </div>
 
         {/* Bottom trust strip */}
-        <div className="mt-12 lg:mt-14 bg-teal/[0.10] rounded-2xl p-6 lg:p-7 flex flex-wrap items-center justify-between gap-6">
+        <div className="mt-10 lg:mt-12 bg-teal/[0.10] rounded-2xl p-6 lg:p-7 flex flex-wrap items-center justify-between gap-6">
           <div className="flex items-center gap-5">
             <div className="w-14 h-14 rounded-full bg-white flex items-center justify-center flex-shrink-0 shadow-sm">
               <Shield className="w-6 h-6 text-navy-dark" />
             </div>
             <div className="max-w-[680px]">
-              <div className="text-[17px] lg:text-lg font-bold text-navy-dark mb-1 tracking-tight">
+              <div className="text-[17px] font-bold text-navy-dark mb-1 tracking-tight">
                 Trusted by Local Authorities Across the North East
               </div>
               <div className="text-sm text-muted leading-snug">

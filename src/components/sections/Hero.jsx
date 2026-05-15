@@ -62,16 +62,16 @@ export default function Hero() {
         </div>
       </div>
 
-      <div className="container-x relative z-10 -mt-20 lg:-mt-24 pb-16 lg:pb-20">
-        <div className="bg-white rounded-2xl border border-navy-dark/[0.06] shadow-float p-6 lg:px-8 lg:py-7 grid grid-cols-2 lg:grid-cols-4 gap-5 lg:gap-6">
+      <div className="container-x relative z-10 -mt-16 sm:-mt-20 lg:-mt-24 pb-16 lg:pb-20">
+        <div className="bg-white rounded-2xl border border-navy-dark/[0.06] shadow-float p-5 sm:p-6 lg:px-8 lg:py-7 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-5 lg:gap-6">
           {stats.map((s) => (
-            <div key={s.label} className="flex items-center gap-3 lg:gap-4">
-              <IconCircle icon={s.icon} size="md" />
-              <div>
+            <div key={s.label} className="flex items-center gap-3.5 sm:gap-4">
+              <IconCircle icon={s.icon} size="sm" />
+              <div className="min-w-0">
                 <div className="text-xl lg:text-2xl font-extrabold text-navy-dark tracking-tight leading-none">
                   {s.val}
                 </div>
-                <div className="text-xs text-muted mt-1 leading-snug">{s.label}</div>
+                <div className="text-[13px] text-muted mt-1 leading-snug">{s.label}</div>
               </div>
             </div>
           ))}
