@@ -50,9 +50,12 @@ export default function Mission() {
           </p>
 
           {/* Signature */}
-          <div className="font-script text-3xl lg:text-4xl text-teal/90 leading-none mb-3">
-            Kiipwell Solutions
-          </div>
+          <img
+            src="/logo.png"
+            alt="Kiipwell Solutions"
+            className="h-[66px] lg:h-[72px] w-auto mx-auto mb-4 brightness-0 invert opacity-95"
+            loading="lazy"
+          />
           <div className="text-[10px] font-bold tracking-[0.28em] uppercase text-white/50">
             Committed to Better Outcomes
           </div>

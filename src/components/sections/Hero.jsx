@@ -19,7 +19,7 @@ export default function Hero() {
               className="self-start inline-flex items-center px-4 py-1.5 rounded-full bg-teal/10 border border-teal/25 text-[11px] font-bold tracking-[0.16em] uppercase text-teal-dark animate-fadeUp"
               style={{ animationDelay: '50ms' }}
             >
-              For Young People 16 to 21
+              SAFE. STRUCTURED. SUPPORTED.
             </span>
 
             <div className="max-w-[580px]">
@@ -53,7 +53,7 @@ export default function Hero() {
 
           <div className="relative rounded-2xl overflow-hidden bg-offwhite min-h-[420px] lg:min-h-[600px]">
             <img
-              src="/unsplash/about.jpg"
+              src="/homepage/hero-photo.webp"
               alt="Support worker in conversation with a young person"
               className="absolute inset-0 w-full h-full object-cover object-[center_30%]"
               loading="eager"

@@ -12,7 +12,7 @@ const pillars = [
     items: ['Budgeting and money management', 'Cooking and daily living', 'Tenancy management']
   },
   {
-    img: '/unsplash/wellbeing.jpg',
+    img: '/homepage/mentor-young-person.webp',
     alt: 'Health and emotional wellbeing',
     label: 'Health',
     title: 'Wellbeing and Health',
