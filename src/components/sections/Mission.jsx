@@ -38,15 +38,15 @@ export default function Mission() {
             className="font-serif text-[clamp(1.5rem,3vw,2.5rem)] font-normal italic text-white leading-[1.35] mb-8 lg:mb-10"
           >
             <span className="text-teal not-italic mr-1" aria-hidden="true">&ldquo;</span>
-            To provide safe, registered accommodation where young people can develop the skills and confidence needed for independent living.
+            To provide safe, supportive, and developmentally appropriate semi-independent accommodation where young people can build the independence, confidence, and life skills needed to thrive.
             <span className="text-teal not-italic ml-1" aria-hidden="true">&rdquo;</span>
           </h2>
 
           <div className="w-16 h-px bg-teal/40 mx-auto mb-8 lg:mb-10" />
 
           {/* Supporting */}
-          <p className="text-[15px] text-white/70 leading-[1.85] max-w-[620px] mx-auto mb-10 lg:mb-12">
-            We work collaboratively with local authorities, health teams, and commissioning bodies to deliver safe, outcomes-focused supported accommodation across the North East.
+          <p className="text-[15px] text-white/70 leading-[1.85] max-w-[680px] mx-auto mb-10 lg:mb-12">
+            Our service promotes emotional wellbeing and stability, develops independence and life skills, enables access to education, training, and employment, and supports successful transitions into adulthood, delivered in partnership with local authorities, health teams, and commissioning bodies across the North East.
           </p>
 
           {/* Signature */}
@@ -68,7 +68,7 @@ export default function Mission() {
               key={`${t.line1}-${t.line2}`}
               className={`flex items-center justify-center gap-3 px-2 ${
                 i < trustItems.length - 1 ? 'lg:border-r lg:border-white/12' : ''
-              }`}
+              } ${i === trustItems.length - 1 ? 'col-span-2 sm:col-span-1' : ''}`}
             >
               <t.icon className="w-7 h-7 text-teal flex-shrink-0" />
               <div className="text-left text-[10px] sm:text-[11px] font-bold tracking-[0.16em] uppercase text-white/85 leading-tight">

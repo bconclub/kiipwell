@@ -20,8 +20,8 @@ const cards = [
   },
   {
     icon: UserCheck,
-    title: 'Partnership with Statutory Authorities',
-    body: 'Active engagement with local authority children\'s services, leaving care teams, and HNSS. Regular liaison with placing authority social workers and LAC reviews.'
+    title: 'Partnership with Statutory and Voluntary Agencies',
+    body: 'Strong partnerships with local authority children\'s services, leaving care teams, and voluntary agencies, supported by ongoing monitoring and review to ensure quality and that young people\'s voices are heard.'
   }
 ]
 
@@ -30,7 +30,7 @@ export default function Safeguarding() {
     <section id="safeguarding" aria-labelledby="sg-heading" className="bg-white py-20 lg:py-28">
       <div className="container-x">
         <div className="max-w-[720px] mb-12 lg:mb-14">
-          <SectionLabel number="06" label="Safeguarding" />
+          <SectionLabel number="08" label="Safeguarding" />
           <h2 id="sg-heading" className="mt-6 text-[clamp(2rem,3.5vw,3rem)] font-extrabold text-navy-dark tracking-tighter leading-[1.1] mb-5">
             Our Safeguarding Commitment
           </h2>

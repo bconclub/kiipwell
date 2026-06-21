@@ -36,7 +36,7 @@ export default function Hero() {
                 className="text-base text-muted leading-[1.75] mb-9 max-w-[460px] animate-fadeUp"
                 style={{ animationDelay: '360ms' }}
               >
-                Kiipwell Solutions provides registered, structured accommodation and specialist support services for young people aged 16 to 21, including UASC and care leavers, across the North East.
+                Kiipwell Solutions is a refugee-led provider of registered, structured accommodation and trauma-informed support for young people aged 16 to 21, including UASC and care leavers, across the North East.
               </p>
               <div className="flex gap-3 flex-wrap animate-fadeUp" style={{ animationDelay: '460ms' }}>
                 <Button to="/contact" variant="navy">

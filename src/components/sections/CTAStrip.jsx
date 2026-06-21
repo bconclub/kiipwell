@@ -12,12 +12,12 @@ export default function CTAStrip() {
               Refer a young person or request a service specification
             </h2>
           </div>
-          <div className="flex flex-wrap gap-3 flex-shrink-0">
-            <Button to="/contact" variant="white">
+          <div className="flex flex-col sm:flex-row gap-3 w-full sm:w-auto">
+            <Button to="/contact" variant="white" className="w-full sm:w-auto justify-center">
               Make a Referral
               <ArrowRight className="w-3.5 h-3.5" />
             </Button>
-            <Button to="/contact" variant="outlineWhite">
+            <Button to="/contact" variant="outlineWhite" className="w-full sm:w-auto justify-center">
               Download Service Spec
             </Button>
           </div>

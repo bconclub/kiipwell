@@ -17,7 +17,7 @@ export default function Services() {
       <div className="container-x">
         <div className="grid lg:grid-cols-2 gap-10 lg:gap-16 items-end mb-12 lg:mb-16">
           <div>
-            <SectionLabel number="02" label="Services" white />
+            <SectionLabel number="03" label="Services" white />
             <h2
               id="services-heading"
               className="mt-6 text-[clamp(2rem,4vw,3.5rem)] font-extrabold text-white tracking-tighter leading-[1.05]"
@@ -26,7 +26,7 @@ export default function Services() {
             </h2>
           </div>
           <p className="text-base text-white/55 leading-[1.75]">
-            A structured programme of accommodation and specialist support services, commissioned through local authority and health frameworks across the North East.
+            A holistic, trauma-informed programme of accommodation and specialist support, building a genuine sense of belonging while delivering meaningful, long-term outcomes. Commissioned through local authority and health frameworks across the North East.
           </p>
         </div>
 

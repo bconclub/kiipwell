@@ -45,7 +45,7 @@ export default function Approach() {
 
       <div className="container-x relative z-10">
         <div className="max-w-[520px] mb-10 lg:mb-12">
-          <SectionLabel number="05" label="Methodology" />
+          <SectionLabel number="06" label="Methodology" />
           <h2 id="approach-heading" className="mt-7 text-[clamp(2.25rem,4.2vw,4rem)] font-extrabold text-navy-dark tracking-tighter leading-[0.98] mb-6">
             Our Approach to Supported Living
           </h2>

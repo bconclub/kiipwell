@@ -1,5 +1,11 @@
 import SectionLabel from '../ui/SectionLabel'
 
+const stats = [
+  { value: '20+ yrs', label: 'Supporting asylum seekers and refugees' },
+  { value: '16 yrs', label: 'Housing association management experience' },
+  { value: 'Refugee-led', label: 'Rooted in lived experience' }
+]
+
 export default function About() {
   return (
     <section id="about" aria-labelledby="about-heading" className="bg-white py-20 lg:py-28">
@@ -22,11 +28,20 @@ export default function About() {
               Who We Are
             </h2>
             <p className="text-base text-ink leading-[1.8] mb-5">
-              Kiipwell Solutions is a supported housing provider operating in the North East of England. We work exclusively with young people aged 16 to 21, including unaccompanied asylum-seeking children (UASC), care leavers, and young people at risk of homelessness or social isolation.
+              Kiipwell Solutions is a refugee-led supported housing provider operating in the North East of England. We work with young people aged 16 to 21, including unaccompanied asylum-seeking children (UASC), care leavers, and young people at risk of homelessness or social isolation.
             </p>
-            <p className="text-base text-muted leading-[1.8]">
-              Our team combines professional backgrounds in housing management, safeguarding, and statutory youth support with direct lived experience of the asylum process, enabling a uniquely informed approach.
+            <p className="text-base text-muted leading-[1.8] mb-8">
+              Our approach is rooted in lived experience. Closely connected to refugee-led networks, our highly skilled workforce combines professional backgrounds in housing management, safeguarding, and statutory youth support with first-hand understanding of the asylum journey, enabling us to build trust and engage effectively with the most vulnerable young people.
             </p>
+
+            <div className="grid grid-cols-3 gap-4 border-t border-line pt-7">
+              {stats.map((s) => (
+                <div key={s.label}>
+                  <div className="text-2xl lg:text-3xl font-extrabold text-navy-dark tracking-tight">{s.value}</div>
+                  <div className="text-[12px] text-muted leading-snug mt-1.5">{s.label}</div>
+                </div>
+              ))}
+            </div>
           </div>
         </div>
       </div>
