@@ -29,7 +29,7 @@ const items = [
   }
 ]
 
-export default function Approach() {
+export default function Approach({ number = '05' }) {
   return (
     <section aria-labelledby="approach-heading" className="relative overflow-hidden bg-white py-14 lg:py-20">
       <div className="absolute right-0 top-0 hidden h-[420px] w-[68%] lg:block" aria-hidden="true">
@@ -45,7 +45,7 @@ export default function Approach() {
 
       <div className="container-x relative z-10">
         <div className="max-w-[520px] mb-10 lg:mb-12">
-          <SectionLabel number="05" label="Methodology" />
+          <SectionLabel number={number} label="Methodology" />
           <h2 id="approach-heading" className="mt-7 text-[clamp(2.25rem,4.2vw,4rem)] font-extrabold text-navy-dark tracking-tighter leading-[0.98] mb-6">
             Our Approach to Supported Living
           </h2>

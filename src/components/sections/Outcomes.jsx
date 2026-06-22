@@ -8,12 +8,12 @@ const outcomes = [
   { icon: Users, title: 'Community Connection', body: 'Stronger community connections, reduced isolation, and a genuine sense of belonging.' }
 ]
 
-export default function Outcomes() {
+export default function Outcomes({ number = '06' }) {
   return (
     <section id="outcomes" aria-labelledby="outcomes-heading" className="bg-white py-20 lg:py-28">
       <div className="container-x">
         <div className="max-w-[720px] mb-12 lg:mb-14">
-          <SectionLabel number="06" label="Impact" />
+          <SectionLabel number={number} label="Impact" />
           <h2 id="outcomes-heading" className="mt-6 text-[clamp(2rem,3.5vw,3rem)] font-extrabold text-navy-dark tracking-tighter leading-[1.1] mb-5">
             Outcomes and Impact
           </h2>

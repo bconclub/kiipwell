@@ -32,14 +32,14 @@ const provided = [
   { icon: Sparkle, label: 'Life Skills & Independence Support' }
 ]
 
-export default function Spec() {
+export default function Spec({ number = '03' }) {
   return (
     <section aria-labelledby="spec-heading" className="bg-[#F2F7F6] py-16 lg:py-24">
       <div className="container-x">
         {/* Header: title + trust badges */}
         <div className="flex flex-col lg:flex-row lg:items-end justify-between gap-8 lg:gap-12 mb-10 lg:mb-14">
           <div className="max-w-[760px]">
-            <SectionLabel number="03" label="Specification" />
+            <SectionLabel number={number} label="Specification" />
             <h2
               id="spec-heading"
               className="mt-5 text-[clamp(1.875rem,3vw,2.875rem)] font-extrabold text-navy-dark tracking-tighter leading-[1.1] mb-4"

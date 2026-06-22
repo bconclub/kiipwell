@@ -11,13 +11,13 @@ const services = [
   { icon: Globe, title: 'Specialist UASC Support', body: 'Legal appointment support, English language development, cultural integration and asylum process navigation.', accent: true }
 ]
 
-export default function Services() {
+export default function Services({ number = '02' }) {
   return (
     <section id="services" aria-labelledby="services-heading" className="bg-navy-dark py-20 lg:py-28">
       <div className="container-x">
         <div className="grid lg:grid-cols-2 gap-10 lg:gap-16 items-end mb-12 lg:mb-16">
           <div>
-            <SectionLabel number="02" label="Services" white />
+            <SectionLabel number={number} label="Services" white />
             <h2
               id="services-heading"
               className="mt-6 text-[clamp(2rem,4vw,3.5rem)] font-extrabold text-white tracking-tighter leading-[1.05]"

@@ -50,15 +50,18 @@ export default function About() {
           </div>
         </section>
 
+        {/* Founder */}
+        <Founder number="02" />
+
         {/* Who we are */}
         <section aria-labelledby="who-heading" className="bg-white py-20 lg:py-28">
           <div className="container-x">
             <div className="grid lg:grid-cols-[55fr_45fr] gap-10 lg:gap-16 items-center">
               <div className="relative rounded-2xl overflow-hidden bg-offwhite min-h-[360px] lg:min-h-[480px] order-2 lg:order-1">
-                <img src="/unsplash/about.jpg" alt="Kiipwell support team in discussion" className="absolute inset-0 w-full h-full object-cover" loading="lazy" />
+                <img src="/unsplash/team.jpg" alt="Kiipwell support team in discussion" className="absolute inset-0 w-full h-full object-cover" loading="lazy" />
               </div>
               <div className="order-1 lg:order-2">
-                <SectionLabel number="02" label="Who We Are" />
+                <SectionLabel number="03" label="Who We Are" />
                 <h2 id="who-heading" className="mt-6 text-[clamp(2rem,3.5vw,3rem)] font-extrabold text-navy-dark tracking-tighter leading-[1.1] mb-6">
                   Trusted, informed, and close to community
                 </h2>
@@ -85,7 +88,7 @@ export default function About() {
         <section aria-labelledby="community-heading" className="bg-offwhite py-20 lg:py-28">
           <div className="container-x">
             <div className="max-w-[720px] mb-12 lg:mb-14">
-              <SectionLabel number="03" label="Community" />
+              <SectionLabel number="04" label="Community" />
               <h2 id="community-heading" className="mt-6 text-[clamp(2rem,3.5vw,3rem)] font-extrabold text-navy-dark tracking-tighter leading-[1.1] mb-5">
                 Our Community Approach
               </h2>
@@ -111,7 +114,7 @@ export default function About() {
         <section aria-labelledby="opportunity-heading" className="bg-white py-20 lg:py-28">
           <div className="container-x">
             <div className="max-w-[720px] mb-12 lg:mb-14">
-              <SectionLabel number="04" label="Opportunity" />
+              <SectionLabel number="05" label="Opportunity" />
               <h2 id="opportunity-heading" className="mt-6 text-[clamp(2rem,3.5vw,3rem)] font-extrabold text-navy-dark tracking-tighter leading-[1.1] mb-5">
                 Supporting Independence and Opportunity
               </h2>
@@ -133,7 +136,6 @@ export default function About() {
           </div>
         </section>
 
-        <Founder />
         <Outcomes />
         <CTAStrip />
       </main>

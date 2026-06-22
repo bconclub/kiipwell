@@ -20,14 +20,14 @@ const credentials = [
   }
 ]
 
-export default function Founder() {
+export default function Founder({ number = '05' }) {
   return (
     <section id="founder" aria-labelledby="founder-heading" className="bg-offwhite py-20 lg:py-28">
       <div className="container-x">
         <div className="grid lg:grid-cols-[40fr_60fr] gap-10 lg:gap-16 items-start">
           {/* Profile card */}
           <div className="lg:sticky lg:top-28">
-            <SectionLabel number="05" label="Leadership" />
+            <SectionLabel number={number} label="Leadership" />
             <h2
               id="founder-heading"
               className="mt-6 text-[clamp(2rem,3.5vw,3rem)] font-extrabold text-navy-dark tracking-tighter leading-[1.1] mb-7"

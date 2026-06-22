@@ -38,13 +38,13 @@ const pillars = [
   }
 ]
 
-export default function CoreSupport() {
+export default function CoreSupport({ number = '04' }) {
   return (
     <section aria-labelledby="support-heading" className="bg-white py-20 lg:py-28">
       <div className="container-x">
         <div className="flex flex-wrap items-end justify-between gap-6 mb-12 lg:mb-16">
           <div>
-            <SectionLabel number="04" label="Support Areas" />
+            <SectionLabel number={number} label="Support Areas" />
             <h2 id="support-heading" className="mt-6 text-[clamp(2rem,3.5vw,3rem)] font-extrabold text-navy-dark tracking-tighter leading-[1.1]">
               Core Support Programme
             </h2>

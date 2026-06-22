@@ -5,10 +5,10 @@ const services = [
   { label: 'Supported Accommodation', href: '#services' },
   { label: 'Life Skills Programme', href: '#services' },
   { label: 'UASC Specialist Support', href: '#services' },
-  { label: 'Safeguarding', to: '/safeguarding', disabled: true }
+  { label: 'Safeguarding', to: '/safeguarding' }
 ]
 const org = [
-  { label: 'About Us', to: '/about', disabled: true },
+  { label: 'About Us', to: '/about' },
   { label: 'Our Approach', href: '#approach' },
   { label: 'Contact', to: '/contact' }
 ]
