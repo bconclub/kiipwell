@@ -13,7 +13,7 @@ export default function Outcomes() {
     <section id="outcomes" aria-labelledby="outcomes-heading" className="bg-white py-20 lg:py-28">
       <div className="container-x">
         <div className="max-w-[720px] mb-12 lg:mb-14">
-          <SectionLabel number="07" label="Impact" />
+          <SectionLabel number="06" label="Impact" />
           <h2 id="outcomes-heading" className="mt-6 text-[clamp(2rem,3.5vw,3rem)] font-extrabold text-navy-dark tracking-tighter leading-[1.1] mb-5">
             Outcomes and Impact
           </h2>

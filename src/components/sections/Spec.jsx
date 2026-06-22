@@ -39,7 +39,7 @@ export default function Spec() {
         {/* Header: title + trust badges */}
         <div className="flex flex-col lg:flex-row lg:items-end justify-between gap-8 lg:gap-12 mb-10 lg:mb-14">
           <div className="max-w-[760px]">
-            <SectionLabel number="04" label="Specification" />
+            <SectionLabel number="03" label="Specification" />
             <h2
               id="spec-heading"
               className="mt-5 text-[clamp(1.875rem,3vw,2.875rem)] font-extrabold text-navy-dark tracking-tighter leading-[1.1] mb-4"

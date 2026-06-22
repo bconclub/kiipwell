@@ -4,7 +4,7 @@ import { ArrowRight } from '../../lib/icons'
 
 const navItems = [
   { label: 'Home', to: '/', live: true },
-  { label: 'About', to: '/about', live: false },
+  { label: 'About', to: '/about', live: true },
   { label: 'Services', to: '/services', live: false },
   { label: 'Safeguarding', to: '/safeguarding', live: false },
   { label: 'Contact', to: '/contact', live: true }

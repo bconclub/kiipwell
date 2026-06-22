@@ -27,7 +27,7 @@ export default function Founder() {
         <div className="grid lg:grid-cols-[40fr_60fr] gap-10 lg:gap-16 items-start">
           {/* Profile card */}
           <div className="lg:sticky lg:top-28">
-            <SectionLabel number="02" label="Leadership" />
+            <SectionLabel number="05" label="Leadership" />
             <h2
               id="founder-heading"
               className="mt-6 text-[clamp(2rem,3.5vw,3rem)] font-extrabold text-navy-dark tracking-tighter leading-[1.1] mb-7"

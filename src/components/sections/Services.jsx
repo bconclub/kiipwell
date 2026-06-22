@@ -17,7 +17,7 @@ export default function Services() {
       <div className="container-x">
         <div className="grid lg:grid-cols-2 gap-10 lg:gap-16 items-end mb-12 lg:mb-16">
           <div>
-            <SectionLabel number="03" label="Services" white />
+            <SectionLabel number="02" label="Services" white />
             <h2
               id="services-heading"
               className="mt-6 text-[clamp(2rem,4vw,3.5rem)] font-extrabold text-white tracking-tighter leading-[1.05]"

@@ -1,4 +1,6 @@
+import { Link } from 'react-router-dom'
 import SectionLabel from '../ui/SectionLabel'
+import { ArrowRight } from '../../lib/icons'
 
 const stats = [
   { value: '20+ yrs', label: 'Supporting asylum seekers and refugees' },
@@ -34,7 +36,7 @@ export default function About() {
               Our approach is rooted in lived experience. Closely connected to refugee-led networks, our highly skilled workforce combines professional backgrounds in housing management, safeguarding, and statutory youth support with first-hand understanding of the asylum journey, enabling us to build trust and engage effectively with the most vulnerable young people.
             </p>
 
-            <div className="grid grid-cols-3 gap-4 border-t border-line pt-7">
+            <div className="grid grid-cols-3 gap-4 border-t border-line pt-7 mb-8">
               {stats.map((s) => (
                 <div key={s.label}>
                   <div className="text-2xl lg:text-3xl font-extrabold text-navy-dark tracking-tight">{s.value}</div>
@@ -42,6 +44,14 @@ export default function About() {
                 </div>
               ))}
             </div>
+
+            <Link
+              to="/about"
+              className="inline-flex items-center gap-2 text-[15px] font-semibold text-teal-dark hover:text-navy-dark transition-colors group"
+            >
+              Read our full story
+              <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-0.5" />
+            </Link>
           </div>
         </div>
       </div>
