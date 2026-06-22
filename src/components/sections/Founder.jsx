@@ -35,17 +35,21 @@ export default function Founder({ number = '05' }) {
               Founder Profile
             </h2>
 
-            <div className="bg-navy-dark rounded-2xl p-8 lg:p-9">
-              <div className="flex items-center gap-4 mb-6">
-                <div className="w-16 h-16 rounded-full bg-teal/15 border border-teal/30 flex items-center justify-center flex-shrink-0">
-                  <span className="text-2xl font-extrabold text-teal tracking-tight">A</span>
-                </div>
-                <div>
-                  <div className="text-xl font-extrabold text-white tracking-tight">Abdi</div>
+            <div className="bg-navy-dark rounded-2xl overflow-hidden">
+              <div className="relative aspect-[4/5] overflow-hidden">
+                <img
+                  src="/founder-abdi.jpg"
+                  alt="Abdi, Founder of Kiipwell Solutions"
+                  className="absolute inset-0 w-full h-full object-cover object-top"
+                  loading="lazy"
+                />
+                <div className="absolute inset-x-0 bottom-0 h-32 bg-gradient-to-t from-navy-dark via-navy-dark/60 to-transparent" />
+                <div className="absolute bottom-5 left-6 right-6">
+                  <div className="text-2xl font-extrabold text-white tracking-tight">Abdi</div>
                   <div className="text-[12px] font-bold tracking-[0.14em] uppercase text-teal mt-1">Founder</div>
                 </div>
               </div>
-              <p className="text-[15px] text-white/70 leading-[1.8]">
+              <p className="text-[15px] text-white/70 leading-[1.8] p-8 lg:p-9">
                 Abdi leads Kiipwell Solutions with a rare combination of professional financial expertise and the lived experience of seeking sanctuary, grounding the organisation in both rigour and genuine understanding.
               </p>
             </div>
